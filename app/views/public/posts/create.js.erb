@@ -1,0 +1,4 @@
+$('#select').on('change', () => {
+  const price = $('#select > option:selected').data('price');
+  $('#total_price').text(price);
+})
