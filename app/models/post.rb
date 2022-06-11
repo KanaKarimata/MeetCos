@@ -1,9 +1,9 @@
 class Post < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  
+
   belongs_to_active_hash :main_category
   belongs_to_active_hash :sub_category
-  
+
   has_one_attached :post_image
   belongs_to :user
 
@@ -18,12 +18,12 @@ class Post < ApplicationRecord
   enum post_category: {
     makeup: 0,
     cosmetics: 1
-    }
+    }, _suffix: true
 
   enum color_type: {
     blue: 0,
     yellow: 1
-  }
+  }, _suffix: true
 
   enum makeup_image: {
     natural: 0,
@@ -34,6 +34,6 @@ class Post < ApplicationRecord
     oversea: 5,
     office: 6,
     bridal: 7
-  }
+  }, _suffix: true
 
 end

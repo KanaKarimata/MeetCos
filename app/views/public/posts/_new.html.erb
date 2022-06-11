@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col">
       <%= form_with model: @post, url: posts_path, method: :post, local: false do |f| %>
+
         <%= f.label :"投稿カテゴリー", class: 'form-control'%><br>
         <%= f.select :post_category, Post.post_categories_i18n.invert, {}, class: 'form-control' %><br>
 
@@ -11,12 +12,10 @@
         <%= f.label :"メイク完成イメージ", class: 'form-control'%><br>
         <%= f.select :makeup_image, Post.makeup_images_i18n.invert, {}, class: 'form-control' %><br>
 
-        <%= f.label :"化粧品カテゴリ", class: 'form-control'%><br>
-        <%= f.collection_select(:main_category_id, MainCategory.all, :id, :main_category, {}, {class:"category-select", :onchange => "changeTemplate($(this).val())"}) %><br>
-        
-        <div id="select">
-        <%= f.collection_select(:sub_category_id, SubCategory.all, :id, :sub_category, {}, {class:"category-select"}) %><br>
-        </div>
+        <%= f.label :"コスメカテゴリ", class: 'form-control'%><br>
+        <%= f.collection_select :main_category, MainCategory.all, :id, :main_category %><br>
+
+        <%= f.collection_select :sub_category, SubCategory.all, :id, :sub_category %><br>
 
         <%= f.submit 'Post' %>
 
@@ -24,17 +23,15 @@
     </div>
   </div>
 </div>
-
 <script>
-  function changeTemplate(val){
-    var template_id = val;
-
-    $.ajax({
-      url: "/templates/get_body",
-      type: "GET",
+$(document).ready(() => {
+  $("#main_category").change(() => {
+    $.get({
+      url: "/users/sub_categories",
       data: {
-        template_id: template_id
+        main_category_id: $("#main_category").has("option:selected").val()
       }
     })
-  }
+  });
+})
 </script>

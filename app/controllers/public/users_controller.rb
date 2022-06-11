@@ -19,4 +19,10 @@ class Public::UsersController < ApplicationController
   def out
   end
 
+  def sub_categories
+    @sub_categories = SubCategory.where(
+      main_category_id: params[:main_category_id]
+    )
+  end
+
 end

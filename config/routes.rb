@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   scope module: :public do
     get '/users/:id/quit', to: 'users#quit', as: "quit"
     patch '/users/:id/out', to: 'users#out', as: "out"
+    get 'users/sub_categories', to: 'users#sub_categories', as: "sub_categories"
 
     resources :users, except: [:new, :destroy]
     resources :posts
