@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2022_06_10_150824) do
     t.integer "post_category"
     t.integer "color_type"
     t.integer "makeup_image"
-    t.integer "main_category_id"
+    t.integer "main_category_id"        
     t.integer "sub_category_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
