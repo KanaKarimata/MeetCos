@@ -14,7 +14,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @post = Post.all 
+    @post = Post.all
   end
 
   def show
