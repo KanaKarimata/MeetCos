@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
+  has_many :posts, dependent: :destroy
+
+
   # 会員管理のための記述
   enum is_deleted: {"会員": false,"退会": true }
 

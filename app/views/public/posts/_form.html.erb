@@ -1,7 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <%= form_with model: @post, url: posts_path, method: :post, local: false do |f| %>
+<%= form_with model: post, url: posts_path, local: false do |f| %>
+
+        <%= f.label :"写真", class: 'form-control'%><br>
+        <%= f.file_field :post_image, class: 'form-control' %><br>
+
+        <%= f.label :"Caption", class: 'form-control'%><br>
+        <%= f.text_area :caption, class: 'form-control' %><br>
 
         <%= f.label :"投稿カテゴリー", class: 'form-control'%><br>
         <%= f.select :post_category, Post.post_categories_i18n.invert, {}, class: 'form-control' %><br>
@@ -19,19 +22,4 @@
 
         <%= f.submit 'Post', class:"btn btn-success" %>
 
-      <% end %>
-    </div>
-  </div>
-</div>
-<script>
-$(document).ready(() => {
-  $("#main_category").change(() => {
-    $.get({
-      url: "/users/sub_categories",
-      data: {
-        main_category_id: $("#main_category").has("option:selected").val()
-      }
-    })
-  });
-})
-</script>
+  <% end %>
