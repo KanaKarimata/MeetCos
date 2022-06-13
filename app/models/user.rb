@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
   has_many :posts, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
   # フォローされる
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy

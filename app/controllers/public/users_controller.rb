@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @users = User.all
@@ -20,6 +21,13 @@ class Public::UsersController < ApplicationController
   end
 
   def out
+  end
+
+  private
+
+  def correct_user
+    @user = current_user
+    redirect_to user_path(@user) unless @user == current_user
   end
 
 end

@@ -23,7 +23,9 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
       get 'friends' => 'relationships#friends', as: 'friends'
     end
-    resources :posts
+    resources :posts do
+      resources :post_comments, only: [:create, :destroy]
+    end
   end
 
   namespace :admin do
