@@ -12,6 +12,7 @@
   </div>
   <div class="row">
     <%= link_to "Frinds", user_friends_path(user) %>
+    <%= link_to "Likes", favs_user_path(user) %>
   </div>
   <div class="row">
     <% if current_user!= user %>

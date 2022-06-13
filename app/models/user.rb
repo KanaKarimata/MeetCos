@@ -5,8 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :profile_image
+  # 投稿のアソシエーション
   has_many :posts, dependent: :destroy
+  # 投稿へのコメントのアソシエーション
   has_many :post_comments, dependent: :destroy
+  # 投稿へのいいねのアソシエーション
+  has_many :favs, dependent: :destroy
 
   # フォローされる
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy

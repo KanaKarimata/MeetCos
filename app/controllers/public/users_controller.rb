@@ -23,6 +23,12 @@ class Public::UsersController < ApplicationController
   def out
   end
 
+  def favs
+    @user = User.find(params[:id])
+    favs= Fav.where(user_id: @user.id).pluck(:post_id)
+    @fav_posts = Post.find(favs)
+  end
+
   private
 
   def correct_user

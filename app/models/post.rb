@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_one_attached :post_image
   belongs_to :user
   has_many :post_comments, dependent: :destroy
+  has_many :favs, dependent: :destroy
 
   validates :post_image, presence: true
   validates :caption, presence: true
@@ -13,6 +14,11 @@ class Post < ApplicationRecord
       post_image.attach(io: File.open(file_path), filename: 'no-image-user.png', content_type: 'image/jpeg')
     end
     post_image.variant(resize_to_limit: [width, height]).processed
+  end
+
+  # いいね機能に利用する
+  def favorited_by?(user)
+    favs.exists?(user_id: user.id)
   end
 
 end

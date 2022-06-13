@@ -20,11 +20,16 @@ Rails.application.routes.draw do
     get 'users/sub_categories', to: 'users#sub_categories', as: "sub_categories"
 
     resources :users, except: [:new, :destroy] do
-      resource :relationships, only: [:create, :destroy]
       get 'friends' => 'relationships#friends', as: 'friends'
+      resource :relationships, only: [:create, :destroy]
+      # いいねした投稿一覧表示
+      member do
+        get :favs
+      end
     end
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
+      resource :favs, only: [:create, :destroy]
     end
   end
 
