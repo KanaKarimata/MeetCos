@@ -1,8 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <%= image_tag @user.get_profile_image(100, 100) %><br>
-      <%= @user.last_name %><%= @user.first_name%>
-    </div>
-  </div>
-</div>
+<%= link_to user_path(user) do %>
+  <%= image_tag user.get_profile_image(100, 100) %><br>
+<% end %>
+<%= user.last_name %>
+<%= user.first_name %>
+<%= link_to "Edit", edit_user_path(user), class:"btn" %>

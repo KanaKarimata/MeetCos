@@ -6,16 +6,13 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    if @post.save
-      redirect_to posts_path
-    else
-      render :new
-    end
+    @post.save
+    redirect_to posts_path
   end
 
   def index
-    @post = Post.all
-    @user = User.find(params[:id])
+    @posts = Post.all
+    @user = current_user
   end
 
   def show
@@ -33,7 +30,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :caption, :category, :user_id)
+    params.require(:post).permit(:post_image, :caption, :user_id)
   end
 
 end
