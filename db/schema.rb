@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_10_150824) do
+ActiveRecord::Schema.define(version: 2022_06_13_110706) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -63,9 +63,16 @@ ActiveRecord::Schema.define(version: 2022_06_10_150824) do
     t.integer "post_category"
     t.integer "color_type"
     t.integer "makeup_image"
-    t.integer "main_category_id"        
+    t.integer "main_category_id"
     t.integer "sub_category_id"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,10 +1,16 @@
-<% posts.each do |post| %>
- <%= link_to user_path(post.user) do %>
-  <%= image_tag post.user.get_profile_image(50,50) %><br>
- <% end %>
-  <%= post.user.first_name %><%= post.user.last_name %><br>
- <%= link_to post_path(post) do %>
-  <%= image_tag  post.get_post_image(300,300) %>
-  <%= post.caption %>
- <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% posts.each do |post| %>
+      <div class="col">
+        <%= link_to user_path(post.user) do %>
+         <%= image_tag post.user.get_profile_image(50,50) %><br>
+        <% end %>
+         <%= post.user.first_name %><%= post.user.last_name %><br>
+        <%= link_to post_path(post) do %>
+         <%= image_tag  post.get_post_image(300,300) %>
+         <%= post.caption %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

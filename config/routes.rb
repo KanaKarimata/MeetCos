@@ -19,7 +19,10 @@ Rails.application.routes.draw do
     patch '/users/:id/out', to: 'users#out', as: "out"
     get 'users/sub_categories', to: 'users#sub_categories', as: "sub_categories"
 
-    resources :users, except: [:new, :destroy]
+    resources :users, except: [:new, :destroy] do
+      resource :relationships, only: [:create, :destroy]
+      get 'friends' => 'relationships#friends', as: 'friends'
+    end
     resources :posts
   end
 
