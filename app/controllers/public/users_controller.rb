@@ -12,15 +12,29 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
   end
 
   def quit
+    @user = current_user
   end
 
   def out
+    @user = current_user
+    if @user.email == 'guest@example.com'
+      reset_session
+      redirect_to root_path
+    else
+    @user.update(is_deleted: "退会") #ここでis_deletedカラムの値を"退会"に更新
+     reset_session
+     redirect_to root_path
+    end
   end
 
   def favs
@@ -30,6 +44,10 @@ class Public::UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :postal_code, :address, :telephone_number, :email, :profile_image)
+  end
 
   def correct_user
     @user = current_user
