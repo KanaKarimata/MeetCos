@@ -26,6 +26,12 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_users, dependent: :destroy
   has_many :messages, dependent: :destroy
 
+  # 通知機能のアソシエーション
+  # 自分が送った通知
+  has_many :send_notifications, class_name: "Notification", foreign_key: "sender_id", dependent: :destroy
+  # 受け取る通知
+  has_many :receive_notifications, class_name: "Notification", foreign_key: "receiver_id", dependent: :destroy
+
 
   # 会員管理のための記述
   enum is_deleted: {"会員": false,"退会": true }
@@ -58,6 +64,18 @@ class User < ApplicationRecord
                        email: 'geust@example.com',
                        id: 1000 ) do |user|
       user.password = SecureRandom.urlsafe_base64
+    end
+  end
+  
+  # フォロー通知機能
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["sender_id = ? and receiver_id = ? and action = ?", current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.send_notifications.new(
+        receiver_id: id,
+        action: 'follow'
+        )
+        notification.save if notification.valid?
     end
   end
 
