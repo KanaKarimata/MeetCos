@@ -1,11 +1,12 @@
 class CreateMessages < ActiveRecord::Migration[6.1]
   def change
     create_table :messages do |t|
-      t.integer :user_id
-      t.integer :room_id
-      t.text :content
+      t.references :user, null: false, foreign_key: true
+      t.references :room, null: false, foreign_key: true
+      t.string :content
 
       t.timestamps
+      t.index [:user_id, :room_id]
     end
   end
 end

@@ -66,11 +66,14 @@ ActiveRecord::Schema.define(version: 2022_06_14_045059) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
-    t.text "content"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
+    t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id", "room_id"], name: "index_messages_on_user_id_and_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -106,23 +109,23 @@ ActiveRecord::Schema.define(version: 2022_06_14_045059) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
+    t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "room_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "name"
+    t.integer "host_id", null: false
+    t.integer "guest_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["guest_id"], name: "index_rooms_on_guest_id"
+    t.index ["host_id", "guest_id"], name: "index_rooms_on_host_id_and_guest_id", unique: true
+    t.index ["host_id"], name: "index_rooms_on_host_id"
   end
 
   create_table "sub_categories", force: :cascade do |t|
@@ -152,4 +155,10 @@ ActiveRecord::Schema.define(version: 2022_06_14_045059) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
+  add_foreign_key "rooms", "users", column: "guest_id"
+  add_foreign_key "rooms", "users", column: "host_id"
 end

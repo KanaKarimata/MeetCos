@@ -46,11 +46,12 @@ class User < ApplicationRecord
 
   # フォローフォロワー関係のアクション
   def follow(user)
-    relationships.create(followed_id: user)
+    relationships.find_or_create_by(followed_id: user.id)
   end
 
   def unfollow(user)
-    relationships.find_by(followed_id: user).destroy
+    follow = relationships.find_by(followed_id: user.id)
+    follow.destroy if follow
   end
 
   def following?(user)
@@ -66,7 +67,7 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
-  
+
   # フォロー通知機能
   def create_notification_follow!(current_user)
     temp = Notification.where(["sender_id = ? and receiver_id = ? and action = ?", current_user.id, id, 'follow'])

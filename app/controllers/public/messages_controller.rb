@@ -1,5 +1,5 @@
 class Public::MessagesController < ApplicationController
-  before_action :reject_non_related, only: [:show]
+  # before_action :reject_non_related, only: [:show]
 
   def show
     @user = User.find(params[:id])

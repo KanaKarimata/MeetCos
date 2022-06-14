@@ -70,3 +70,4 @@
 #   main_category_id = MainCategory.find_by(main_category: sub_category[:main_category]).id
 #   SubCategory.find_or_create_by!(sub_category: sub_category[:sub_category], main_category_id: main_category_id)
 # end
+

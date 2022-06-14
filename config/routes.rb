@@ -31,8 +31,9 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :favs, only: [:create, :destroy]
     end
-    resources :rooms, only: [:new, :create, :index]
-    resources :messages, only: [:show, :create]
+    resources :rooms, only: [:create, :show, :index] do
+      resources :messages, only: [:create, :destroy]
+    end
     resources :notifications, only: [:index, :destroy]
   end
 

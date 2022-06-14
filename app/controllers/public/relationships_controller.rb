@@ -1,14 +1,16 @@
 class Public::RelationshipsController < ApplicationController
   # フォローするとき
   def create
-    current_user.follow(params[:user_id])
-    @user = User.find(params[:relationship][:following_id])
-    @user.create_notification_follow!(current_user)
+    followed_user = User.find(params[:user_id])
+    current_user.follow(followed_user)
+    # @user = User.find(params[:relationship][:following_id])
+    # @user.create_notification_follow!(current_user)
     redirect_to request.referer
   end
   # フォロー外すとき
   def destroy
-    current_user.unfollow(params[:user_id])
+    followed_user = User.find(params[:user_id])
+    current_user.unfollow(followed_user)
     redirect_to request.referer
   end
 
