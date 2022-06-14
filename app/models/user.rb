@@ -21,6 +21,11 @@ class User < ApplicationRecord
   # 自分がフォローしている人
   has_many :followings, through: :relationships, source: :followed
 
+  # DM機能のアソシエーション
+  has_many :room_users, dependent: :destroy
+  has_many :rooms, through: :room_users, dependent: :destroy
+  has_many :messages, dependent: :destroy
+
 
   # 会員管理のための記述
   enum is_deleted: {"会員": false,"退会": true }

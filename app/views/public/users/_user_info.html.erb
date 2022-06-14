@@ -20,6 +20,10 @@
      <% else %>
       <%= link_to "Edit", edit_user_path(user), class:"btn" %>
     <% end %>
+
+    <% if current_user != user && current_user.following?(user)  %>
+    <%= link_to 'chatを始める', message_path(user.id), class: "ml-3" %>
+  <% end %>
   </div>
 </div>
 
