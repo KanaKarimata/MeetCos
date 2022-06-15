@@ -1,8 +1,32 @@
-<div class="container">
+<div class="conainer text-center">
+  <div class="row">
+    <%= link_to user_path(user) do %>
+      <%= image_tag user.get_profile_image(100, 100) %><br>
+    <% end %>
+  </div>
   <div class="row">
     <div class="col">
-      <%= image_tag @user.get_profile_image(100, 100) %><br>
-      <%= @user.last_name %><%= @user.first_name%>
+      <%= user.last_name %>
+      <%= user.first_name %>
     </div>
   </div>
+  <div class="row">
+    <%= link_to "Frinds", user_friends_path(user) %>
+    <%= link_to "Likes", favs_user_path(user) %>
+  </div>
+  <div class="row">
+    <% if current_user!= user %>
+      <%= render "public/relationships/btn", user: user %>
+     <% else %>
+      <%= link_to "Edit", edit_user_path(user), class:"btn" %>
+    <% end %>
+
+    <% if current_user != user && current_user.following?(user)  %>
+      <%= form_with model: Room.new, url: rooms_path, local: true do |f| %>
+        <%= hidden_field_tag :user_id, user.id %>
+        <%= f.submit "chatを始める", class: 'ml-3' %>
+      <% end %>
+  <% end %>
+  </div>
 </div>
+

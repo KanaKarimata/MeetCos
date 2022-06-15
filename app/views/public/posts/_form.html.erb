@@ -1,25 +1,11 @@
-<%= form_with model: post, url: posts_path, local: false do |f| %>
+<%= form_with model: post do |f| %>
 
-        <%= f.label :"写真", class: 'form-control'%><br>
-        <%= f.file_field :post_image, class: 'form-control' %><br>
+  <%= f.label :"写真", class: 'form-control'%><br>
+  <%= f.file_field :post_image, class: 'form-control' %><br>
 
-        <%= f.label :"Caption", class: 'form-control'%><br>
-        <%= f.text_area :caption, class: 'form-control' %><br>
+  <%= f.label :"Caption", class: 'form-control'%><br>
+  <%= f.text_area :caption, class: 'form-control' %><br>
 
-        <%= f.label :"投稿カテゴリー", class: 'form-control'%><br>
-        <%= f.select :post_category, Post.post_categories_i18n.invert, {}, class: 'form-control' %><br>
+  <%= f.submit 'Post', class:"btn btn-success" %>
 
-        <%= f.label :"カラータイプ", class: 'form-control'%><br>
-        <%= f.select :color_type, Post.color_types_i18n.invert, {}, class: 'form-control' %><br>
-
-        <%= f.label :"メイク完成イメージ", class: 'form-control'%><br>
-        <%= f.select :makeup_image, Post.makeup_images_i18n.invert, {}, class: 'form-control' %><br>
-
-        <%= f.label :"コスメカテゴリ", class: 'form-control'%><br>
-        <%= f.collection_select :main_category, MainCategory.all, :id, :main_category %><br>
-
-        <%= f.collection_select :sub_category, SubCategory.all, :id, :sub_category %><br>
-
-        <%= f.submit 'Post', class:"btn btn-success" %>
-
-  <% end %>
+<% end %>

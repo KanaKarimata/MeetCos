@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <%= render 'public/users/user_info', user: @user %>
+    </div>
+    <div class="col-md-10">
+      <h4>Followings</h4>
+      <%= render 'public/users/index', users: @followings %>
+      <h4>Followers</h4>
+      <%= render 'public/users/index', users: @followers %>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,11 @@
-<h1>Public::Posts#edit</h1>
-<p>Find me in app/views/public/posts/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <%= render 'public/users/user_info', user: @user %>
+    </div>
+    <div class="col-md-10">
+      <%= render 'form', post: @post %>
+      <%= link_to "Delete", post_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    </div>
+  </div>
+</div>
