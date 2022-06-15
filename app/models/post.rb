@@ -65,5 +65,5 @@ class Post < ApplicationRecord
         post.hashtags << tag
       end
     end
-
+# 修正中
 end
