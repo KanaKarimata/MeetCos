@@ -5,7 +5,7 @@
         <%= link_to user_path(post.user) do %>
          <%= image_tag post.user.get_profile_image(50,50) %><br>
         <% end %>
-         <%= post.user.first_name %><%= post.user.last_name %><br>
+         <%= post.user.name %><%= post.user.userid %><br>
         <%= link_to post_path(post) do %>
          <%= image_tag  post.get_post_image(300,300) %>
          <%= post.caption %>
