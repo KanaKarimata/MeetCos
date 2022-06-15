@@ -15,12 +15,11 @@ class Public::RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @room = Room.find(params[:id])
     user_ids = [@room.host_id, @room.guest_id]
     user_ids.delete(current_user.id)
     @user = User.find(user_ids.first)
     @messages = @room.messages
-    @message = @room.messages.build
+    @message = Message.new(room: @room)
   end
 
   def index

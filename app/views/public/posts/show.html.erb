@@ -19,11 +19,11 @@
 
       <!--コメント-->
       <div>
-        <p class="post-comments-counter">
-          <%= render 'public/post_comments/counter', post: @post %>
+        <p>
+          コメント件数：<span id="post-comments-counter"><%= @post.post_comments.count %></span>
         </p>
-        <div class="cook-comments-index">
-          <%= render 'public/post_comments/index', post: @post %>
+        <div id="post-comments-index">
+          <%= render partial: 'public/post_comments/index', collection: @comments, as: "comment" %>
         </div>
         <%= render 'public/post_comments/form', post: @post, comment_new: @comment_new %>
       </div>

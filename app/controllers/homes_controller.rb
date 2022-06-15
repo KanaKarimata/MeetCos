@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
-  before_action :authenticate_user!, except: [:top]
+  before_action :authenticate_user!, except: [:top, :about]
   def top
     @user = current_user
   end
@@ -10,6 +10,6 @@ class HomesController < ApplicationController
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :postal_code, :address, :telephone_number, :is_deleted])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :userid, :is_deleted])
   end
 end
