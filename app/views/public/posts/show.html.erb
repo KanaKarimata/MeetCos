@@ -10,19 +10,13 @@
         <%= render 'public/favs/fav_btn', post: @post %>
       </div>
       <div>
-        <p>コメント件数：<%= @post.post_comments.count %></p>
-        <% @post.post_comments.each do |post_comment| %>
-          <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
-          <%= post_comment.user.first_name %><%= post_comment.user.last_name %>
-          <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-          <%#= link_to "Delete Comment", post_post_comment_path(post_comment), method: :delete, "data-confirm" => "本当に削除しますか？"%>
-        <% end %>
-      </div>
-      <div>
-        <%= form_with model: [@post, @comment_new] do |f| %>
-          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-          <%= f.submit "送信する" %>
-        <% end %>
+        <p class="post-comments-counter">
+          <%= render 'public/post_comments/counter', post: @post %>
+        </p>
+        <div class="cook-comments-index">
+          <%= render 'public/post_comments/index', post: @post %>
+        </div>
+        <%= render 'public/post_comments/form', post: @post, comment_new: @comment_new %>
       </div>
     </div>
   </div>
