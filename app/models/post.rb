@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
 
   # 画像複数枚投稿
-  has_many_attached :post_image
+  has_many_attached :post_images
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favs, dependent: :destroy
@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   has_many :hashtag_posts, dependent: :destroy
   has_many :hashtags, through: :hashtag_posts
 
-  validates :post_image, presence: true
+  validates :post_images, presence: true
   validates :caption, presence: true
 
   # def get_post_image(width, height)

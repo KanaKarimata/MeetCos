@@ -6,17 +6,19 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    post_params.slice(:hashbody)
-    @post = current_user.posts.new(post_params.slice(:post_image, :caption))
-    
+    @post = current_user.posts.new(post_params.slice(:post_images, :caption))
+
     p "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
-    p @post.valid?
-    p @post.errors.full_messages
-    
+    #p @post.valid?
+    #p @post.errors.full_messages
+
+    p post_params[:hashbody]
+    p post_params
+
     ActiveRecord::Base.transaction do
       @post.save
       hashtags = Hashtag.create_if_nothing(post_params[:hashbody])
-      
+
       @post.hashtags = hashtags
       @post.save!
     end
@@ -67,8 +69,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:post_image, :caption, :hashbody)
-    params.require(:post).permit(:caption, :user_id, post_image: [])
+    params.require(:post).permit(:caption, :user_id, :hashbody, post_images: [])
   end
 
   def correct_user
