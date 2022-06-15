@@ -64,6 +64,7 @@ class User < ApplicationRecord
                        email: 'geust@example.com',
                         ) do |user|
       user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲスト"
     end
   end
 
