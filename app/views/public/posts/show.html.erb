@@ -6,9 +6,18 @@
       <% if @post.user_id == current_user.id %>
         <%= link_to "Edit", edit_post_path(@post) %>
       <% end %>
+      <!--ハッシュタグ-->
+      <p>
+        <strong>Hashtags</strong>
+        <%= render_with_hashtags(@post.hashbody) %>
+      </p>
+
+      <!--いいねボタン-->
       <div id=<%="fav_button-" + @post.id.to_s %> >
         <%= render 'public/favs/fav_btn', post: @post %>
       </div>
+
+      <!--コメント-->
       <div>
         <p class="post-comments-counter">
           <%= render 'public/post_comments/counter', post: @post %>

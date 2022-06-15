@@ -40,6 +40,18 @@ class Public::PostsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def hashtag
+    if params[:name].nil?
+      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
+    else
+      name = params[:name]
+      name = name.downcase
+      @hashtag = Hashtag.find_by(hash: name)
+      @post = @hashtag.posts
+      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
+    end
+  end
+
   private
 
   def post_params

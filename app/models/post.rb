@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favs, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :hashtag_posts, dependent: :destroy
+  has_many :hashtags, through: :hashtag_posts, dependent: :destroy
 
   validates :post_image, presence: true
   validates :caption, presence: true
@@ -21,7 +23,7 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favs.exists?(user_id: user.id)
   end
-  
+
   # 通知機能
   def create_notification_fav!(current_user)
     # すでにいいねされているか検索
@@ -30,7 +32,7 @@ class Post < ApplicationRecord
     if temp.blank?
       notification = current_user.send_notifications.new(
         post_id: id,
-        receiver_id: id, 
+        receiver_id: id,
         action: 'fav'
         )
       # 自分が自分の投稿にいいねする場合は、通知済みとする
@@ -40,5 +42,28 @@ class Post < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
+  # ハッシュタグ機能
+  after_create do
+    post = Post.find_by(id: id)
+    # hashbodyに打ち込まれたハッシュタグを検出
+    hashtags = hashtags.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+      hashtags.uniq.map do |hashtag|
+      # ハッシュタグは先頭の#を外した上で保存
+      tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+      post.hashtags << tag
+      end
+    end
+
+  #更新アクション
+  before_update do
+    post = Post.find_by(id: id)
+    post.hashtags.clear
+    hashtags = hashbody.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+      hashtags.uniq.map do |hashtag|
+        tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+        post.hashtags << tag
+      end
+    end
 
 end
