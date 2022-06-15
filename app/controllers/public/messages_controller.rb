@@ -3,7 +3,8 @@ class Public::MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.new(message_params)
-    render :validater unless @message.save
+    # render :validater unless @message.save
+    redirect_back(fallback_location: root_url)
   end
 
   private
