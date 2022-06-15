@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       user_path(resource)
     else
-      admin_post_path
+      admin_posts_path
     end
   end
 

@@ -1,8 +1,6 @@
-<% post.post_comments.each do |post_comment| %>
-  <%= image_tag post_comment.user.get_profile_image(100,100) %>
-  <%= post_comment.user.name %>
-  <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-  <% if post_comment.user == current_user %>
-    <%= link_to "Delete this Comment", post_post_comment_path(post, post_comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？"%>
-  <% end %>
+<%= image_tag comment.user.get_profile_image(100,100) %>
+<%= comment.user.name %>
+<%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+<% if comment.user == current_user %>
+  <%= link_to "Delete this Comment", post_post_comment_path(comment.post, comment), method: :delete, "data-confirm" => "本当に削除しますか？"%>
 <% end %>

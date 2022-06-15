@@ -2,9 +2,13 @@ class Public::MessagesController < ApplicationController
   before_action :reject_non_related, only: [:show]
 
   def create
-    @message = current_user.messages.new(message_params)
+    message = current_user.messages.new(message_params)
     # render :validater unless @message.save
-    redirect_back(fallback_location: root_url)
+    room = Room.find(params[:room_id])
+    message.room = room
+    message.save
+    
+    redirect_to room_path(room)
   end
 
   private

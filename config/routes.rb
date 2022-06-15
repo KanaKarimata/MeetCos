@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   scope module: :public do
     get '/users/:id/quit', to: 'users#quit', as: "quit"
     patch '/users/:id/out', to: 'users#out', as: "out"
-    get 'users/sub_categories', to: 'users#sub_categories', as: "sub_categories"
     get '/post/hashtag/:name', to: 'posts#hashtag'
     get '/post/hashtag', to: 'posts#hashtag'
 

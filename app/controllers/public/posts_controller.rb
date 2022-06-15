@@ -6,9 +6,21 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    @post.save
+    post_params.slice(:hashbody)
+    @post = current_user.posts.new(post_params.slice(:post_image, :caption))
+    
+    p "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+    p @post.valid?
+    p @post.errors.full_messages
+    
+    ActiveRecord::Base.transaction do
+      @post.save
+      hashtags = Hashtag.create_if_nothing(post_params[:hashbody])
+      
+      @post.hashtags = hashtags
+      @post.save!
+    end
+
     redirect_to user_path(current_user)
   end
 
@@ -55,6 +67,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
+    params.require(:post).permit(:post_image, :caption, :hashbody)
     params.require(:post).permit(:caption, :user_id, post_image: [])
   end
 
