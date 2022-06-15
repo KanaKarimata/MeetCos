@@ -71,3 +71,7 @@
 #   SubCategory.find_or_create_by!(sub_category: sub_category[:sub_category], main_category_id: main_category_id)
 # end
 
+# Admin.find_or_create_by(
+#   email: 'admin@admin',
+#   password: 'testtest'
+#   )
