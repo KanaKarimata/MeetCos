@@ -1,24 +1,30 @@
-<h2>プロフィール編集</h2>
-<%= form_with model: @user do |f| %>
-  <label for="inputImage">ProfileImage</label><br>
-  <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %><br>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-6 mt-5 d-flex flex-column align-items-center edit_form">
+      <h2>プロフィールを編集</h2>
+      <%= form_with model: @user do |f| %>
+        <label for="inputImage">Cover Photo</label><br>
+        <%= f.file_field :cover_image, placeholder: "プロフィール画像", accept: "image/*" %><br>
 
-  <label for="inputName">Name</label><br>
-  <%= f.text_field :first_name, autofocus: true, id:"inputName", placeholder:"名前"%><br>
-  <%= f.text_field :last_name, autofocus: true, id:"inputName", placeholder:"名前"%><br>
+        <label for="inputImage">Profile Image</label><br>
+        <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %><br>
 
-  <label for="inputEmail">Email</label><br>
-  <%= f.email_field :email, autofocus: true, id:"inputName", placeholder:"電話番号"%><br>
+        <div class="row mt-4">
+          <%= f.label :"Nick name" %><br />
+          <%= f.text_field :name %>
+        </div>
+        <div class="row mt-3">
+          <%= f.label :"User ID" %><br />
+          <%= f.text_field :userid %>
+        </div>
+        <div class="row mt-3">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
 
-  <label for="inputPostcode">Postal Code</label><br>
-  <%= f.text_field :postal_code, autofocus: true, id:"inputName", placeholder:"郵便番号"%><br>
-
-  <label for="inputAddress">Address</label><br>
-  <%= f.text_field :Address, autofocus: true, id:"inputName", placeholder:"住所"%><br>
-
-  <label for="inputTelephone">Phone number</label><br>
-  <%= f.text_field :telephone_number, autofocus: true, id:"inputName", placeholder:"電話番号"%><br>
-
-  <%= f.submit "Save!" %>
-<% end %>
-<%= link_to "退会する", out_path(@user), method: :patch, "data-confirm" => "本当に退会しますか？" %>
+        <%= f.submit "Save!" %>
+      <% end %>
+      <%= link_to "退会する", out_path(@user), method: :patch, "data-confirm" => "本当に退会しますか？" %>
+    </div>
+  </div>
+</div>

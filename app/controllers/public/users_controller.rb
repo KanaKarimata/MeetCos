@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
-  before_action :ensure_guest_user, only: [:edit]
+  # before_action :ensure_guest_user, only: [:edit]
 
   def index
     @users = User.all
@@ -13,7 +13,7 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
@@ -47,7 +47,7 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :postal_code, :address, :telephone_number, :email, :profile_image)
+    params.require(:user).permit(:name, :userid, :email, :profile_image, :cover_image)
   end
 
   def correct_user

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :profile_image
+  has_one_attached :cover_image
   # 投稿のアソシエーション
   has_many :posts, dependent: :destroy
   # 投稿へのコメントのアソシエーション
@@ -41,6 +42,14 @@ class User < ApplicationRecord
       profile_image.attach(io: File.open(file_path), filename: 'no-image-user.png', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
+  end
+
+  def get_cover_image(width, height)
+    unless cover_image.attached?
+      file_path = Rails.root.join('app/assets/images/no_cover_image.png')
+      cover_image.attach(io: File.open(file_path), filename: 'no_cover_image.png', content_type: 'image/jpeg')
+    end
+    cover_image.variant(resize_to_limit: [width, height]).processed
   end
 
   # フォローフォロワー関係のアクション
