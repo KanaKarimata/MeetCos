@@ -1,39 +1,48 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-6 sign_up"></div>
+    <div class="col-md-6 mt-5 d-flex flex-column align-items-center sign_up_form">
+        <h2>Hello!</h2>
+        <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
+          <div class="row mt-4">
+            <%= f.label :"Nick name" %><br />
+            <%= f.text_field :name %>
+          </div>
+          <div class="row mt-3">
+            <%= f.label :"User ID" %><br />
+            <%= f.text_field :userid %>
+          </div>
+          <div class="row mt-3">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+          <div class="row mt-3">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
+          <div class="row mt-3">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="row mt-4">
+              <div class="col">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+              </div>
+            </div>
+          <% end %>
 
-<%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :"Nick name" %><br />
-    <%= f.text_field :name %>
+          <div class="row mt-4">
+            <%= button_tag type: 'submit', class: "sign_up_btn" do %>
+              Sign up now
+            <% end %>
+          </div>
+        <% end %>
+        <p>You have your account? <%= link_to "Sign in", new_user_session_path %></p>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :"User ID" %><br />
-    <%= f.text_field :userid %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>
