@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="navbar">
+    <div class="navbar-brand">
+      <%= link_to "Meet Cos", root_path, class: "navbar-brand link-dark" %>
+    </div>
+    <ul class="nav justify-content-center ">
+      <li class="nav-item"><%= link_to "Top", root_path, class:"nav-link link-dark" %></li>
+      <li class="nav-item"><%= link_to "About", about_path, class:"nav-link link-dark" %></li>
+      <li class="nav-item"><%= link_to "Sign in", new_user_session_path, class:"nav-link link-dark" %></li>
+      <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class:"nav-link link-dark"%></li>
+      <li class="nav-item"><%= link_to "For managers", new_admin_session_path, class:"nav-link link-dark" %></li>
+      <li class="nav-item"><%= link_to 'For Our Guests', public_guest_sign_in_path, method: :post, class:"nav-link link-dark guest-link" %></li>
+    </ul>
+  </div>
+</div>

@@ -5,14 +5,14 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       user_path(resource)
     else
-      admin_post_path
+      admin_posts_path
     end
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :postal_code, :address, :telephone_number, :is_deleted])
   end
 
 end

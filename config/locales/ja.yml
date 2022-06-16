@@ -1,0 +1,19 @@
+ ja:
+  enums:
+    post:
+      post_category:
+        makeup: 'メイク紹介'
+        cosmetics: 'コスメ紹介'
+      color_type:
+        blue: 'ブルーベース'
+        yellow: 'イエローベース'
+      makeup_image:
+        natural: 'ナチュラル'
+        korean: '韓国風'
+        girly: 'キュート'
+        adult: '大人っぽ'
+        gal: 'ギャル'
+        oversea: '海外メイク'
+        office: 'オフィスメイク'
+        bridal: 'ブライダル'
+        

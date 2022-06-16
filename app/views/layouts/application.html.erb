@@ -6,24 +6,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2">
-          <% if user_signed_in? %>
-            <%= render 'layouts/sidebar', user: @user %>
-          <% elsif admin_signed_in? %>
-             <!--<%#= render 'layouts/ad_header' %>-->
-          <% else %>
-            <!--<%#= render 'layouts/not_signed_in' %>-->
-          <% end %>
-        </div>
+    <% if user_signed_in? %>
+      <%= render 'layouts/header' %>
+    <% elsif admin_signed_in? %>
+      <%= render 'layouts/ad_header' %>
+    <% else %>
+      <%= render 'layouts/not_signed_in' %>
+    <% end %>
+
     <%= yield %>
-      </div>
-    </div>
   </body>
 </html>

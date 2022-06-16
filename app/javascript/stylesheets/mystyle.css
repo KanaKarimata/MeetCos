@@ -1,0 +1,122 @@
+/*ユーザーヘッダー*/
+a {
+  text-decoration: none;
+}
+
+.navbar-brand {
+  font-family: "Times New Roman";
+  font-size: 132%;
+}
+
+.nav-link {
+  font-family: "Times New Roman";
+  font-size: 116%;
+}
+
+.guest-link {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+/*トップページ*/
+.top-visual {
+  background-image: url('/assets/images/main-visual.jpeg');
+  background-size: cover;
+  height: 650px;
+  position: relative;
+}
+
+.main-visual:before {
+   background-color: rgba(0,0,0,0.4);
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   content: ' ';
+ }
+
+.top-visual-content {
+  background-color: rgba(0,0,0,0.4);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+
+.top-visual-title {
+  font-family:  "Times New Roman";
+  font-size: 500%;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  color: white;
+}
+
+.top-visual-body {
+  font-family:  "Times New Roman";
+  font-size: 140%;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  color: white;
+}
+
+.top-visual-link {
+  font-family:  "Times New Roman";
+  font-size: 120%;
+  position: absolute;
+  top: 72%;
+  left: 80%;
+  color: white;
+}
+
+.top-visual-link:hover {
+  color: white;
+  border-bottom: solid 1px #fff;
+}
+
+/*aboutページ*/
+.about-visual {
+  display: inline-block;
+}
+
+.about-visual-content {
+  font-family:  "Times New Roman";
+  margin-left: 100px;
+}
+
+/*sign in/sign up ページ*/
+.sign_in {
+  background-image: url('/assets/images/skincare.jpeg');
+  background-size: cover;
+  height: 600px;
+  background-position: center;
+}
+
+.sign_in_form,
+.sign_up_form {
+  font-family:  "Times New Roman";
+}
+
+.sign_in_input_form {
+  height: 40px;
+  width: 300px;
+}
+
+.sign_in_btn,
+.sign_up_btn {
+  background-color: #00608d;
+  height: 40px;
+  border: none;
+  color: white;
+}
+
+.sign_up {
+  background-image: url('/assets/images/man_makeup.jpeg');
+  background-size: cover;
+  height: 600px;
+}
+

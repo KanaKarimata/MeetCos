@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <ul>
+        <% @messages.each do |message| %>
+          <% if message.user == current_user %>
+            <li class="message_content_right">
+              <%= message.content %>
+            </li>
+          <% else %>
+            <li class="message_content_left">
+              <%= message.content %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+      <%= form_with model: @message, url: room_messages_path(@room.id) do |f| %>
+        <%= f.text_area :content %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
