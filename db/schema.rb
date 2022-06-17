@@ -114,11 +114,6 @@ ActiveRecord::Schema.define(version: 2022_06_15_042434) do
 
   create_table "posts", force: :cascade do |t|
     t.text "caption"
-    t.integer "post_category"
-    t.integer "color_type"
-    t.integer "makeup_image"
-    t.integer "main_category_id"
-    t.integer "sub_category_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

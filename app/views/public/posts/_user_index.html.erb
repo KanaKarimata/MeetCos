@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row text-center">
+    <% posts.each do |post_show| %>
+      <div class="col-md-3 user_post_item">
+        <!--画像クリック→投稿詳細モーダル表示-->
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <% post_show.post_images.each do |post_image| %>
+            <%= image_tag post_image.variant(resize_to_limit: [240,240]) %>
+          <% end %>
+        </button>
+        <!-- 投稿詳細モーダル -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="conatainer">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <div class="previews">
+                        <div class="slider">
+                          <% if post_show.post_images.attached? %>
+                            <% post_show.post_images.each do |post_image| %>
+                              <%= image_tag post_image.variant(resize_to_limit: [100,100]) %>
+                          <% end %>
+                        </div>
+                      </div>
+                      <% end %>
+                      <%= post_show.caption %>
+                      <% if post_show.user_id == current_user.id %>
+                        <%= link_to "Edit", edit_post_path(post_show) %>
+                      <% end %>
+                      <!--ハッシュタグ-->
+                      <!--<p>-->
+                      <!--  <strong>Hashtags</strong>-->
+                      <!--  <%#= render_with_hashtags(@post.hashtags) %>-->
+                      <!--</p>-->
+
+                      <!--いいねボタン-->
+                      <div id=<%="fav_button-" + post_show.id.to_s %> >
+                        <%= render 'public/favs/fav_btn', post: post_show %>
+                      </div>
+
+                      <!--コメント-->
+                      <div>
+                        <p>
+                          コメント件数：<span id="post-comments-counter"><%= post_show.post_comments.count %></span>
+                        </p>
+                        <div id="post-comments-index">
+                          <%= render partial: 'public/post_comments/index', collection: comments, as: "comment" %>
+                        </div>
+                        <%= render 'public/post_comments/form', post: post_show, comment_new: comment_new %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!--<script>-->
+<!--  $('.single-item').slick();-->
+<!--</script>-->

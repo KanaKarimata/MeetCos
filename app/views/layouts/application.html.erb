@@ -7,18 +7,30 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= render 'layouts/header' %>
-    <% elsif admin_signed_in? %>
-      <%= render 'layouts/ad_header' %>
-    <% else %>
-      <%= render 'layouts/not_signed_in' %>
-    <% end %>
-
-    <%= yield %>
+    <header class="container-fluid">
+      <% if user_signed_in? %>
+        <%= render 'layouts/header' %>
+      <% elsif admin_signed_in? %>
+        <%= render 'layouts/ad_header' %>
+      <% else %>
+        <%= render 'layouts/not_signed_in' %>
+      <% end %>
+    </header>
+    <div class="content">
+      <%= yield %>
+    </div>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </body>
 </html>

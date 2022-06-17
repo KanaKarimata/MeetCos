@@ -13,6 +13,8 @@ import "bootstrap";
 import "../stylesheets/application.scss"
 import '@fortawesome/fontawesome-free/js/all'
 import '../stylesheets/mystyle.css'
+// import '../stylesheets/slick-theme.scss'
+// import '../stylesheets/slick.scss'
 
 Rails.start()
 Turbolinks.start()
