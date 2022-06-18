@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :admin, contollers: {
+  devise_for :admin, controllers: {
     registrations: 'admin/registrations',
-    sessions: 'admin/sessions'
+    sessions: 'admin/sessions',
   }
   devise_for :users, controllers: {
     registrations: 'public/registrations',

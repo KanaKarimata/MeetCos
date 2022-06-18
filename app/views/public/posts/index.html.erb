@@ -4,6 +4,14 @@
       <%= render 'public/users/user_info', user: @user %>
     </div>
     <div class="col-md-10">
+      <div class="row text-center mb-5">
+        <%= search_form_for @q do |f| %>
+          <%= f.search_field :caption_cont, class:'input-box search_form' %>
+          <%= f.button type: "submit", class:"btn" do %>
+            <i class="fa-solid fa-magnifying-glass search_btn_icon"></i>
+          <% end %>
+        <% end %>
+      </div>
       <%= render 'index', posts: @posts %>
     </div>
   </div>

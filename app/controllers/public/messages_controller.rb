@@ -5,10 +5,11 @@ class Public::MessagesController < ApplicationController
     @message = current_user.messages.new(message_params)
     room = Room.find(params[:room_id])
     @message.room = room
-    @user = User.find(params[:user_id])
-    if message.save
+    if @message.save
       # 通知機能
-      Notification.create!(receiver_id: @user.id, model_name: "Message", model_id: @message.id)
+      user_id = (current_user.id == room.host_id)? room.guest_id : room.host_id
+      @user = User.find(user_id)
+      Notification.create!(receiver_id: @user.id, sender_id: current_user.id, action: "Message", action_id: @message.id)
     end
     redirect_to room_path(room)
   end

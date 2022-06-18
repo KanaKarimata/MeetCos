@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
+  before_action :set_search
 
   def new
     @post = Post.new
@@ -29,6 +30,8 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.all
     @user = current_user
+    @q = Post.ransack(params[:q])
+    @result_posts = @q.result(distinct: true)
   end
 
   def show
@@ -76,6 +79,11 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     redirect_to(books_path) unless @user == current_user
+  end
+
+  def set_search
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
   end
 
 end

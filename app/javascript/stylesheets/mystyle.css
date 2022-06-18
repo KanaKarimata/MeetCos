@@ -230,3 +230,17 @@ box-shadow:  28px 28px 39px #afafaf;
   font-size: 1.4rem;
   color: #ff6666;
 }
+
+/*投稿一覧ページ*/
+.search_form {
+  width: 30%;
+  height: 100%;
+  border-radius: 30px 30px;
+  background-color: #eeeaec;
+  border: none;
+}
+
+.search_btn_icon {
+  font-size: 1.5rem;
+  color: #ed0077;
+}
