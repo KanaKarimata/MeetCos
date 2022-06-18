@@ -8,8 +8,6 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params.slice(:post_images, :caption))
-
-    p "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
     #p @post.valid?
     #p @post.errors.full_messages
 

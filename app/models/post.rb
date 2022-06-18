@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   has_many :hashtag_posts, dependent: :destroy
   has_many :hashtags, through: :hashtag_posts
 
-  validates :post_images, presence: true
+  validates :post_image, presence: true
   validates :caption, presence: true
 
   # def get_post_image(width, height)
@@ -44,15 +44,4 @@ class Post < ApplicationRecord
     end
   end
 
-  #更新アクション
-  #before_update do
-  #  post = Post.find_by(id: id)
-  #  post.hashtags.clear
-  #  hashtags = hashbody.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
-  #  hashtags.uniq.map do |hashtag|
-  #    tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
-  #    post.hashtags << tag
-  #  end
-  #end
-# 修正中
 end
