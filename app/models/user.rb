@@ -31,6 +31,8 @@ class User < ApplicationRecord
   has_many :send_notifications, class_name: "Notification", foreign_key: "sender_id", dependent: :destroy
   # 受け取る通知
   has_many :receive_notifications, class_name: "Notification", foreign_key: "receiver_id", dependent: :destroy
+  has_many :notifications, through: :send_notifications, source: :receiver
+  has_many :notifications, through: :receive_notifications, source: :sender
 
 
   # 会員管理のための記述

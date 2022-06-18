@@ -165,7 +165,10 @@ box-shadow:  28px 28px 39px #afafaf;
 }
 
 .user_edit_btn,
-.user_nav_list_item {
+.user_nav_list_item,
+.follow_btn,
+.unfollow_btn,
+.chat_btn {
   box-shadow:5px 5px 8px 3px #ccc;
   margin-top: 20%;
 }
@@ -178,6 +181,35 @@ box-shadow:  28px 28px 39px #afafaf;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.follow_btn {
+  color: #6c9bd2;
+  font-weight: bold;
+}
+
+.follow_btn:hover {
+  background-color: #4753a2;
+  color: white;
+}
+
+.unfollow_btn {
+  color: #bc64a4;
+  font-weight: bold;
+}
+
+.unfollow_btn:hover {
+  background-color: #aa4c8f;
+  color: #fff;
+}
+
+.chat_btn {
+  background-color: #e3e548;
+  font-weight: bold;
+}
+
+.chat_btn:hover {
+  transform: scale(1.1, 1.1);
 }
 
 /*新規投稿モーダル*/
