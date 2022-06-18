@@ -33,11 +33,6 @@
                       <% if post_show.user_id == current_user.id %>
                         <%= link_to "Edit", edit_post_path(post_show) %>
                       <% end %>
-                      <!--ハッシュタグ-->
-                      <!--<p>-->
-                      <!--  <strong>Hashtags</strong>-->
-                      <!--  <%#= render_with_hashtags(@post.hashtags) %>-->
-                      <!--</p>-->
 
                       <!--いいねボタン-->
                       <div id=<%="fav_button-" + post_show.id.to_s %> >

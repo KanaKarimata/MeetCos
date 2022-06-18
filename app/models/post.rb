@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   has_many :hashtag_posts, dependent: :destroy
   has_many :hashtags, through: :hashtag_posts
 
-  validates :post_image, presence: true
+  validates :post_images, presence: true
   validates :caption, presence: true
 
   # def get_post_image(width, height)
