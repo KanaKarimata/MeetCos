@@ -1,11 +1,37 @@
-<div class="container">
-  <div class="row">
+<div class="container-fluid">
+  <!--<div class="row">-->
+  <!--  <div class="cover-photo"></div>-->
+  <!--</div>-->
+  <div class="row user_show_content">
     <div class="col-md-2">
       <%= render 'public/users/user_info', user: @user %>
     </div>
     <div class="col-md-10">
-      <%= render 'public/posts/form', post: @post %>
-      <%= render 'public/posts/index', posts: @posts %>
+
+      <!-- 新規投稿ボタン -->
+      <div class="row text-center">
+        <div class="col">
+          <button type="button" class="btn post-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </dov>
+
+      <!-- 新規投稿モーダル -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content new_post_modal">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= render 'public/posts/form', post: @post_new %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= render 'public/posts/user_index', posts: @posts, comment_new: @comment_new %>
     </div>
   </div>
 </div>

@@ -11,10 +11,12 @@
         <%= link_to "Edit", edit_post_path(@post) %>
       <% end %>
       <!--ハッシュタグ-->
-      <p>
-        <strong>Hashtags</strong>
-        <%= render_with_hashtags(@post.hashbody) %>
-      </p>
+      <!--<p>-->
+      <!--  <strong>Hashtags</strong>-->
+      <!--  <%# @post.hashtags.each do |hashtag| %>-->
+      <!--    <%#= hashtag.hashname %>,-->
+      <!--  <%# end %>-->
+      <!--</p>-->
 
       <!--いいねボタン-->
       <div id=<%="fav_button-" + @post.id.to_s %> >

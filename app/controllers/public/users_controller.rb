@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
-  before_action :ensure_guest_user, only: [:edit]
+  before_action :set_q, only: [:friends, :search]
+  # before_action :ensure_guest_user, only: [:edit]
 
   def index
     @users = User.all
@@ -8,12 +9,15 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post = Post.new
+    @post_new = Post.new
     @posts = @user.posts
+    @comment_new = PostComment.new
+    # @comments = @post.post_comments.order(created_at: :desc)
+    @user_edit = current_user
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
@@ -42,12 +46,13 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     favs= Fav.where(user_id: @user.id).pluck(:post_id)
     @fav_posts = Post.find(favs)
+    @comment_new = PostComment.new
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :postal_code, :address, :telephone_number, :email, :profile_image)
+    params.require(:user).permit(:name, :userid, :email, :profile_image, :cover_image)
   end
 
   def correct_user

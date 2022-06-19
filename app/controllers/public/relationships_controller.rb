@@ -1,4 +1,6 @@
 class Public::RelationshipsController < ApplicationController
+  before_action :set_q, only: [:friends, :search]
+
   # フォローするとき
   def create
     followed_user = User.find(params[:user_id])
@@ -20,5 +22,17 @@ class Public::RelationshipsController < ApplicationController
     @user = User.find(params[:user_id])
     @followings = @user.followings
     @followers = @user.followers
+    @rooms = Room.where(host_id: current_user.id).or(Room.where(guest_id: current_user.id))
   end
+
+  def search
+    @results = @q.result
+  end
+
+  private
+
+  def set_q
+    @q = User.ransack(params[:id])
+  end
+
 end

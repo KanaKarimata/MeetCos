@@ -1,34 +1,24 @@
 class Public::PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
+  before_action :set_q, only: [:index, :search]
 
   def new
     @post = Post.new
   end
 
   def create
-    @post = current_user.posts.new(post_params.slice(:post_images, :caption))
-
-    p "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
-    #p @post.valid?
-    #p @post.errors.full_messages
-
-    p post_params[:hashbody]
-    p post_params
-
-    ActiveRecord::Base.transaction do
-      @post.save
-      hashtags = Hashtag.create_if_nothing(post_params[:hashbody])
-
-      @post.hashtags = hashtags
-      @post.save!
-    end
-
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @post.save!
     redirect_to user_path(current_user)
   end
 
   def index
     @posts = Post.all
     @user = current_user
+    # @q = Post.ransack(params[:q])
+    # @result_posts = @q.result(distinct: true)
+    @comment_new = PostComment.new
   end
 
   def show
@@ -54,6 +44,12 @@ class Public::PostsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def search
+    @results = @q.result
+    @user = current_user
+    @comment_new = PostComment.new
+  end
+
   def hashtag
     if params[:name].nil?
       @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
@@ -69,13 +65,17 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:caption, :user_id, :hashbody, post_images: [])
+    params.require(:post).permit(:caption, :user_id, post_images: [])
   end
 
   def correct_user
     @post = Post.find(params[:id])
     @user = @post.user
     redirect_to(books_path) unless @user == current_user
+  end
+
+  def set_q
+    @q = Post.ransack(params[:q])
   end
 
 end

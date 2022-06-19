@@ -93,15 +93,15 @@ ActiveRecord::Schema.define(version: 2022_06_15_042434) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "receiver_id"
-    t.integer "sender_id"
-    t.integer "post_id"
-    t.integer "post_comment_id"
-    t.integer "message_id"
-    t.string "action"
+    t.integer "receiver_id", null: false
+    t.integer "sender_id", null: false
+    t.string "action", null: false
+    t.integer "action_id", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["receiver_id"], name: "index_notifications_on_receiver_id"
+    t.index ["sender_id"], name: "index_notifications_on_sender_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -114,11 +114,6 @@ ActiveRecord::Schema.define(version: 2022_06_15_042434) do
 
   create_table "posts", force: :cascade do |t|
     t.text "caption"
-    t.integer "post_category"
-    t.integer "color_type"
-    t.integer "makeup_image"
-    t.integer "main_category_id"
-    t.integer "sub_category_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -172,6 +167,8 @@ ActiveRecord::Schema.define(version: 2022_06_15_042434) do
   add_foreign_key "hashtag_posts", "posts"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "users", column: "receiver_id"
+  add_foreign_key "notifications", "users", column: "sender_id"
   add_foreign_key "relationships", "users", column: "followed_id"
   add_foreign_key "relationships", "users", column: "follower_id"
   add_foreign_key "rooms", "users", column: "guest_id"

@@ -23,6 +23,8 @@ class Public::RoomsController < ApplicationController
   end
 
   def index
+    @user = current_user
+    @rooms = @user.rooms
   end
 
 end

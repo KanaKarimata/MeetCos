@@ -1,4 +1,28 @@
+/*全ページ共通*/
+
+.content {
+  padding-top: 8%;
+  padding-bottom: 10%;
+}
+
+/*フッター*/
+footer {
+  background-color: #fff;
+  color: #a9a9a9;
+  font-family: "Times New Roman";
+}
+
+.footer-contact {
+  font-size: 1rem;
+}
+
 /*ユーザーヘッダー*/
+header {
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.3);
+}
+
 a {
   text-decoration: none;
 }
@@ -97,7 +121,8 @@ a {
 }
 
 .sign_in_form,
-.sign_up_form {
+.sign_up_form,
+.edit_form {
   font-family:  "Times New Roman";
 }
 
@@ -120,3 +145,153 @@ a {
   height: 600px;
 }
 
+/*ユーザー詳細画面*/
+
+.cover-photo {
+  width: 1000px;
+  height: 200px;
+  background-color: grey;
+  position: absolute;
+  z-index: -1;
+}
+
+.user_image {
+  border-radius: 50%;
+}
+
+.post-btn {
+  border-radius: 76px;
+background: linear-gradient(145deg, #f0f0f0, #cacaca);
+box-shadow:  28px 28px 39px #afafaf;
+             /*-28px -28px 39px #ffffff;*/
+}
+
+.user_name {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.user_id {
+  font-weight: bold;
+  color: #778899;
+}
+
+.user_edit_btn,
+.user_nav_list_item,
+.follow_btn,
+.unfollow_btn,
+.chat_btn {
+  box-shadow:5px 5px 8px 3px #ccc;
+  margin-top: 20%;
+}
+
+.likes {
+  padding: 10px;
+}
+
+.user_post_item,
+.post_all_item,
+.fav_index {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.follow_btn {
+  color: #6c9bd2;
+  font-weight: bold;
+}
+
+.follow_btn:hover {
+  background-color: #4753a2;
+  color: white;
+}
+
+.unfollow_btn {
+  color: #bc64a4;
+  font-weight: bold;
+}
+
+.unfollow_btn:hover {
+  background-color: #aa4c8f;
+  color: #fff;
+}
+
+.chat_btn {
+  background-color: #e3e548;
+  font-weight: bold;
+}
+
+.chat_btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+/*新規投稿モーダル*/
+.modal-dialog {
+  max-width: 800px;
+  max-height: 800px;
+}
+
+.caption_form {
+  height: 300px;
+}
+
+.form_label {
+  text-align: left;
+}
+
+.new_post_btn {
+  font-size: 1.4rem;
+  color: #ff6666;
+}
+
+/*投稿一覧ページ*/
+.search_form {
+  width: 30%;
+  height: 100%;
+  border-radius: 30px 30px;
+  background-color: #eeeaec;
+  border: none;
+}
+
+.search_btn_icon {
+  font-size: 1.5rem;
+  color: #ed0077;
+}
+
+.user_icon {
+  border-radius: 50%;
+}
+
+/*いいね一覧*/
+.back_to_user {
+  font-size: 2rem;
+  font-weight: lighter;
+  color: #000;
+  border: solid 1px #000;
+  border-radius: 50% 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.back_to_user:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/*friendsページ*/
+.friends_chat:hover {
+  background-color: #f5f5f5;
+}
+
+.friends_icon {
+  border-radius: 50% 50%;
+}
+
+.friends_name {
+  color: #000;
+}
+
+.friends_message {
+  color: #a9a9a9;
+}

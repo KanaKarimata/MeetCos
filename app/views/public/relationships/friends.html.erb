@@ -1,13 +1,46 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
-      <%= render 'public/users/user_info', user: @user %>
+    <div class="col text-center mb-5">
+      <%= search_form_for @q, url: search_user_relationships_path do |f| %>
+        <%= f.search_field :name_cont, placeholder: "Search Friends...", class:'input-box search_form' %>
+        <%= f.button type: "submit", class:"btn" do %>
+          <i class="fa-solid fa-magnifying-glass search_btn_icon"></i>
+        <% end %>
+      <% end %>
     </div>
-    <div class="col-md-10">
-      <h4>Followings</h4>
-      <%= render 'public/users/index', users: @followings %>
-      <h4>Followers</h4>
-      <%= render 'public/users/index', users: @followers %>
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+      <%= link_to user_path(current_user) do %>
+        <span class= "btn back_to_user">←</span>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h5 class="row">Followings</h5>
+            <div class="row">
+              <div class="col ms-3">
+                <%= render 'public/users/index', users: @followings %>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <h5 class="row">Followers</h5>
+              <div class="row">
+                <div class="col ms-3">
+                  <%= render 'public/users/index', users: @followers %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 ms-5">
+      <h1>Chats</h1>
+      <%= render 'public/rooms/index', rooms: @rooms %>
     </div>
   </div>
 </div>
+<!--レイアウト-->
