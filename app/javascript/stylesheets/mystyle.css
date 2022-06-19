@@ -177,7 +177,8 @@ box-shadow:  28px 28px 39px #afafaf;
   padding: 10px;
 }
 
-.user_post_item {
+.user_post_item,
+.post_all_item {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -243,4 +244,8 @@ box-shadow:  28px 28px 39px #afafaf;
 .search_btn_icon {
   font-size: 1.5rem;
   color: #ed0077;
+}
+
+.user_icon {
+  border-radius: 50%;
 }

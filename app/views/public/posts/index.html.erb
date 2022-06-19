@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
       <%= render 'public/users/user_info', user: @user %>
@@ -12,7 +12,7 @@
           <% end %>
         <% end %>
       </div>
-      <%= render 'index', posts: @posts %>
+      <%= render 'index', posts: @posts,comments: @comments, comment_new: @comment_new %>
     </div>
   </div>
 </div>

@@ -9,20 +9,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    #p @post.valid?
-    #p @post.errors.full_messages
-
-    # p post_params[:hashbody]
-    # p post_params
-
-    # ActiveRecord::Base.transaction do
-    #   @post.save
-    #   hashtags = Hashtag.create_if_nothing(post_params[:hashbody])
-
-    #   @post.hashtags = hashtags
-      @post.save!
-    # end
-
+    @post.save!
     redirect_to user_path(current_user)
   end
 
@@ -31,6 +18,8 @@ class Public::PostsController < ApplicationController
     @user = current_user
     @q = Post.ransack(params[:q])
     @result_posts = @q.result(distinct: true)
+    @comment_new = PostComment.new
+    # @comments = @post.post_comments.order(created_at: :desc)
   end
 
   def show
