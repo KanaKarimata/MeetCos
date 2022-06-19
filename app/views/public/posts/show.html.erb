@@ -1,2 +1,38 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="conatainer">
+  <div class="row">
+    <div class="col-md-10">
+      <% if @post.post_images.attached? %>
+        <% @post.post_images.each do |post_image| %>
+          <%= image_tag post_image.variant(resize_to_limit: [100,100]) %>
+        <% end %>
+      <% end %>
+      <%= @post.caption %>
+      <% if @post.user_id == current_user.id %>
+        <%= link_to "Edit", edit_post_path(@post) %>
+      <% end %>
+      <!--ハッシュタグ-->
+      <!--<p>-->
+      <!--  <strong>Hashtags</strong>-->
+      <!--  <%# @post.hashtags.each do |hashtag| %>-->
+      <!--    <%#= hashtag.hashname %>,-->
+      <!--  <%# end %>-->
+      <!--</p>-->
+
+      <!--いいねボタン-->
+      <div id=<%="fav_button-" + @post.id.to_s %> >
+        <%= render 'public/favs/fav_btn', post: @post %>
+      </div>
+
+      <!--コメント-->
+      <div>
+        <p>
+          コメント件数：<span id="post-comments-counter"><%= @post.post_comments.count %></span>
+        </p>
+        <div id="post-comments-index">
+          <%= render partial: 'public/post_comments/index', collection: @comments, as: "comment" %>
+        </div>
+        <%= render 'public/post_comments/form', post: @post, comment_new: @comment_new %>
+      </div>
+    </div>
+  </div>
+</div>

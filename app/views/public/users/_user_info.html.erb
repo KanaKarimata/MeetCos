@@ -1,8 +1,55 @@
-<div class="container">
-  <div class="row">
+<div class="conainer">
+  <div class="row user_profile_image text-center">
+      <%= link_to user_path(user) do %>
+        <%= image_tag user.get_profile_image(70, 70), class: "user_image" %><br>
+      <% end %>
+  </div>
+  <div class="row sidebar">
+    <div class="col d-flex flex-column text-center">
+      <strong class="user_name"><%= user.name %></strong>
+      <span class="user_id">User ID: <%= user.userid %></span>
+    </div>
+  </div>
+  <!--Friendsボタンはcurrent_userのみに表示する-->
+  <% if user == current_user %>
+    <div class="row text-center">
+      <div class="col">
+      <%= link_to user_friends_path(user), class: "btn user_nav_list_item" do %>
+        <i class="fa-solid fa-user-group"></i>
+        <span>Friends</span>
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row text-center">
     <div class="col">
-      <%= image_tag @user.get_profile_image(100, 100) %><br>
-      <%= @user.last_name %><%= @user.first_name%>
+    <%= link_to favs_user_path(user), class: "btn user_nav_list_item" do %>
+      <i class="fa-solid fa-heart"></i>
+      <span class="likes">Likes</span>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col">
+      <% if current_user!= user %>
+        <%= render "public/relationships/btn", user: user %>
+       <% else if user.name != "ゲスト" %>
+        <%= link_to edit_user_path(user), class: "btn user_edit_btn" do %>
+          <i class="fa-solid fa-pen"></i>&ensp;Edit Profile
+        <% end %>
+       <% else %>
+       <% end %>
+      <% end %>
+
+      <% if current_user != user && current_user.following?(user)  %>
+        <%= form_with model: Room.new, url: rooms_path, local: true do |f| %>
+          <%= hidden_field_tag :user_id, user.id %>
+          <%= f.submit "Send messages", class: 'ml-3 btn chat_btn' %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
+

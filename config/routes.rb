@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :admin, skip: [:registrations, :passwords], contollers: {
-    sessions: 'admin/sessions'
+  devise_for :admin, controllers: {
+    registrations: 'admin/registrations',
+    sessions: 'admin/sessions',
   }
   devise_for :users, controllers: {
     registrations: 'public/registrations',
@@ -16,10 +17,33 @@ Rails.application.routes.draw do
   scope module: :public do
     get '/users/:id/quit', to: 'users#quit', as: "quit"
     patch '/users/:id/out', to: 'users#out', as: "out"
-    get 'users/sub_categories', to: 'users#sub_categories', as: "sub_categories"
+    get '/post/hashtag/:name', to: 'posts#hashtag'
+    get '/post/hashtag', to: 'posts#hashtag'
 
-    resources :users, except: [:new, :destroy]
-    resources :posts
+    resources :users, except: [:new, :destroy] do
+      get 'friends' => 'relationships#friends', as: 'friends'
+      resource :relationships, only: [:create, :destroy] do
+        collection do
+        get 'search'
+      end
+      end
+      # いいねした投稿一覧表示
+      member do
+        get :favs
+      end
+
+    end
+    resources :posts do
+      resources :post_comments, only: [:create, :destroy]
+      resource :favs, only: [:create, :destroy]
+      collection do
+        get 'search'
+      end
+    end
+    resources :rooms, only: [:create, :show, :index] do
+      resources :messages, only: [:create, :destroy]
+    end
+    resources :notifications, only: [:index, :destroy]
   end
 
   namespace :admin do

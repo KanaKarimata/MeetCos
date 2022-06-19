@@ -35,6 +35,12 @@ class Public::SessionsController < Devise::SessionsController
     root_path
   end
 
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to user_path(user), notice: 'ゲストユーザーとしてログインしました！'
+  end
+
   protected
 
   def reject_deleted_user
@@ -44,12 +50,6 @@ class Public::SessionsController < Devise::SessionsController
         redirect_to new_user_registration_path, falsh: {session_alert: "退会済のため、再登録が必要です。"}
       end
     end
-  end
-
-  def guest_sign_in
-    user = User.guest
-    sign_in user
-    redirect_to user_path(1000), notice: 'ゲストユーザーとしてログインしました！'
   end
 
   def configure_sign_in_params

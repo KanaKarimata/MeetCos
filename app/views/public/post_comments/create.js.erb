@@ -1,0 +1,4 @@
+console.log('hoge')
+$("#comment-textarea-<%=@comment.post_id%>").val("")
+$("#post-comments-counter-<%=@comment.post_id%>").text("<%= @comment.post.post_comments.count %>")
+$("#post-comments-index-<%=@comment.post_id%>").html("<%= j(render partial: 'public/post_comments/index', collection: @comment.post.post_comments, as: "comment") %>")
