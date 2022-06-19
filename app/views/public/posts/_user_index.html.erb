@@ -17,7 +17,7 @@
               <div class="modal-body">
                 <div class="conatainer">
                   <div class="row">
-                    <div class="col-md-10">
+                    <div class="col">
                       <div class="previews">
                         <div class="slider">
                           <% if post_show.post_images.attached? %>
@@ -40,10 +40,10 @@
                       <!--コメント-->
                       <div>
                         <p>
-                          コメント件数：<span id="post-comments-counter"><%= post_show.post_comments.count %></span>
+                          コメント件数：<span id="post-comments-counter<%=post_show.id%>"><%= post_show.post_comments.count %></span>
                         </p>
-                        <div id="post-comments-index">
-                          <%= render partial: 'public/post_comments/index', collection: comments, as: "comment" %>
+                        <div id="post-comments-index-<%=post_show.id%>">
+                          <%= render partial: 'public/post_comments/index', collection: post_show.post_comments, as: "comment" %>
                         </div>
                         <%= render 'public/post_comments/form', post: post_show, comment_new: comment_new %>
                       </div>
@@ -51,10 +51,9 @@
                   </div>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
+              <!--<div class="modal-footer">-->
+              <!--  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+              <!--</div>-->
             </div>
           </div>
         </div>
