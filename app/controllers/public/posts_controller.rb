@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
-  before_action :set_search
+  before_action :set_q, only: [:index, :search]
 
   def new
     @post = Post.new
@@ -16,10 +16,9 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.all
     @user = current_user
-    @q = Post.ransack(params[:q])
-    @result_posts = @q.result(distinct: true)
+    # @q = Post.ransack(params[:q])
+    # @result_posts = @q.result(distinct: true)
     @comment_new = PostComment.new
-    # @comments = @post.post_comments.order(created_at: :desc)
   end
 
   def show
@@ -43,6 +42,12 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_path(current_user)
+  end
+
+  def search
+    @results = @q.result
+    @user = current_user
+    @comment_new = PostComment.new
   end
 
   def hashtag
@@ -69,9 +74,8 @@ class Public::PostsController < ApplicationController
     redirect_to(books_path) unless @user == current_user
   end
 
-  def set_search
+  def set_q
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
   end
 
 end

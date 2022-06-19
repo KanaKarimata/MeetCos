@@ -48,6 +48,7 @@
                         <div id="post-comments-index-<%=post.id%>">
                           <%= render partial: 'public/post_comments/index', collection: post.post_comments, as: "comment" %>
                         </div>
+
                         <%= render 'public/post_comments/form', post: post, comment_new: comment_new %>
                       </div>
                     </div>
