@@ -191,7 +191,9 @@ box-shadow:  28px 28px 39px #afafaf;
 
 .user_post_item,
 .post_all_item,
-.fav_index {
+.fav_index,
+.admin_posts,
+.admin_post_show {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -294,4 +296,17 @@ box-shadow:  28px 28px 39px #afafaf;
 
 .friends_message {
   color: #a9a9a9;
+}
+
+/*管理者投稿詳細ページ*/
+.admin_delete {
+  border: solid 1px #000;
+  color: #c71585;
+  font-weight: lighter;
+}
+
+.admin_delete:hover {
+  background-color: #c71585;
+  color: #fff;
+  border: none;
 }
