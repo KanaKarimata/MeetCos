@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <%= @user.name %>
+      <%= @user.userid %>
+      <%= @user.is_deleted %>
+      <%= link_to "Delet User", admin_user_path, method: :delete, "data-confirm" => "本当に退会させますか？", class: "btn admin_delete" %>
+    </div>
+    <div class="col-md-10">
+      <% @posts.each do |post| %>
+        <%= link_to admin_post_path(post) do %>
+          <%= image_tag post.post_images[0].variant(resize_limit: [200,200])%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!--要レイアウト修正-->

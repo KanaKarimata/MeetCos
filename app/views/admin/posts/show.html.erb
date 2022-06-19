@@ -1,2 +1,19 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 admin_post_show">
+      <div class="row">
+        <% @post.post_images.each do |post_image| %>
+        <div class="col-md-6">
+          <%= image_tag post_image.variant(resize_to_limit: [150,150]) %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <%= @post.caption %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to "Delete", admin_post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn admin_delete" %>
+    </div>
+  </div>
+</div>
