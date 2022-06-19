@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <% @users.each do |user| %>
+              <tr>
+                <%= link_to admin_user_path(user) do %>
+                  <td><%= user.id %></td>
+                <% end %>
+                <td><%= image_tag user.get_profile_image(30,30) %></td>
+                <td><%= user.name %></td>
+                <td><%= user.userid %></td>
+                <td><%= user.is_deleted %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+  </div>
+</div>
