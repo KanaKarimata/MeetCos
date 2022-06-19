@@ -10,14 +10,18 @@
       <span class="user_id">User ID: <%= user.userid %></span>
     </div>
   </div>
-  <div class="row text-center">
-    <div class="col">
-    <%= link_to user_friends_path(user), class: "btn user_nav_list_item" do %>
-      <i class="fa-solid fa-user-group"></i>
-      <span>Friends</span>
-    <% end %>
+  <!--Friendsボタンはcurrent_userのみに表示する-->
+  <% if user == current_user %>
+    <div class="row text-center">
+      <div class="col">
+      <%= link_to user_friends_path(user), class: "btn user_nav_list_item" do %>
+        <i class="fa-solid fa-user-group"></i>
+        <span>Friends</span>
+      <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
+
   <div class="row text-center">
     <div class="col">
     <%= link_to favs_user_path(user), class: "btn user_nav_list_item" do %>
@@ -26,6 +30,7 @@
     <% end %>
     </div>
   </div>
+
   <div class="row text-center">
     <div class="col">
       <% if current_user!= user %>

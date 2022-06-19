@@ -20,5 +20,6 @@ class Public::RelationshipsController < ApplicationController
     @user = User.find(params[:user_id])
     @followings = @user.followings
     @followers = @user.followers
+    @rooms = Room.where(host_id: current_user.id).or(Room.where(guest_id: current_user.id))
   end
 end

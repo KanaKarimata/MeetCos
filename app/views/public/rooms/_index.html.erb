@@ -1,0 +1,39 @@
+<div class="container">
+<% rooms.each do |room| %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to room_path(room) do %>
+       <div class="container">
+          <div class="row pb-3 pt-3 friends_chat">
+            <% if room.host_id == current_user.id %>
+              <div class="col-md-3 text-center">
+                <%= image_tag User.find(room.guest_id).get_profile_image(50,50), class: "friends_icon" %>
+              </div>
+              <div class="col-md-8">
+                <div class="row friends_name">
+                  <%= User.find(room.guest_id).name %>さん
+                </div>
+                <div class="row friends_message">
+                  <%= Message.find_by(id: room.message_ids.last).content %>
+                </div>
+              </div>
+            <% elsif room.guest_id == current_user.id %>
+              <div class="col-md-3">
+                <%= image_tag User.find(room.host_id).get_profile_image(50,50), class: "friends_icon" %>
+              </div>
+              <div class="col-md-8">
+                <div class="row friends_name">
+                  <%= User.find(room.host_id).name %>
+                </div>
+                <div class="row friends_message">
+                  <%= Message.find_by(id: room.message_ids.last).content %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+</div>

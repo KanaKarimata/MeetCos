@@ -278,3 +278,20 @@ box-shadow:  28px 28px 39px #afafaf;
   background-color: #000;
   color: #fff;
 }
+
+/*friendsページ*/
+.friends_chat:hover {
+  background-color: #f5f5f5;
+}
+
+.friends_icon {
+  border-radius: 50% 50%;
+}
+
+.friends_name {
+  color: #000;
+}
+
+.friends_message {
+  color: #a9a9a9;
+}
