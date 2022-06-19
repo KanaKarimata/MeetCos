@@ -1,6 +1,7 @@
 class Public::FavsController < ApplicationController
   def create
     post = Post.find(params[:post_id])
+    @current_user = current_user
     @user = post.user
     @fav = current_user.favs.new(post_id: post.id)
     if @fav.save

@@ -190,7 +190,8 @@ box-shadow:  28px 28px 39px #afafaf;
 }
 
 .user_post_item,
-.post_all_item {
+.post_all_item,
+.fav_index {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -260,4 +261,20 @@ box-shadow:  28px 28px 39px #afafaf;
 
 .user_icon {
   border-radius: 50%;
+}
+
+/*いいね一覧*/
+.back_to_user {
+  font-size: 2rem;
+  font-weight: lighter;
+  color: #000;
+  border: solid 1px #000;
+  border-radius: 50% 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.back_to_user:hover {
+  background-color: #000;
+  color: #fff;
 }

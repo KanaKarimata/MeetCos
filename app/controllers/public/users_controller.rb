@@ -45,6 +45,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     favs= Fav.where(user_id: @user.id).pluck(:post_id)
     @fav_posts = Post.find(favs)
+    @comment_new = PostComment.new
   end
 
   private
