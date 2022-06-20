@@ -10,9 +10,8 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post_new = Post.new
-    @posts = @user.posts
+    @posts = @user.posts.with_attached_post_images
     @comment_new = PostComment.new
-    # @comments = @post.post_comments.order(created_at: :desc)
     @user_edit = current_user
   end
 

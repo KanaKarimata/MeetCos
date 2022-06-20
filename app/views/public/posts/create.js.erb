@@ -1,4 +1,3 @@
-<!--$('#select').on('change', () => {-->
-<!--  const price = $('#select > option:selected').data('price');-->
-<!--  $('#total_price').text(price);-->
-<!--})-->
+
+
+$("#user-posts-index").html("<%= j(render partial: 'public/posts/user_index', collection: @posts, as: "post_show", locals: {comment_new: @comment_new}  ) %>")
