@@ -12,7 +12,11 @@
           <% end %>
         <% end %>
       </div>
-      <%= render 'index', posts: @posts, comment_new: @comment_new %>
+      <div class="container-fluid">
+        <div class="row">
+      <%= render partial: 'index', collection: @posts, as: "post", locals: {comment_new: @comment_new} %>
+       </div>
+      </div>
     </div>
   </div>
 </div>

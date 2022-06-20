@@ -1,6 +1,5 @@
-<div class="container">
-  <div class="row text-center">
-    <% posts.find_each do |post_show| %>
+
+    <%# posts.find_each do |post_show| %>
       <div class="col-md-3 user_post_item">
         <!--画像クリック→投稿詳細モーダル表示-->
         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post_show.id%>">
@@ -40,7 +39,7 @@
                       <!--コメント-->
                       <div>
                         <p>
-                          コメント件数：<span id="post-comments-counter<%=post_show.id%>"><%= post_show.post_comments.count %></span>
+                          コメント件数：<span id="post-comments-counter<%=post_show.id%>"><%= post_show.post_comments.size %></span>
                         </p>
                         <div id="post-comments-index-<%=post_show.id%>">
                           <%= render partial: 'public/post_comments/index', collection: post_show.post_comments, as: "comment" %>
@@ -58,10 +57,4 @@
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
-</div>
-
-<!--<script>-->
-<!--  $('.single-item').slick();-->
-<!--</script>-->
+    <%# end %>

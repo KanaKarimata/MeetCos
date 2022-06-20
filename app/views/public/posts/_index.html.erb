@@ -1,6 +1,5 @@
-<div class="container-fluid">
-  <div class="row">
-    <% posts.find_each do |post| %>
+
+    <%# posts.find_each do |post| %>
       <div class="col-md-3 text-center post_all_item">
       <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post.id%>">
             <%= image_tag post.post_images[0].variant(resize_to_limit: [200,200]) %>
@@ -43,7 +42,7 @@
                       <!--コメント-->
                       <div>
                         <p>
-                          コメント件数：<span id="post-comments-counter-<%=post.id%>"><%= post.post_comments.count %></span>
+                          コメント件数：<span id="post-comments-counter-<%=post.id%>"><%= post.post_comments.size %></span>
                         </p>
                         <div id="post-comments-index-<%=post.id%>">
                           <%= render partial: 'public/post_comments/index', collection: post.post_comments, as: "comment" %>
@@ -62,10 +61,5 @@
             </div>
           </div>
         </div>
-            <%#= post.caption %>
-          <%# end %>
-        <%# end %>
       </div>
-    <% end %>
-  </div>
-</div>
+    <%# end %>

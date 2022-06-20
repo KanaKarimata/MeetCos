@@ -31,7 +31,11 @@
           </div>
         </div>
       </div>
-      <%= render 'public/posts/user_index', posts: @posts, comment_new: @comment_new %>
+      <div class="container">
+        <div class="row text-center">
+          <%= render partial: 'public/posts/user_index', collection: @posts, as: "post_show", locals: {comment_new: @comment_new} %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

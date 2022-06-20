@@ -14,7 +14,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.with_attached_post_images
     @user = current_user
     # @q = Post.ransack(params[:q])
     # @result_posts = @q.result(distinct: true)
