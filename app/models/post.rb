@@ -12,11 +12,7 @@ class Post < ApplicationRecord
   validates :post_images, presence: true
   validates :caption, presence: true
 
-  # def get_post_image(width, height)
-  #   # unless post_images.attached?
-  #   #   file_path = Rails.root.join('app/assets/images/no-image-user.png')
-  #   #   post_images.attach(io: File.open(file_path), filename: 'no-image-user.png', content_type: 'image/jpeg')
-  #   # end
+  # def get_post_images(width, height)
   #   post_images.variant(resize_to_limit: [width, height]).processed
   # end
 
