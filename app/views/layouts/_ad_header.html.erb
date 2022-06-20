@@ -4,8 +4,8 @@
       <%= link_to "Meet Cos", root_path, class: "navbar-brand link-dark" %>
     </div>
     <ul class="nav justify-content-center ">
-      <li class="nav-item"><%= link_to "All Users", destroy_admin_session_path, method: :delete, class:"nav-link link-dark" %></li>
-      <li class="nav-item"><%= link_to "All Posts", destroy_admin_session_path, method: :delete, class:"nav-link link-dark" %></li>
+      <li class="nav-item"><%= link_to "All Users", admin_users_path, class:"nav-link link-dark" %></li>
+      <li class="nav-item"><%= link_to "All Posts", admin_posts_path, class:"nav-link link-dark" %></li>
       <li class="nav-item"><%= link_to "Log out", destroy_admin_session_path, method: :delete, class:"nav-link link-dark" %></li>
     </ul>
   </div>

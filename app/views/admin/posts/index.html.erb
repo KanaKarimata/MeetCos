@@ -1,6 +1,6 @@
 <div class="contaier">
   <div class="row admin_posts">
-      <% @posts.each do |post| %>
+      <% @posts.find_each do |post| %>
         <div class="col-md-3 text-center">
           <%= link_to admin_post_path(post) do %>
             <%= image_tag post.post_images[0].variant(resize_to_limit: [200,200]) %>

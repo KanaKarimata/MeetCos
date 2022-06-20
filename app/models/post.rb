@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favs, dependent: :destroy
-  has_many :notifications, dependent: :destroy
+  has_many :notifications
   has_many :hashtag_posts, dependent: :destroy
   has_many :hashtags, through: :hashtag_posts
 
