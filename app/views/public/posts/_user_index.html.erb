@@ -1,60 +1,62 @@
-
-    <%# posts.find_each do |post_show| %>
-      <div class="col-md-3 user_post_item">
-        <!--画像クリック→投稿詳細モーダル表示-->
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post_show.id%>">
-            <%= image_tag post_show.post_images[0].variant(resize_to_limit: [240,240]) %>
-        </button>
-        <!-- 投稿詳細モーダル -->
-        <div class="modal fade" id="staticBackdrop<%= post_show.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel<%= post_show.id%>" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel<%= post_show.id%>">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="conatainer">
-                  <div class="row">
-                    <div class="col">
-                      <div class="previews">
-                        <div class="slider">
-                          <% if post_show.post_images.attached? %>
-                            <% post_show.post_images.find_each do |post_image| %>
-                              <%= image_tag post_image.variant(resize_to_limit: [100,100]) %>
-                          <% end %>
-                        </div>
-                      </div>
-                      <% end %>
-                      <%= post_show.caption %>
-                      <% if post_show.user_id == current_user.id %>
-                        <%= link_to "Edit", edit_post_path(post_show) %>
-                      <% end %>
-
-                      <!--いいねボタン-->
-                      <div id=<%="fav_button-" + post_show.id.to_s %> >
-                        <%= render 'public/favs/fav_btn', post: post_show %>
-                      </div>
-
-                      <!--コメント-->
-                      <div>
-                        <p>
-                          コメント件数：<span id="post-comments-counter<%=post_show.id%>"><%= post_show.post_comments.size %></span>
-                        </p>
-                        <div id="post-comments-index-<%=post_show.id%>">
-                          <%= render partial: 'public/post_comments/index', collection: post_show.post_comments, as: "comment" %>
-                        </div>
-                        <%= render 'public/post_comments/form', post: post_show, comment_new: comment_new %>
-                      </div>
-                    </div>
+<div class="col-md-3 user_post_item">
+  <!--画像クリック→投稿詳細モーダル表示-->
+  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post_show.id%>">
+      <%= image_tag post_show.post_images[0].variant(resize_to_limit: [240,240]) %>
+  </button>
+  <!-- 投稿詳細モーダル -->
+  <div class="modal fade" id="staticBackdrop<%= post_show.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel<%= post_show.id%>" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable user_posts_show_modal">
+    <div class="modal-content ">
+      <div class="modal-header">
+          <div class="modal-title" id="staticBackdropLabel<%= post_show.id%>">
+            <%= image_tag post_show.user.get_profile_image(40, 40), class: "post_show_user_icon" %>
+            <span class="post_show_user_name"><%= post_show.user.name %></span>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="conatainer">
+            <div class="row">
+              <div class="col">
+                <div class="previews">
+                  <div class="slider">
+                    <% if post_show.post_images.attached? %>
+                      <% post_show.post_images.find_each do |post_image| %>
+                        <%= image_tag post_image.variant(resize: "300x200>" ).processed %>
+                    <% end %>
                   </div>
                 </div>
               </div>
-              <!--<div class="modal-footer">-->
-              <!--  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-              <!--</div>-->
+              <div class="col">
+                <% end %>
+                <%= post_show.caption %>
+                <% if post_show.user_id == current_user.id %>
+                  <%= link_to "Edit", edit_post_path(post_show) %>
+                <% end %>
+
+                <!--いいねボタン-->
+                <div id=<%="fav_button-" + post_show.id.to_s %> >
+                  <%= render 'public/favs/fav_btn', post: post_show %>
+                </div>
+
+                <!--コメント-->
+                <div>
+                  <p>
+                    コメント件数：<span id="post-comments-counter<%=post_show.id%>"><%= post_show.post_comments.size %></span>
+                  </p>
+                  <div id="post-comments-index-<%=post_show.id%>">
+                    <%= render partial: 'public/post_comments/index', collection: post_show.post_comments, as: "comment" %>
+                  </div>
+                  <footer>
+                  <%= render 'public/post_comments/form', post: post_show, comment_new: comment_new %>
+                  </footer>
+                </div>
+              </div>
+              <div class="modal-footer"></div>
             </div>
           </div>
         </div>
       </div>
-    <%# end %>
+    </div>
+  </div>
+</div>

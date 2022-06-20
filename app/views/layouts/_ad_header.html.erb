@@ -1,2 +1,12 @@
-<h1>admin header</h1>
-<li class="nav-item"><%= link_to "Log out", destroy_admin_session_path, method: :delete, class:"nav-link link-dark" %></li>
+<div class="container-fluid">
+  <div class="navbar">
+    <div class="navbar-brand">
+      <%= link_to "Meet Cos", root_path, class: "navbar-brand link-dark" %>
+    </div>
+    <ul class="nav justify-content-center ">
+      <li class="nav-item"><%= link_to "All Users", destroy_admin_session_path, method: :delete, class:"nav-link link-dark" %></li>
+      <li class="nav-item"><%= link_to "All Posts", destroy_admin_session_path, method: :delete, class:"nav-link link-dark" %></li>
+      <li class="nav-item"><%= link_to "Log out", destroy_admin_session_path, method: :delete, class:"nav-link link-dark" %></li>
+    </ul>
+  </div>
+</div>
