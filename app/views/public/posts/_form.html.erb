@@ -3,7 +3,7 @@
     <div class="col">
       <%= form_with model: post do |f| %>
         <%= f.label :"Photos", class:"form_label" %><br>
-        <%= f.file_field :post_images, multiple: true, onchange: "loadImage(this);", class: 'form-control' %><br>
+        <%= f.file_field :post_images, multiple: true, class: 'form-control' %><br>
         <div class="post_images" style="display: none;">
           <p id="preview"></p>
         </div>

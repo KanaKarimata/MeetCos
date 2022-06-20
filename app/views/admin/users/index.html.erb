@@ -3,7 +3,7 @@
 
       <table class="table table-bordered table-hover">
         <tbody>
-          <% @users.each do |user| %>
+          <% @users.find_each do |user| %>
               <tr>
                 <td><%= user.id %></td>
                 <td><%= image_tag user.get_profile_image(30,30) %></td>
