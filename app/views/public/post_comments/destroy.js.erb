@@ -1,2 +1,2 @@
-$('.book-comments-counter').html("<%= j(render 'book_comments/counter', book: @comment.book) %>")
-$('.book-comments-index').html("<%= j(render 'book_comments/index', book: @comment.book) %>")
+$("#post-comments-counter-<%=@comment.post_id%>").text("<%= @comment.post.post_comments.count %>")
+$("#post-comments-index-<%=@comment.post_id%>").html("<%= j(render partial: 'public/post_comments/index', collection: @comment.post.post_comments, as: "comment") %>")

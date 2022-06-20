@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row text-center">
-    <% posts.each do |post_show| %>
+    <% posts.find_each do |post_show| %>
       <div class="col-md-3 user_post_item">
         <!--画像クリック→投稿詳細モーダル表示-->
         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post_show.id%>">
@@ -21,7 +21,7 @@
                       <div class="previews">
                         <div class="slider">
                           <% if post_show.post_images.attached? %>
-                            <% post_show.post_images.each do |post_image| %>
+                            <% post_show.post_images.find_each do |post_image| %>
                               <%= image_tag post_image.variant(resize_to_limit: [100,100]) %>
                           <% end %>
                         </div>
