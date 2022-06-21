@@ -77,4 +77,4 @@ class Public::PostsController < ApplicationController
   end
 
 end
-# テストデプロイチャレンジ
+# テストデプロイチャレンジ2
