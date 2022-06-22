@@ -9,8 +9,11 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to user_path(current_user)
+    hashtag_list = params[:post][:hashtag_name].split(',')
+    if @post.save
+      @book.save_hashtags(tag_list)
+      redirect_to user_path(current_user)
+    end
   end
 
   def index
