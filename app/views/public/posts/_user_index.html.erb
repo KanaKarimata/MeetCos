@@ -50,7 +50,7 @@
               </div>
               <!--コメント数-->
               <div class="col-md-1">
-                <i class="fa-solid fa-comment">&nbsp;</i><span id="post-comments-counter-<%=post_show.id%>"><%= post_show.post_comments.size %></span>
+                <i class="fas fa-comment"></i>&nbsp;<span id="post-comments-counter-<%=post_show.id%>"><%= post_show.post_comments.size %></span>
               </div>
               <div class="col-md-4">
                 <%= render 'public/post_comments/form', post: post_show, comment_new: comment_new %>
