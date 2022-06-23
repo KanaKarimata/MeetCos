@@ -12,7 +12,6 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application.scss"
 import '@fortawesome/fontawesome-free/js/all'
-import '../stylesheets/mystyle.css.scss'
 // import '../stylesheets/slick-theme.scss'
 // import '../stylesheets/slick.scss'
 
