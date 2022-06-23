@@ -1,4 +1,4 @@
-<div class="col-md-3 mb-2 user_post_item text-center">
+<div class="col-md-3 mb-2 user_post_item ">
   <!--画像クリック→投稿詳細モーダル表示-->
   <button type="button" class="btn posts_index_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post_show.id%>">
       <%= image_tag post_show.post_images[0].variant(resize: "240x240>").processed, class: "user_posts_index" %>
@@ -8,32 +8,43 @@
   <div class="modal-dialog modal-dialog-scrollable user_posts_show_modal">
     <div class="modal-content ">
       <div class="modal-header">
-          <div class="modal-title" id="staticBackdropLabel<%= post_show.id%>">
-            <%= image_tag post_show.user.get_profile_image(40, 40), class: "post_show_user_icon" %>
-            <span class="ms-2 post_show_user_name"><%= post_show.user.name %></span>
-          </div>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-title" id="staticBackdropLabel<%= post_show.id%>">
+          <%= image_tag post_show.user.get_profile_image(40, 40), class: "post_show_user_icon" %>
+          <span class="ms-2 post_show_user_name"><%= post_show.user.name %></span>
         </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
         <div class="modal-body">
           <div class="conatainer">
             <div class="row">
-              <div class="col">
-                <div class="slicker-<%= post_show.id %>">
+              <div class="col-md-8">
+                <div>
                   <% if post_show.post_images.attached? %>
+                    <span class="post_images_count"><i class="fas fa-images"></i>&nbsp;<%= post_show.post_images.size %></span>
                     <% post_show.post_images.find_each do |post_image| %>
-                      <%= image_tag post_image.variant(resize: "300x200>" ).processed %>
+                      <%= image_tag post_image, class: "post_image_show" %>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
-              <div class="col">
-                <% end %>
+              <div class="col-md-4">
+                <div clas="row">
                 <%= post_show.caption %>
                 <% if post_show.user_id == current_user.id %>
                   <%= link_to "Edit", edit_post_path(post_show) %>
                 <% end %>
-               <!--コメント一覧-->
+                </div>
+                <!--コメント数-->
+                <div class="row mb-2">
+                  <div class="col-md-3 d-flex flex-row ">
+                    <i class="fas fa-comment mt-1 comment_icon"></i>&nbsp;<span class="comment_count mt-1" id="post-comments-counter-<%=post_show.id%>"><%= post_show.post_comments.size %></span>
+                  </div>
+                </div>
+                <div class="row ps-3">
+                <!--コメント一覧-->
                 <div id="post-comments-index-<%=post_show.id%>">
                   <%= render partial: 'public/post_comments/index', collection: post_show.post_comments, as: "comment" %>
+                </div>
                 </div>
               </div>
             </div>
@@ -42,17 +53,17 @@
         <div class="modal-footer">
           <div class="container">
             <div class="row d-flex justify-content-end">
-              <div class="col-md-1">
+              <div class="col-md-1 d-flex justify-content-end">
                 <!--いいねボタン-->
                 <div id=<%="fav_button-" + post_show.id.to_s %> >
                   <%= render 'public/favs/fav_btn', post: post_show %>
                 </div>
               </div>
-              <!--コメント数-->
-              <div class="col-md-1">
-                <i class="fas fa-comment"></i>&nbsp;<span id="post-comments-counter-<%=post_show.id%>"><%= post_show.post_comments.size %></span>
-              </div>
-              <div class="col-md-4">
+
+
+
+
+              <div class="col-md-4 d-flex justify-content-end">
                 <%= render 'public/post_comments/form', post: post_show, comment_new: comment_new %>
               </div>
             </div>
@@ -62,6 +73,7 @@
     </div>
   </div>
 </div>
+
 
 <!--テストデプロイ-->
 <!--slickスライドショー-->

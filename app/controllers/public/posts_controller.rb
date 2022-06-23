@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
-  before_action :set_q, only: [:index, :search]
+  # before_action :set_q, only: [:index, :search]
 
   def new
     @post = Post.new
@@ -9,9 +9,11 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    hashtag_list = params[:post][:hashtag_name].split(',')
+    # hashtag_list = params[:post][:hashtag_name].split(',')
+    pp "きた？"
     if @post.save
-      @book.save_hashtags(tag_list)
+      # Hashtag.create_if_nothing(hashname)
+      @post.save_hashtags(hashtag_list)
       redirect_to user_path(current_user)
     end
   end
@@ -45,23 +47,23 @@ class Public::PostsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def search
-    @results = @q.result
-    @user = current_user
-    @comment_new = PostComment.new
-  end
+  # def search
+  #   @results = @q.result
+  #   @user = current_user
+  #   @comment_new = PostComment.new
+  # end
 
-  def hashtag
-    if params[:name].nil?
-      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
-    else
-      name = params[:name]
-      name = name.downcase
-      @hashtag = Hashtag.find_by(hash: name)
-      @post = @hashtag.posts
-      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
-    end
-  end
+  # def hashtag
+  #   if params[:name].nil?
+  #     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
+  #   else
+  #     name = params[:name]
+  #     name = name.downcase
+  #     @hashtag = Hashtag.find_by(hash: name)
+  #     @post = @hashtag.posts
+  #     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
+  #   end
+  # end
 
   private
 
@@ -75,9 +77,9 @@ class Public::PostsController < ApplicationController
     redirect_to(books_path) unless @user == current_user
   end
 
-  def set_q
-    @q = Post.ransack(params[:q])
-  end
+  # def set_q
+  #   @q = Post.ransack(params[:q])
+  # end
 
 end
 # テストデプロイチャレンジ2

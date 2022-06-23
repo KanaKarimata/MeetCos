@@ -5,12 +5,11 @@
     </div>
     <div class="col-md-10">
       <div class="row text-center mb-5">
-        <%= search_form_for @q, url: search_posts_path do |f| %>
-          <%= f.search_field :caption_cont, placeholder: "Search...", class:'input-box search_form' %>
-          <%= f.button type: "submit", class:"btn" do %>
-            <i class="fa-solid fa-magnifying-glass search_btn_icon"></i>
-          <% end %>
-        <% end %>
+        <%#= search_form_for @q, url: search_posts_path do |f| %>
+          <%#= f.search_field :caption_cont, placeholder: "Search...", class:'input-box search_form' %>
+        <%= render 'public/searches/post_search_form' %>
+        <%= render 'public/searches/hashtag_search_form' %>
+        <%#end %>
       </div>
       <div class="container-fluid">
         <div class="row">
