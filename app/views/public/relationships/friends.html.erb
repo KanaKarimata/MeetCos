@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col text-center mb-5">
-      <%= search_form_for @q, url: search_user_relationships_path do |f| %>
-        <%= f.search_field :name_cont, placeholder: "Search Friends...", class:'input-box search_form' %>
-        <%= f.button type: "submit", class:"btn" do %>
-          <i class="fas fa-search search_btn_icon"></i>
-        <% end %>
-      <% end %>
+      <%#= search_form_for @q, url: search_user_relationships_path do |f| %>
+        <%#= f.search_field :name_cont, placeholder: "Search Friends...", class:'input-box search_form' %>
+        <%#= f.button type: "submit", class:"btn" do %>
+          <!--<i class="fas fa-search search_btn_icon"></i>-->
+        <%# end %>
+      <%# end %>
+      <%= render 'public/searches/user_search_form' %>
     </div>
   </div>
   <div class="row">

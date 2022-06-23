@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
-  before_action :set_q, only: [:friends, :search]
+  # before_action :set_q, only: [:friends, :search]
   # before_action :ensure_guest_user, only: [:edit]
 
   # def index

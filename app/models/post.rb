@@ -40,4 +40,29 @@ class Post < ApplicationRecord
     end
   end
 
+  # 検索機能
+  def self.search_for(content, method)
+    Post.where('caption LIKE ?', '%' + content + '%')
+  end
+
+  # タグ機能
+  def save_hashtags(savepost_hashtags)
+    # 現在のユーザーが持っているタグ
+    current_hashtags = self.hashtags.pluck(:name) unless self.hastags.nil?
+    # 今のpostが持っているタグ、今回保存されるタグではないタグを古いタグとする
+    old_hashtags = current_hashtags - save_hashtags
+    # 新しいタグ
+    new_hastags = savepost_hashtags - current_hashtags
+
+    # 古いタグを消す
+    old_hashtags.each do |old_name|
+      self.hashtags.delete Hashtag.find_by(name:old_hashtags)
+    end
+
+    # 新しいタグを作成
+    new_hastags.each do |new_name|
+      post_hashtag = Hashtag.find_or_create_by(name:new_name)
+      self.hashtags << post_hashtag
+    end
+  end
 end

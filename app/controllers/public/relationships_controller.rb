@@ -1,5 +1,5 @@
 class Public::RelationshipsController < ApplicationController
-  before_action :set_q, only: [:friends, :search]
+  # before_action :set_q, only: [:friends, :search]
 
   # フォローするとき
   def create
@@ -25,14 +25,14 @@ class Public::RelationshipsController < ApplicationController
     @rooms = Room.where(host_id: current_user.id).or(Room.where(guest_id: current_user.id))
   end
 
-  def search
-    @results = @q.result
-  end
+  # def search
+  #   @results = @q.result
+  # end
 
   private
 
-  def set_q
-    @q = User.ransack(params[:id])
-  end
+  # def set_q
+  #   @q = User.ransack(params[:id])
+  # end
 
 end
