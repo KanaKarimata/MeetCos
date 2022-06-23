@@ -272,6 +272,25 @@ box-shadow:  28px 28px 39px #afafaf;
   font-weight: bold;
 }
 
+.post_image_show {
+  width: 100%;
+  max-width: 624px;
+}
+
+.post_images_count {
+  color: #a9a9a9;
+}
+
+.modal-footer {
+  padding-bottom: 0 !important;
+}
+
+.comment_icon {
+  font-size: 1.5rem;
+  color: rgb(131,58,180);
+}
+
+
 /*コメント一覧*/
 .comment_user_name {
   font-size: 16px;
@@ -285,6 +304,8 @@ box-shadow:  28px 28px 39px #afafaf;
 .comment_delete_btn {
   font-size: 12px;
 }
+
+
 
 /*投稿一覧ページ*/
 .search_form {
