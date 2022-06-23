@@ -58,7 +58,7 @@ a {
 
 /*トップページ*/
 .top-visual {
-  background-image: image-url('/assets/images/main-visual.jpeg');
+  background-image: image-url('/assets/images/main-visual.jpg');
   background-size: cover;
   height: 650px;
   position: relative;
@@ -128,7 +128,7 @@ a {
 
 /*sign in/sign up ページ*/
 .sign_in {
-  background-image: image-url('/assets/images/skincare.jpeg');
+  background-image: image-url('/assets/images/skincare.jpg');
   background-size: cover;
   height: 600px;
   background-position: center;
@@ -154,7 +154,7 @@ a {
 }
 
 .sign_up {
-  background-image: image-url('/assets/images/man_makeup.jpeg');
+  background-image: image-url('/assets/images/man_makeup.jpg');
   background-size: cover;
   height: 600px;
 }
