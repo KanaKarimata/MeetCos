@@ -1,6 +1,20 @@
-<%= image_tag comment.user.get_profile_image(100,100) %>
-<%= comment.user.name %>
-<%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-<% if comment.user == current_user %>
-  <%= link_to "Delete this Comment", post_post_comment_path(comment.post, comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？"%>
-<% end %>
+<div class="col">
+  <div class="row mb-1">
+    <div class="col-md-2">
+      <%= image_tag comment.user.get_profile_image(35,35), class: "comment_user_icon" %>
+    </div>
+    <div class="col-md-6 text-left">
+      <strong class="comment_user_name"><%= comment.user.name %></strong>
+      <span class="comment ms-1 me-4"><%= comment.comment %></span>
+      <div class="row">
+        <div class="col">
+          <span class="comment_date me-2"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+          <% if comment.user == current_user %>
+            <%= link_to "Delete", post_post_comment_path(comment.post, comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？", class: "comment_delete_btn"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

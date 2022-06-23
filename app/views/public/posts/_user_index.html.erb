@@ -1,4 +1,4 @@
-<div class="col-md-3 mb-2 user_post_item text-center">
+<div class="col-md-3 mb-2 user_post_item ">
   <!--画像クリック→投稿詳細モーダル表示-->
   <button type="button" class="btn posts_index_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post_show.id%>">
       <%= image_tag post_show.post_images[0].variant(resize: "240x240>").processed, class: "user_posts_index" %>
@@ -17,7 +17,7 @@
         <div class="modal-body">
           <div class="conatainer">
             <div class="row">
-              <div class="col">
+              <div class="col-md-8">
                 <div class="slicker-<%= post_show.id %>">
                   <% if post_show.post_images.attached? %>
                     <% post_show.post_images.find_each do |post_image| %>
@@ -25,7 +25,7 @@
                   <% end %>
                 </div>
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 <% end %>
                 <%= post_show.caption %>
                 <% if post_show.user_id == current_user.id %>

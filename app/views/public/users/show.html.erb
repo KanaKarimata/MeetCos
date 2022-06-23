@@ -7,33 +7,31 @@
       <%= render 'public/users/user_info', user: @user %>
     </div>
     <div class="col-md-10">
-
       <!-- 新規投稿ボタン -->
-      <div class="row text-center">
-        <div class="col">
+      <div class="row">
+        <div class="col text-center">
           <button type="button" class="btn post-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fas fa-plus"></i>
           </button>
         </div>
-      </dov>
-
-      <!-- 新規投稿モーダル -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog new_post_modal">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <%= render 'public/posts/form', post: @post_new %>
+        <!-- 新規投稿モーダル -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog new_post_modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= render 'public/posts/form', post: @post_new %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="container">
-        <div id="user-posts-index-<%= @user.id %>" class="row text-center">
-          <%= render partial: 'public/posts/user_index', collection: @posts, as: "post_show", locals: {comment_new: @comment_new} %>
+        <div class="container">
+          <div id="user-posts-index-<%= @user.id %>" class="row">
+            <%= render partial: 'public/posts/user_index', collection: @posts, as: "post_show", locals: {comment_new: @comment_new} %>
+          </div>
         </div>
       </div>
     </div>
