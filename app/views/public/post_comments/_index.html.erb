@@ -1,10 +1,14 @@
-<div class="col">
-  <div class="row mb-1">
+<div class="col mb-3">
+  <div class="row">
     <div class="col-md-2">
-      <%= image_tag comment.user.get_profile_image(35,35), class: "comment_user_icon" %>
+      <%= link_to user_path(comment.user) do %>
+        <%= image_tag comment.user.get_profile_image(35,35), class: "comment_user_icon" %>
+      <% end %>
     </div>
     <div class="col-md-6 text-left">
-      <strong class="comment_user_name"><%= comment.user.name %></strong>
+      <%= link_to user_path(comment.user) do %>
+        <strong class="comment_user_name"><%= comment.user.name %></strong>
+      <% end %>
       <span class="comment ms-1 me-4"><%= comment.comment %></span>
       <div class="row">
         <div class="col">

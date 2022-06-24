@@ -1,9 +1,7 @@
 <div class="col-md-3 post_all_item">
   <!--画像クリック→投稿詳細モーダル表示-->
   <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post.id%>">
-    <%= link_to user_path(post.user) do %>
       <%= image_tag post.post_images[0].variant(resize_to_limit: [200,200]) %>
-    <% end %>
   </button>
   <!-- 投稿詳細モーダル -->
   <div class="modal fade" id="staticBackdrop<%= post.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel<%= post.id%>" aria-hidden="true">
@@ -45,20 +43,22 @@
                   <div class="col-md-2">
                     <%= link_to user_path(post.user) do %>
                       <%= image_tag post.user.get_profile_image(35,35), class: "post_show_user_icon" %>
+                    <% end %>
                   </div>
-                  <div class="col-md-6">
-                    <strong><%= post.user.name %></strong>
+                  <div class="col-md-6 mb-4">
+                    <%= link_to user_path(post.user) do %>
+                      <span class="posts_to_user_show"><%= post.user.name %></span>
                     <% end %>
                     <span><%= post.caption %></span>
                   </div>
                 </div>
                 <!--コメント数-->
-                <div class="row mb-2">
-                  <div class="col-md-3 d-flex flex-row">
-                    <i class="fas fa-comment mt-1 comment_icon"></i>&nbsp;<span id="post-comments-counter-<%=post.id%>"><%= post.post_comments.size %></span>
+                <div class="row mb-3">
+                  <div class="col-md-6 d-flex flex-row post_comments_count">
+                    <span id="post-comments-counter-<%=post.id%>">コメント<%= post.post_comments.size %>件</span>
                   </div>
                 </div>
-                <div class="row ps-3">
+                <div class="row">
                   <!--コメント一覧-->
                   <div id="post-comments-index-<%=post.id%>">
                     <%= render partial: 'public/post_comments/index', collection: post.post_comments, as: "comment" %>
@@ -70,7 +70,7 @@
         </div>
         <div class="modal-footer">
           <!--いいねボタン-->
-          <div id=<%="fav_button-" + post.id.to_s %> >
+          <div class="me-4" id=<%="fav_button-" + post.id.to_s %> >
             <%= render 'public/favs/fav_btn', post: post %>
           </div>
           <%= render 'public/post_comments/form', post: post, comment_new: comment_new %>

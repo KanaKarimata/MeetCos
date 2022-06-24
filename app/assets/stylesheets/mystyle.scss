@@ -268,8 +268,11 @@ box-shadow:  28px 28px 39px #afafaf;
   border-radius: 50%;
 }
 
-.post_show_user_name {
+.post_show_user_name,
+.posts_to_user_show,
+.comment_user_name {
   font-weight: bold;
+  color: #000000;
 }
 
 .post_image_show {
@@ -285,11 +288,10 @@ box-shadow:  28px 28px 39px #afafaf;
   padding-bottom: 0 !important;
 }
 
-.comment_icon {
-  font-size: 1.5rem;
-  color: rgb(131,58,180);
+.post_comments_count {
+  color: #a9a9a9;
+  font-size: 12px;
 }
-
 
 /*コメント一覧*/
 .comment_user_name {
@@ -305,7 +307,20 @@ box-shadow:  28px 28px 39px #afafaf;
   font-size: 12px;
 }
 
+// コメント送信フォーム
+.comment_form {
+  border: none;
+  background: #c0c0c0;
+  border-radius: 30px 30px;
+}
 
+.comment_send_btn {
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #008080;
+  background-color: #ffffff;
+}
 
 /*投稿一覧ページ*/
 .search_form {
@@ -355,6 +370,17 @@ box-shadow:  28px 28px 39px #afafaf;
 .back_to_user:hover {
   background-color: #000;
   color: #fff;
+}
+
+// いいねボタン
+.fav_btn {
+  font-size: 2rem;
+  color: #ff1493;
+}
+
+.favs_count {
+  font-size: 1rem;
+  color: #ff1493;
 }
 
 /*friendsページ*/
