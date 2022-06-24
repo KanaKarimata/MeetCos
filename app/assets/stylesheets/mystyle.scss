@@ -411,6 +411,53 @@ box-shadow:  28px 28px 39px #afafaf;
   font-family: "Times New Roman";
 }
 
+// チャットルーム
+ul {
+  list-style: none;
+}
+
+.dm_form {
+  height: 40px;
+  border-radius: 30px;
+  border: 1px solid #dcdcdc;
+}
+
+.send_dm {
+  position: fixed;
+  bottom: 15%;
+  width: 50%;
+}
+
+.chat_room {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 480px;
+}
+
+.message_from_me {
+  text-align: right;
+  margin: 24px;
+}
+
+.message_from_you {
+  text-align: left;
+  margin: 24px;
+}
+
+.message_from_me_bubble {
+  border-radius: 30px 30px;
+  background-color: #25b7c0;
+  padding: 10px 12px 10px 12px;
+}
+
+.message_from_you_bubble {
+  border-radius: 30px 30px;
+  background-color: #d9e367;
+  padding: 10px 12px 10px 12px;
+}
+
+.chat_user_name
+
 /*管理者投稿詳細ページ*/
 .admin_delete {
   border: solid 1px #000;
