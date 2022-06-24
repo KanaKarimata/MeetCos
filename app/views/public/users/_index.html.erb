@@ -1,6 +1,12 @@
-<% users.each do |user| %>
-  <%= link_to user_path(user.id) do %>
-    <%= image_tag user.get_profile_image(30,30), class: "friends_icon" %>
-  <% end %>
-  <%= user.name %>
-<% end %>
+<div class="conatainer-fluid">
+  <div class="row">
+    <div class="col">
+      <%# users.find_each do |user| %>
+        <%= link_to user_path(user.id) do %>
+          <%= image_tag user.get_profile_image(30,30), class: "friends_icon" %>
+        <% end %>
+        <%= user.name %>
+      <%# end %>
+    </div>
+  </div>
+</div>

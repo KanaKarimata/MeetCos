@@ -51,7 +51,8 @@ a {
   font-weight: bold;
 }
 
-.nav-item:hover {
+.nav-item:hover,
+.nav-item:visited {
   border-bottom: solid 1px #000;
   background-color: #f8f8ff;
 }
@@ -137,7 +138,7 @@ a {
 .sign_in_form,
 .sign_up_form,
 .edit_form {
-  font-family:  "Times New Roman";
+  font-family: "Times New Roman";
 }
 
 .sign_in_input_form {
@@ -324,16 +325,17 @@ box-shadow:  28px 28px 39px #afafaf;
 
 /*投稿一覧ページ*/
 .search_form {
-  width: 30%;
-  height: 100%;
-  border-radius: 30px 30px;
-  background-color: #eeeaec;
+  width: 300px;
+  height: 40px;
+  border-radius: 20px 20px;
+  background-color: #dcdcdc;
   border: none;
 }
 
 .search_btn_icon {
   font-size: 1.5rem;
-  color: #ed0077;
+  font-weight: lighter;
+  color: #dcdcdc;
 }
 
 .user_icon {
@@ -398,6 +400,15 @@ box-shadow:  28px 28px 39px #afafaf;
 
 .friends_message {
   color: #a9a9a9;
+}
+
+// 通知一覧
+.notice_delete_btn {
+  color: #c71585;
+}
+
+.notice_title {
+  font-family: "Times New Roman";
 }
 
 /*管理者投稿詳細ページ*/

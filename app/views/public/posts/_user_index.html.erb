@@ -12,6 +12,12 @@
           <%= image_tag post_show.user.get_profile_image(40, 40), class: "post_show_user_icon" %>
           <span class="ms-2 post_show_user_name"><%= post_show.user.name %></span>
         </div>
+        <div class="edit_or_delete_btn col-md-10">
+          <% if post_show.user_id == current_user.id %>
+            <%= link_to "Edit", edit_post_path(post_show), class: "me-1 post_edit_btn" %>
+            <%= link_to "Delete", post_path(post_show), method: :delete, class: "ms-2 post_delete_btn" %>
+          <% end %>
+        </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         <div class="modal-body">
@@ -28,16 +34,19 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <div clas="row">
-                <%= post_show.caption %>
-                <% if post_show.user_id == current_user.id %>
-                  <%= link_to "Edit", edit_post_path(post_show) %>
-                <% end %>
+                <div clas="row mb-2">
+                  <div class="col-md-2">
+                    <%= image_tag post_show.user.get_profile_image(35,35), class: "post_show_user_icon" %>
+                  </div>
+                  <div class="col mb-4">
+                    <span class="posts_to_user_show"><%= post_show.user.name %></span>
+                    <%= post_show.caption %>
+                  </div>
                 </div>
                 <!--コメント数-->
                 <div class="row mb-2">
-                  <div class="col-md-3 d-flex flex-row ">
-                    <i class="fas fa-comment mt-1 comment_icon"></i>&nbsp;<span class="comment_count mt-1" id="post-comments-counter-<%=post_show.id%>"><%= post_show.post_comments.size %></span>
+                  <div class="col-md-6 d-flex flex-row post_comments_count">
+                    <span class="comment_count mt-1" id="post-comments-counter-<%=post_show.id%>">コメント<%= post_show.post_comments.size %>件</span>
                   </div>
                 </div>
                 <div class="row ps-3">
@@ -51,25 +60,13 @@
           </div>
         </div>
         <div class="modal-footer">
-          <div class="container">
-            <div class="row d-flex justify-content-end">
-              <div class="col-md-1 d-flex justify-content-end">
-                <!--いいねボタン-->
-                <div id=<%="fav_button-" + post_show.id.to_s %> >
-                  <%= render 'public/favs/fav_btn', post: post_show %>
-                </div>
-              </div>
-              <div class="col-md-4 d-flex justify-content-end">
-                <%= render 'public/post_comments/form', post: post_show, comment_new: comment_new %>
-              </div>
-            </div>
+          <!--いいねボタン-->
+          <div class="me-4" id=<%="fav_button-" + post_show.id.to_s %> >
+            <%= render 'public/favs/fav_btn', post: post_show %>
           </div>
+          <%= render 'public/post_comments/form', post: post_show, comment_new: comment_new %>
       　</div>
       </div>
     </div>
   </div>
 </div>
-
-
-<!--テストデプロイ-->
-<!--slickスライドショー-->

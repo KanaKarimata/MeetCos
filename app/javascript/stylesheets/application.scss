@@ -13,7 +13,8 @@
 
 // ユーザー詳細ページ詳細投稿モーダル
 .user_posts_show_modal,
-.posts_index_post_show_modal {
+.posts_index_post_show_modal,
+.favs_index_post_show_modal {
   width: 100%;
   max-width: 1000px;
   height: 100%;
@@ -32,4 +33,32 @@ a {
 .sign_in_input_form {
   height: 40px;
   width: 300px;
+}
+
+/*いいね一覧*/
+.back_to_user {
+  font-size: 2rem;
+  font-weight: lighter;
+  color: #000;
+  border: solid 1px #000;
+  border-radius: 50% 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.back_to_user:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+// 通知一覧
+.notice_delete_btn {
+  color: #c71585;
+  border-radius: 30px;
+  border: 1px solid #c71585;
+}
+
+.notice_delete_btn:hover {
+  background-color: #c71585;
+  color: #ffffff;
 }

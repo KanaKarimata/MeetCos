@@ -1,18 +1,30 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-10">
-      <h3 class="text-center">Notifications</h3>
-      <%= link_to "Delete all", notification_path(@notifications), method: :delete, class:"btn" %>
-      <% if @notifications.present? %>
-      <div class="users-index">
-        <% @notifications.each do |notification| %>
-          <%= render 'notification', notification: notification %>
-        <% end %>
-      </div>
-      <% else %>
-        <p>通知はありません</p>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-1">
+      <%= link_to user_path(current_user) do %>
+        <span class= "btn back_to_user">←</span>
       <% end %>
-      <%#= paginate post_images %>
+    </div>
+    <div class="col-md-8 ps-5">
+      <h3 class="text-center notice_title">Notifications</h3>
+      <div class="row mb-4 d-flex justify-content-end">
+        <div class="col-md-2">
+          <%= link_to "Delete all", notification_path(@notifications), method: :delete, class:"btn notice_delete_btn" %>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-8">
+          <% if @notifications.present? %>
+          <div class="notification-index">
+            <% @notifications.find_each do |notification| %>
+              <%= render 'notification', notification: notification %>
+            <% end %>
+          </div>
+          <% else %>
+            <p>通知はありません</p>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
