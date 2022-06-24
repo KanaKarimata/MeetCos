@@ -42,9 +42,9 @@
                 </div>
                 <div class="row ps-3">
                 <!--コメント一覧-->
-                <div id="post-comments-index-<%=post_show.id%>">
-                  <%= render partial: 'public/post_comments/index', collection: post_show.post_comments, as: "comment" %>
-                </div>
+                  <div id="post-comments-index-<%=post_show.id%>">
+                    <%= render partial: 'public/post_comments/index', collection: post_show.post_comments, as: "comment" %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -59,10 +59,6 @@
                   <%= render 'public/favs/fav_btn', post: post_show %>
                 </div>
               </div>
-
-
-
-
               <div class="col-md-4 d-flex justify-content-end">
                 <%= render 'public/post_comments/form', post: post_show, comment_new: comment_new %>
               </div>

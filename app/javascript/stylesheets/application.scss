@@ -2,3 +2,34 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 // @import "slick-theme";
 // @import "slick";
+
+// 新規投稿モーダル/
+.new_post_modal{
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  max-height: 800px;
+}
+
+// ユーザー詳細ページ詳細投稿モーダル
+.user_posts_show_modal,
+.posts_index_post_show_modal {
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  max-height: 600px;
+}
+
+// 投稿一覧ページ投稿詳細モーダル
+
+
+// ページ全体リンク
+a {
+  text-decoration: none;
+}
+
+// ログインページ
+.sign_in_input_form {
+  height: 40px;
+  width: 300px;
+}

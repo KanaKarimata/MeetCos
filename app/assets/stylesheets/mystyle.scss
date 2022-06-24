@@ -325,6 +325,22 @@ box-shadow:  28px 28px 39px #afafaf;
   border-radius: 50%;
 }
 
+.edit_or_delete_btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post_edit_btn,
+.post_delete_btn {
+  color: #a9a9a9;
+  font-size: 0.8rem;
+}
+
+.post_edit_btn:hover,
+.post_delete_btn:hover {
+  color: #666666;
+}
+
 /*いいね一覧*/
 .back_to_user {
   font-size: 2rem;

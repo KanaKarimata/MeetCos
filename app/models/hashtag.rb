@@ -22,7 +22,7 @@ class Hashtag < ApplicationRecord
     # elsif method == 'backward'
     #   hashtags = Tag.where('name LIKE ?', '%' + content)
     # else
-      hashtags = Tag.where('hashname LIKE ?', '%' + content + '%')
+      hashtags = Hashtag.where('hashname LIKE ?', '%' + content + '%')
     # end
     return hashtags.inject(init = []) {|result, hashtags| result + hashtags.posts}
   end
