@@ -43,6 +43,9 @@
                   <div class="col mb-4">
                     <span class="posts_to_user_show"><%= post_show.user.name %></span>
                     <%= post_show.caption %>
+                    <% post_show.hashtags.each do |hashtag| %>
+                      <%= hashtag.hashname %>
+                    <% end %>
                   </div>
                 </div>
                 <!--コメント数-->

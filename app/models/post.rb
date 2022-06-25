@@ -48,21 +48,21 @@ class Post < ApplicationRecord
   # タグ機能
   def save_hashtags(savepost_hashtags)
     # 現在のユーザーが持っているタグ
-    current_hashtags = self.hashtags.pluck(:name) unless self.hastags.nil?
+    current_hashtags = self.hashtags.pluck(:hashname) unless self.hashtags.nil?
     # 今のpostが持っているタグ、今回保存されるタグではないタグを古いタグとする
-    old_hashtags = current_hashtags - save_hashtags
+    old_hashtags = current_hashtags - savepost_hashtags
     # 新しいタグ
-    new_hastags = savepost_hashtags - current_hashtags
+    new_hashtags = savepost_hashtags - current_hashtags
 
     # 古いタグを消す
     old_hashtags.each do |old_name|
-      self.hashtags.delete Hashtag.find_by(name:old_hashtags)
+      self.hashtags.delete Hashtag.find_by(hashname:old_name)
     end
 
     # 新しいタグを作成
-    new_hastags.each do |new_name|
-      post_hashtag = Hashtag.find_or_create_by(name:new_name)
-      self.hashtags << post_hashtag
+    new_hashtags.each do |new_name|
+      # post_hashtag = Hashtag.find_by(name:new_name)
+      self.hashtags << Hashtag.find_by(hashname:new_name)
     end
   end
 end

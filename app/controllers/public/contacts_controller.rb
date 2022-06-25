@@ -8,16 +8,28 @@ class Public::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @contact.user_id = current_user.id
     if @contact.save
-      redirect_to user_path(current_user)
+      redirect_to contacts_thanks_path
     else
       render 'new'
     end
   end
 
+  def thanks
+    @user = current_user
+  end
+
   def index
+    @user = current_user
+    @contacts = @user.contacts
   end
 
   def show
+  end
+
+  private
+
+  def contact_params
+    params.require(:contact).permit(:title, :body, :user_id)
   end
 
 end

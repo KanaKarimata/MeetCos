@@ -34,6 +34,9 @@ class User < ApplicationRecord
   has_many :notifications, through: :send_notifications, source: :receiver
   has_many :notifications, through: :receive_notifications, source: :sender
 
+  #お問合せ
+  has_many :contacts, dependent: :destroy
+
 
   # 会員管理のための記述
   enum is_deleted: {"会員": false,"退会": true }

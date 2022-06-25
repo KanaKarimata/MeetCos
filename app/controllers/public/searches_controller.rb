@@ -7,7 +7,7 @@ class Public::SearchesController < ApplicationController
     @method = params[:method]
     if @model == 'user'
       @records = User.search_for(@content, @method)
-    elsif @model == 'book'
+    elsif @model == 'post'
       @records = Post.search_for(@content, @method)
     elsif @model == 'hashtag'
       @records = Hashtag.search_posts_for(@content, @method)

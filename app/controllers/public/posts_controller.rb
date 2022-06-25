@@ -9,10 +9,10 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    # hashtag_list = params[:post][:hashtag_name].split(',')
+    hashtag_list = params[:post][:hashname]
     if @post.save
-      # Hashtag.create_if_nothing(hashname)
-      @post.save_hashtags(hashtag_list)
+      savepost_hashtags = Hashtag.create_if_nothing(hashtag_list)
+      @post.save_hashtags(savepost_hashtags)
       redirect_to user_path(current_user)
     end
   end
@@ -36,8 +36,12 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to user_path(current_user)
+    hashtag_list = params[:post][:hashname]
+    if @post.update(post_params)
+      savepost_hashtags = Hashtag.create_if_nothing(hashtag_list)
+      @post.save_hashtags(savepost_hashtags)
+      redirect_to user_path(current_user)
+    end
   end
 
   def destroy

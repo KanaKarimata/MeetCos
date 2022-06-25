@@ -7,9 +7,10 @@ class Hashtag < ApplicationRecord
     # ["", "aaaa", "bbbb"]
     hashtag_names = hashname.split("#").uniq
     hashtag_names.delete("")
-    # [ハッシュタグのインスタンス1, ハッシュタグのインスタンス2]
+    # [ハッシュタグの名前の文字列1, ハッシュタグの名前の文字列2]
     hashtag_names.map do |hashtag|
       Hashtag.find_or_create_by(hashname: hashtag.downcase)
+      hashtag.downcase
     end
   end
 
