@@ -5,22 +5,23 @@
   </button>
   <!-- 投稿詳細モーダル -->
   <div class="modal fade user_posts_show_modal_all" id="staticBackdrop<%= post_show.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel<%= post_show.id%>" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable user_posts_show_modal">
-    <div class="modal-content ">
-      <div class="modal-header">
-        <div class="modal-title" id="staticBackdropLabel<%= post_show.id%>">
-          <%= image_tag post_show.user.get_profile_image(40, 40), class: "post_show_user_icon" %>
-          <span class="ms-2 post_show_user_name"><%= post_show.user.name %></span>
+    <div class="modal-dialog modal-dialog-scrollable user_posts_show_modal">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <div class="modal-title" id="staticBackdropLabel<%= post_show.id%>">
+            <%= image_tag post_show.user.get_profile_image(40, 40), class: "post_show_user_icon" %>
+            <span class="ms-2 post_show_user_name"><%= post_show.user.name %></span>
+          </div>
+          <div class="edit_or_delete_btn col-md-10">
+            <% if post_show.user_id == current_user.id %>
+              <!--投稿編集モーダル表示ボタン-->
+              <button class="me-1 post_edit_btn" data-bs-target="#exampleModalToggle2-<%= post_show.id%>" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button>
+              <%#= link_to "Edit", edit_post_path(post_show), class: "me-1 post_edit_btn" %>
+              <%= link_to "Delete", post_path(post_show), method: :delete, class: "ms-2 post_delete_btn" %>
+            <% end %>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="edit_or_delete_btn col-md-10">
-          <% if post_show.user_id == current_user.id %>
-            <button class="btn me-1 post_edit_btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button>
-            <%#= link_to "Edit", edit_post_path(post_show), class: "me-1 post_edit_btn" %>
-            <%= link_to "Delete", post_path(post_show), method: :delete, class: "ms-2 post_delete_btn" %>
-          <% end %>
-        </div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
         <div class="modal-body">
           <div class="conatainer">
             <div class="row">
@@ -70,21 +71,19 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Hide this modal and show the first with the button below.
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
+
+  <!--投稿編集モーダル-->
+  <div class="modal fade" id="exampleModalToggle2-<%= post_show.id%>" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2-<%= post_show.id%>" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered edit_post_modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel2-<%= post_show.id%>">Modal 2</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= render 'public/posts/form', post: post_show %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
 </div>

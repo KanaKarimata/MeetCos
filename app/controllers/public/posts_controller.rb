@@ -10,7 +10,6 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     # hashtag_list = params[:post][:hashtag_name].split(',')
-    pp "きた？"
     if @post.save
       # Hashtag.create_if_nothing(hashname)
       @post.save_hashtags(hashtag_list)
@@ -38,7 +37,7 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to post_path(@post)
+    redirect_to user_path(current_user)
   end
 
   def destroy

@@ -236,7 +236,8 @@ box-shadow:  28px 28px 39px #afafaf;
 }
 
 /*新規投稿モーダル*/
-.new_post_modal {
+.new_post_modal,
+.edit_post_modal {
   width: 100%;
   max-width: 800px;
   height: 100%;
@@ -345,6 +346,11 @@ box-shadow:  28px 28px 39px #afafaf;
 .edit_or_delete_btn {
   display: flex;
   justify-content: flex-end;
+}
+
+.post_edit_btn {
+  border: none;
+  background-color: #ffffff;
 }
 
 .post_edit_btn,
