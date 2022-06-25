@@ -18,7 +18,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.with_attached_post_images
+    @posts = Post.with_attached_post_images.order(created_at: :desc)
     @user = current_user
     @comment_new = PostComment.new
   end

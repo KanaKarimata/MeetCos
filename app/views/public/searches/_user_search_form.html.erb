@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
   <%= form_with url: search_path, method: :get, local: true do |f| %>
     <%= f.text_field :content, placeholder: "  Find Friends..." , class: "search_form" %>
+    <%= f.hidden_field :search_type, :value => 'user' %>
     <%= f.button type: "submit", class:"btn" do %>
       <i class="fas fa-search search_btn_icon"></i>
     <% end %>

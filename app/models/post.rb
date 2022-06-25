@@ -41,7 +41,7 @@ class Post < ApplicationRecord
   end
 
   # 検索機能
-  def self.search_for(content, method)
+  def self.search_for(content)
     Post.where('caption LIKE ?', '%' + content + '%')
   end
 
