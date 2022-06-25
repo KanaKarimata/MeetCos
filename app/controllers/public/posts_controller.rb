@@ -2,10 +2,6 @@ class Public::PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   # before_action :set_q, only: [:index, :search]
 
-  def new
-    @post = Post.new
-  end
-
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
@@ -25,17 +21,7 @@ class Public::PostsController < ApplicationController
     @comment_new = PostComment.new
   end
 
-  def show
-    @post = Post.find(params[:id])
-    @comment_new = PostComment.new
-    @comments = @post.post_comments.order(created_at: :desc)
-  end
-
-  def edit
-    @post = Post.find(params[:id])
-    @user = current_user
-  end
-
+  
   def update
     @post = Post.find(params[:id])
     hashtag_list = params[:post][:hashname]
