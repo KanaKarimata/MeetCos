@@ -1,2 +1,2 @@
-$('.message').append("<p style='text-align: right;'><%= @message.content %></p>");
 $('input[type=text]').val("")
+$('#chat_room<%= @message.room_id %>').append("<p style='text-align: right;'><%= @message.content %></p>");

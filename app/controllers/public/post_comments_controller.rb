@@ -4,8 +4,9 @@ class Public::PostCommentsController < ApplicationController
     @comment = current_user.post_comments.new(post_comment_params)
     @comment.post_id = post.id
     @post = @comment.post
-    @comment.save
-    # @post.create_notification_comment!(current_user, @comment.id)
+    if @comment.save
+      Notification.create!(receiver_id: @post.user_id, sender_id: current_user.id, action: "PostComment", action_id: @comment.id)
+    end
   end
 
   def destroy

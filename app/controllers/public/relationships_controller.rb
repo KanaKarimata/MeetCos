@@ -4,7 +4,9 @@ class Public::RelationshipsController < ApplicationController
   # フォローするとき
   def create
     followed_user = User.find(params[:user_id])
-    current_user.follow(followed_user)
+    if current_user.follow(followed_user)
+      Notification.create!(receiver_id: followed_user.id, sender_id: current_user.id, action: "Follow", action_id: current_user.follow(followed_user).id )
+    end
     # @user = User.find(params[:relationship][:following_id])
     # @user.create_notification_follow!(current_user)
     redirect_to request.referer
@@ -24,15 +26,5 @@ class Public::RelationshipsController < ApplicationController
     @followers = @user.followers
     @rooms = Room.where(host_id: current_user.id).or(Room.where(guest_id: current_user.id))
   end
-
-  # def search
-  #   @results = @q.result
-  # end
-
-  private
-
-  # def set_q
-  #   @q = User.ransack(params[:id])
-  # end
 
 end

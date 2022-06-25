@@ -82,18 +82,7 @@ class User < ApplicationRecord
     end
   end
 
-  # フォロー通知機能
-  def create_notification_follow!(current_user)
-    temp = Notification.where(["sender_id = ? and receiver_id = ? and action = ?", current_user.id, id, 'follow'])
-    if temp.blank?
-      notification = current_user.send_notifications.new(
-        receiver_id: id,
-        action: 'follow'
-        )
-        notification.save if notification.valid?
-    end
-  end
-
+ 
   # 検索機能
   def self.search_for(content)
     User.where('name LIKE ?', '%' + content + '%')

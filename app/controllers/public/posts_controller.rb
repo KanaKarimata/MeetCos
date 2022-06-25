@@ -66,9 +66,4 @@ class Public::PostsController < ApplicationController
     redirect_to(books_path) unless @user == current_user
   end
 
-  # def set_q
-  #   @q = Post.ransack(params[:q])
-  # end
-
 end
-# テストデプロイチャレンジ2
