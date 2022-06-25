@@ -44,7 +44,9 @@
                     <span class="posts_to_user_show"><%= post_show.user.name %></span>
                     <%= post_show.caption %>
                     <% post_show.hashtags.each do |hashtag| %>
-                      <%= hashtag.hashname %>
+                      <%= link_to search_path(content: hashtag.hashname, search_type: "hashtag") do %>
+                        <%= hashtag.hashname %>
+                      <% end %>
                     <% end %>
                   </div>
                 </div>

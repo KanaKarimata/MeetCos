@@ -16,7 +16,6 @@
           </div>
           <div class="edit_or_delete_btn col-md-10">
             <% if post.user_id == current_user.id %>
-              <%= link_to "Edit", edit_post_path(post), class: "me-1 post_edit_btn" %>
               <%= link_to "Delete", post_path(post), method: :delete, class: "ms-2 post_delete_btn" %>
             <% end %>
           </div>
@@ -47,6 +46,11 @@
                       <span class="posts_to_user_show"><%= post.user.name %></span>
                     <% end %>
                     <span><%= post.caption %></span>
+                    <% post.hashtags.each do |hashtag| %>
+                      <%= link_to search_path(content: hashtag.hashname, search_type: "hashtag") do %>
+                        <%= hashtag.hashname %>
+                      <% end %>
+                    <% end %>
                   </div>
                 </div>
                 <!--コメント数-->

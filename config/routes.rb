@@ -24,11 +24,7 @@ Rails.application.routes.draw do
 
     resources :users, except: [:new, :index, :destroy] do
       get 'friends' => 'relationships#friends', as: 'friends'
-      resource :relationships, only: [:create, :destroy] do
-        collection do
-        get 'search'
-      end
-      end
+      resource :relationships, only: [:create, :destroy]
       # いいねした投稿一覧表示
       member do
         get :favs
@@ -38,9 +34,6 @@ Rails.application.routes.draw do
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
       resource :favs, only: [:create, :destroy]
-      collection do
-        get 'search'
-      end
     end
     resources :rooms, only: [:create, :show, :index] do
       resources :messages, only: [:create, :destroy]

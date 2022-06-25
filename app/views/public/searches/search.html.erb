@@ -1,7 +1,36 @@
 <% if @search_type == 'user' %>
-  <h3>Users search for "<%= @content %>"</h3>
-  <%= render partial: 'public/users/index', collection: @records, as: "user" %>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col">
+        <h3>Users search for "<%= @content %>"</h3>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-1">
+        <%= link_to :back do %>
+        <span class= "btn back_to_user">←</span>
+      <% end %>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center">
+        <%= render partial: 'public/users/index', collection: @records, as: "user" %>
+      </div>
+    </div>
+  </div>
 <% elsif @search_type == 'post' || @search_type == 'hashtag' %>
-  <h3>Books search for "<%= @content %>"</h3>
-  <%= render partial: 'public/posts/index', collection: @records, as: "post", locals: {comment_new: @comment_new} %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3>Books search for "<%= @content %>"</h3>
+      </div>
+    </div>
+   <div class="row">
+      <div class="col-md-1">
+        <%= link_to :back do %>
+        <span class= "btn back_to_user">←</span>
+        <% end %>
+      </div>
+      <%= render partial: 'public/posts/index', collection: @records, as: "post", locals: {comment_new: @comment_new} %>
+    </div>
+  </div>
 <% end %>
