@@ -22,7 +22,35 @@
   max-height: 600px;
 }
 
-// 投稿一覧ページ投稿詳細モーダル
+// サイドバー（user info）のボタン
+.follow_btn {
+  color: #6c9bd2;
+  font-weight: bold;
+}
+
+.follow_btn:hover {
+  background-color: #4753a2;
+  color: white;
+}
+
+.unfollow_btn {
+  color: #bc64a4;
+  font-weight: bold;
+}
+
+.unfollow_btn:hover {
+  background-color: #aa4c8f;
+  color: #fff;
+}
+
+.chat_btn {
+  background-color: #e3e548;
+  font-weight: bold;
+}
+
+.chat_btn:hover {
+  transform: scale(1.1, 1.1);
+}
 
 
 // ページ全体リンク

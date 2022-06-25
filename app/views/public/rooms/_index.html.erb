@@ -14,7 +14,9 @@
                   <%= User.find(room.guest_id).name %>さん
                 </div>
                 <div class="row friends_message">
-                  <%= Message.find_by(id: room.message_ids.last).content %>
+                  <% if room.messages.present? %>
+                    <%= Message.find_by(id: room.message_ids.last).content %>
+                  <% end %>
                 </div>
               </div>
             <% elsif room.guest_id == current_user.id %>
@@ -26,7 +28,9 @@
                   <%= User.find(room.host_id).name %>
                 </div>
                 <div class="row friends_message">
-                  <%= Message.find_by(id: room.message_ids.last).content %>
+                  <% if room.messages.present? %>
+                    <%= Message.find_by(id: room.message_ids.last).content %>
+                  <% end %>
                 </div>
               </div>
             <% end %>
