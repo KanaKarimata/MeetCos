@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:create, :destroy]
     end
     resources :notifications, only: [:index, :destroy]
+    resources :contacts, only: [:new, :create, :index, :show]
   end
 
   namespace :admin do
