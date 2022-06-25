@@ -16,8 +16,7 @@
             <% if post_show.user_id == current_user.id %>
               <!--投稿編集モーダル表示ボタン-->
               <button class="me-1 post_edit_btn" data-bs-target="#exampleModalToggle2-<%= post_show.id%>" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button>
-              <%#= link_to "Edit", edit_post_path(post_show), class: "me-1 post_edit_btn" %>
-              <%= link_to "Delete", post_path(post_show), method: :delete, class: "ms-2 post_delete_btn" %>
+              <%= link_to "Delete", post_path(post_show), remote: true, method: :delete, class: "ms-2 post_delete_btn" %>
             <% end %>
           </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -53,7 +52,7 @@
                 <!--コメント数-->
                 <div class="row mb-2">
                   <div class="col-md-6 d-flex flex-row post_comments_count">
-                    <span class="comment_count mt-1" id="post-comments-counter-<%=post_show.id%>">コメント<%= post_show.post_comments.size %>件</span>
+                    <p>コメント<span class="comment_count mt-1" id="post-comments-counter-<%=post_show.id%>"><%= post_show.post_comments.size %></span>件</p>
                   </div>
                 </div>
                 <div class="row ps-3">

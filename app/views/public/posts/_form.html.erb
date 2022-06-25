@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      <%= form_with model: post do |f| %>
+      <%= form_with model: post, local: false do |f| %>
         <%= f.label :"Photos", class:"form_label" %><br>
         <%= f.file_field :post_images, multiple: true, class: 'form-control' %><br>
         <div class="post_images" style="display: none;">

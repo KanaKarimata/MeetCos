@@ -13,8 +13,10 @@ class Public::PostsController < ApplicationController
     if @post.save
       savepost_hashtags = Hashtag.create_if_nothing(hashtag_list)
       @post.save_hashtags(savepost_hashtags)
-      redirect_to user_path(current_user)
+      # redirect_to user_path(current_user)
     end
+    @posts = current_user.posts.with_attached_post_images.order(created_at: :desc)
+    @comment_new = PostComment.new
   end
 
   def index
@@ -47,26 +49,10 @@ class Public::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to user_path(current_user)
+    # redirect_to user_path(current_user)
+    @posts = current_user.posts.with_attached_post_images.order(created_at: :desc)
+    @comment_new = PostComment.new
   end
-
-  # def search
-  #   @results = @q.result
-  #   @user = current_user
-  #   @comment_new = PostComment.new
-  # end
-
-  # def hashtag
-  #   if params[:name].nil?
-  #     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
-  #   else
-  #     name = params[:name]
-  #     name = name.downcase
-  #     @hashtag = Hashtag.find_by(hash: name)
-  #     @post = @hashtag.posts
-  #     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
-  #   end
-  # end
 
   private
 

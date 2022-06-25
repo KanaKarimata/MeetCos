@@ -1,0 +1,2 @@
+$("#staticBackdrop<%= @post.id%>").modal('hide');
+$("#user-posts-index-<%= @post.user_id %>").html("<%= j(render partial: 'public/posts/user_index', collection: @posts, as: "post_show", locals: {comment_new: @comment_new}  ) %>")

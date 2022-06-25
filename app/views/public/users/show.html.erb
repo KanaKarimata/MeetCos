@@ -7,12 +7,12 @@
       <!-- 新規投稿ボタン -->
       <div class="row">
         <div class="col text-center">
-          <button type="button" class="btn post-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn post-btn" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @user.id %>">
             <i class="fas fa-plus"></i>
           </button>
         </div>
         <!-- 新規投稿モーダル -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal<%= @user.id %>" tabindex="-1" aria-labelledby="exampleModalLabel<%= @user.id %>" aria-hidden="true">
           <div class="modal-dialog new_post_modal">
             <div class="modal-content">
               <div class="modal-header">
