@@ -23,7 +23,8 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
   # DM機能のアソシエーション
-  has_many :rooms, through: :room_users, dependent: :destroy
+  has_many :room_users, dependent: :destroy
+  has_many :rooms, through: :room_users
   has_many :messages, dependent: :destroy
 
   # 通知機能のアソシエーション
