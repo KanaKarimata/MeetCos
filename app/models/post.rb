@@ -11,10 +11,7 @@ class Post < ApplicationRecord
 
   validates :post_images, presence: true
   validates :caption, presence: true
-
-  # def get_post_images(width, height)
-  #   post_images.variant(resize_to_limit: [width, height]).processed
-  # end
+  # validates :post_image_type, :post_image_length
 
   # いいね機能に利用する
   def favorited_by?(user)
@@ -65,4 +62,23 @@ class Post < ApplicationRecord
       self.hashtags << Hashtag.find_by(hashname:new_name)
     end
   end
+
+  private
+
+  def post_image_type
+    post_images.each do |image|
+      if !image.blob.content_type.in?(%('image/jpeg image/jpg image/png'))
+        image.purge
+        errors.add(:post_images, 'はjpeg, jpgまたはpng形式でアップロードしてください')
+      end
+    end
+  end
+
+  def post_image_length
+    if post_images.length > 10
+      post_image.purge
+      post_image.add(:avatars, "は10枚以内にしてください")
+    end
+  end
+
 end

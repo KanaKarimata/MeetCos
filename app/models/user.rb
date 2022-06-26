@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name, presence: true
+  validates :userid, uniqueness: { message: "既に使用されているIDです" }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
+  # validates :profile_image_type
+
   has_one_attached :profile_image
 
   # 投稿のアソシエーション
@@ -79,4 +84,14 @@ class User < ApplicationRecord
   def self.search_for(content)
     where('name LIKE ?', '%' + content + '%')
   end
+
+  private
+
+  def profile_image_type
+    if !profile_image.blob.content_type.in?(%('image/jpeg image/jpg image/png'))
+      profile_image.purge
+      errors.add(:profile_image, 'はjpeg, jpgまたはpng形式でアップロードしてください')
+    end
+  end
+
 end
