@@ -24,7 +24,10 @@ Rails.application.routes.draw do
     get '/posts/feeds', to: 'posts#feeds'
 
     resources :users, except: [:new, :index, :destroy] do
-      get 'friends' => 'relationships#friends', as: 'friends'
+      collection do
+        get 'friends' => 'relationships#friends', as: 'friends'
+      end
+      
       resource :relationships, only: [:create, :destroy]
       # いいねした投稿一覧表示
       member do

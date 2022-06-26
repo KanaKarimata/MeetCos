@@ -14,7 +14,7 @@
   <% if user == current_user %>
     <div class="row text-center">
       <div class="col">
-      <%= link_to user_friends_path(user), class: "btn user_nav_list_item" do %>
+      <%= link_to friends_users_path, class: "btn user_nav_list_item" do %>
         <i class="fas fa-user-friends"></i>
         <span>Friends</span>
       <% end %>

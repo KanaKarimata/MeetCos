@@ -21,10 +21,10 @@ class Public::RelationshipsController < ApplicationController
   # フォロー一覧
   # フォロワー一覧
   def friends
-    @user = User.find(params[:user_id])
+    @user = current_user
     @followings = @user.followings
     @followers = @user.followers
-    @rooms = Room.where(host_id: current_user.id).or(Room.where(guest_id: current_user.id))
+    @rooms = @user.rooms
   end
 
 end

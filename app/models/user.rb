@@ -23,8 +23,6 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
   # DM機能のアソシエーション
-  has_many :room_users, dependent: :destroy
-  has_many :rooms, through: :room_users
   has_many :messages, dependent: :destroy
 
   # 通知機能のアソシエーション
@@ -63,6 +61,10 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+  
+  def rooms
+    Room.where(host_id: id).or(Room.where(guest_id: id))
+  end
 
   # ゲストログイン機能
   def self.guest
@@ -75,10 +77,8 @@ class User < ApplicationRecord
     end
   end
 
-
   # 検索機能
   def self.search_for(content)
-    User.where('name LIKE ?', '%' + content + '%')
+    where('name LIKE ?', '%' + content + '%')
   end
-
 end
