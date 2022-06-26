@@ -21,15 +21,17 @@ class Public::PostsController < ApplicationController
     @comment_new = PostComment.new
   end
 
-  
+
   def update
     @post = Post.find(params[:id])
     hashtag_list = params[:post][:hashname]
     if @post.update(post_params)
       savepost_hashtags = Hashtag.create_if_nothing(hashtag_list)
       @post.save_hashtags(savepost_hashtags)
-      redirect_to user_path(current_user)
+      # redirect_to user_path(current_user)
     end
+    @posts = current_user.posts.with_attached_post_images.order(created_at: :desc)
+    @comment_new = PostComment.new
   end
 
   def destroy

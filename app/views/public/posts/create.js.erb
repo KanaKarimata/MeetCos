@@ -1,6 +1,2 @@
-<!--//$("#exampleModal<%= @post.user_id %>").hide();-->
 $("#exampleModal<%= @post.user_id %>").modal('hide')
-<!--$(".modal-backdrop").hide();-->
 $("#user-posts-index-<%= @post.user_id %>").html("<%= j(render partial: 'public/posts/user_index', collection: @posts, as: "post_show", locals: {comment_new: @comment_new}  ) %>")
-<!--//$('body').removeClass('modal-open');-->
-<!--//$('body').css('overflow', 'scroll');-->

@@ -49,14 +49,6 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  def get_cover_image(width, height)
-    unless cover_image.attached?
-      file_path = Rails.root.join('app/assets/images/no_cover_image.png')
-      cover_image.attach(io: File.open(file_path), filename: 'no_cover_image.png', content_type: 'image/jpeg')
-    end
-    cover_image.variant(resize_to_limit: [width, height]).processed
-  end
-
   # フォローフォロワー関係のアクション
   def follow(user)
     relationships.find_or_create_by(followed_id: user.id)
@@ -82,7 +74,7 @@ class User < ApplicationRecord
     end
   end
 
- 
+
   # 検索機能
   def self.search_for(content)
     User.where('name LIKE ?', '%' + content + '%')
