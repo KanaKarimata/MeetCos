@@ -23,6 +23,8 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
   # DM機能のアソシエーション
+  has_many :hosts, class_name: "Room", foreign_key: "host_id"
+  has_many :guests, class_name: "Room", foreign_key: "guest_id"
   has_many :messages, dependent: :destroy
 
   # 通知機能のアソシエーション
@@ -32,10 +34,6 @@ class User < ApplicationRecord
   has_many :receive_notifications, class_name: "Notification", foreign_key: "receiver_id", dependent: :destroy
   has_many :notifications, through: :send_notifications, source: :receiver
   has_many :notifications, through: :receive_notifications, source: :sender
-
-  #お問合せ
-  has_many :contacts, dependent: :destroy
-
 
   # 会員管理のための記述
   enum is_deleted: {"会員": false,"退会": true }
@@ -61,7 +59,7 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-  
+
   def rooms
     Room.where(host_id: id).or(Room.where(guest_id: id))
   end

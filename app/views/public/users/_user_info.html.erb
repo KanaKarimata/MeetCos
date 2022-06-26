@@ -51,17 +51,5 @@
       <% end %>
     </div>
   </div>
-
-  <!--contactボタンはcurrent_userのみに表示する-->
-  <% if user == current_user %>
-    <div class="row text-center">
-      <div class="col">
-      <%= link_to contacts_path, class: "btn user_nav_list_item" do %>
-        <i class="fas fa-envelope"></i>
-        <span>お問合せ履歴</span>
-      <% end %>
-      </div>
-    </div>
-  <% end %>
 </div>
 

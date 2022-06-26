@@ -1,4 +1,5 @@
 class Public::MessagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :reject_non_related, only: [:show]
 
   def create

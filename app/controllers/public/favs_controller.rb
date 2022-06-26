@@ -1,4 +1,6 @@
 class Public::FavsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     post = Post.find(params[:post_id])
     @current_user = current_user

@@ -1,5 +1,5 @@
 class Public::RelationshipsController < ApplicationController
-  # before_action :set_q, only: [:friends, :search]
+  before_action :authenticate_user!
 
   # フォローするとき
   def create

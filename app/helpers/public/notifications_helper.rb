@@ -12,8 +12,6 @@ module Public::NotificationsHelper
       tag.a(notification.sender.name, href: user_path(@sender)) + 'があなたの投稿にいいねしました'
     when 'PostComment' then
       @post_comment = PostComment.find_by(id: notification.action_id)
-      @comment_content =@post_comment.comment
-      # @micropost_title =@comment.product.title
       tag.a(@sender.name, href: user_path(@sender)) + 'があなたの投稿にコメントしました'
     when 'Message' then
       @message = Message.find_by(id: notification.action_id)

@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :correct_user, only: [:edit, :update]
-  # before_action :set_q, only: [:index, :search]
 
   def create
     @post = Post.new(post_params)
@@ -23,7 +23,6 @@ class Public::PostsController < ApplicationController
 
   def feeds
     @posts = Post.where(user_id: [current_user.id, *current_user.following_ids ]).with_attached_post_images.order(created_at: :desc)
-    
   end
 
   def update
