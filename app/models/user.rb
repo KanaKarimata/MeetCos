@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :profile_image
-  has_one_attached :cover_image
+
   # 投稿のアソシエーション
   has_many :posts, dependent: :destroy
   # 投稿へのコメントのアソシエーション
