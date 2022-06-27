@@ -11,7 +11,7 @@ class Post < ApplicationRecord
 
   validates :post_images, presence: true
   validates :caption, presence: true
-  # validates :post_image_type, :post_image_length
+  validate :post_image_type, :post_image_length
 
   # いいね機能に利用する
   def favorited_by?(user)
@@ -58,7 +58,6 @@ class Post < ApplicationRecord
 
     # 新しいタグを作成
     new_hashtags.each do |new_name|
-      # post_hashtag = Hashtag.find_by(name:new_name)
       self.hashtags << Hashtag.find_by(hashname:new_name)
     end
   end
@@ -68,7 +67,6 @@ class Post < ApplicationRecord
   def post_image_type
     post_images.each do |image|
       if !image.blob.content_type.in?(%('image/jpeg image/jpg image/png'))
-        image.purge
         errors.add(:post_images, 'はjpeg, jpgまたはpng形式でアップロードしてください')
       end
     end
@@ -76,8 +74,8 @@ class Post < ApplicationRecord
 
   def post_image_length
     if post_images.length > 10
-      post_image.purge
-      post_image.add(:avatars, "は10枚以内にしてください")
+      # post_image.purge
+      errors.add(:post_images, "は10枚以内にしてください")
     end
   end
 
