@@ -28,8 +28,8 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
   # DM機能のアソシエーション
-  has_many :hosts, class_name: "Room", foreign_key: "host_id"
-  has_many :guests, class_name: "Room", foreign_key: "guest_id"
+  # has_many :hosts, class_name: "Room", foreign_key: "host_id"
+  # has_many :guests, class_name: "Room", foreign_key: "guest_id"
   has_many :messages, dependent: :destroy
 
   # 通知機能のアソシエーション

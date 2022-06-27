@@ -91,3 +91,16 @@ a {
   background-color: #c71585;
   color: #ffffff;
 }
+
+/*管理者投稿詳細ページ*/
+.admin_delete {
+  border: solid 1px #000;
+  color: #c71585;
+  font-weight: lighter;
+}
+
+.admin_delete:hover {
+  background-color: #c71585;
+  color: #fff;
+  border: none;
+}

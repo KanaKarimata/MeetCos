@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
-  
-  
+
+
   def index
     @users = User.all
   end
@@ -14,6 +14,6 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(is_deleted: "退会") #ここでis_deletedカラムの値を"退会"に更新
      reset_session
-     redirect_to root_path
+     redirect_to admin_users_path
   end
 end

@@ -1,10 +1,81 @@
-<div class="contaier">
+<div class="container">
   <div class="row admin_posts">
       <% @posts.find_each do |post| %>
-        <div class="col-md-3 text-center">
-          <%= link_to admin_post_path(post) do %>
+        <div class="col-md-3 mb-2">
+          <!--画像クリック→投稿詳細モーダル表示-->
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post.id%>">
             <%= image_tag post.post_images[0].variant(resize_to_limit: [200,200]) %>
-          <% end %>
+          </button>
+          <!-- 投稿詳細モーダル -->
+          <div class="modal fade" id="staticBackdrop<%= post.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel<%= post.id%>" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable posts_index_post_show_modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="modal-title" id="staticBackdropLabel<%= post.id %>">
+                    <%= link_to user_path(post.user) do %>
+                      <%= image_tag post.user.get_profile_image(40,40), class: "post_show_user_icon"%>
+                      <span class="ms-2 post_show_user_name"><%= post.user.name %></span>
+                    <% end %>
+                  </div>
+                  <div class="edit_or_delete_btn col-md-8">
+                    <%= link_to "Delete", admin_post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "ms-2 post_delete_btn" %>
+                  </div>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="conatainer">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div>
+                          <% if post.post_images.attached? %>
+                            <span class="post_images_count"><i class="fas fa-images"></i>&nbsp;<%= post.post_images.size %></span>
+                            <% post.post_images.find_each do |post_image| %>
+                              <%= image_tag post_image, class: "post_image_show" %>
+                            <% end %>
+                          <% end %>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="row mb-2">
+                          <div class="col-md-2">
+                            <%= link_to user_path(post.user) do %>
+                              <%= image_tag post.user.get_profile_image(35,35), class: "post_show_user_icon" %>
+                            <% end %>
+                          </div>
+                          <div class="col mb-4">
+                            <%= link_to user_path(post.user) do %>
+                              <span class="posts_to_user_show"><%= post.user.name %></span>
+                            <% end %>
+                            <span><%= post.caption %></span>
+                            <% post.hashtags.each do |hashtag| %>
+                              <%= link_to search_path(content: hashtag.hashname, search_type: "hashtag") do %>
+                                <%= hashtag.hashname %>
+                              <% end %>
+                            <% end %>
+                          </div>
+                        </div>
+                        <!--コメント数-->
+                        <div class="row mb-3">
+                          <div class="col-md-6 d-flex flex-row post_comments_count">
+                            <p>コメント<span id="post-comments-counter-<%=post.id%>"><%= post.post_comments.size %></span>件</p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <!--コメント一覧-->
+                          <div id="post-comments-index-<%=post.id%>">
+                            <%= render partial: 'public/post_comments/index', collection: post.post_comments, as: "comment" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       <% end %>
   </div>

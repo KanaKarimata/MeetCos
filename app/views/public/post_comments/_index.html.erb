@@ -5,7 +5,7 @@
         <%= image_tag comment.user.get_profile_image(35,35), class: "comment_user_icon" %>
       <% end %>
     </div>
-    <div class="col-md-6 text-left">
+    <div class="col text-left">
       <%= link_to user_path(comment.user) do %>
         <strong class="comment_user_name"><%= comment.user.name %></strong>
       <% end %>
