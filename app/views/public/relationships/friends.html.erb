@@ -16,17 +16,13 @@
           <div class="col">
             <h5 class="row">Followings</h5>
             <div class="row">
-              <div class="col ms-3">
-                <%= render partial: 'public/users/index', collection: @followings, as: "user" %>
-              </div>
+              <%= render partial: 'public/users/index', collection: @followings, as: "user" %>
             </div>
           </div>
           <div class="col">
             <h5 class="row">Followers</h5>
               <div class="row">
-                <div class="col ms-3">
-                  <%= render partial: 'public/users/index', collection: @followers, as: "user" %>
-                </div>
+                <%= render partial: 'public/users/index', collection: @followers, as: "user" %>
             </div>
           </div>
         </div>

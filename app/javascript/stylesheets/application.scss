@@ -11,8 +11,15 @@
 
 .friends_icon {
   border-radius: 50% 50%;
-   width: 30px;
+  width: 30px;
   height: 30px;
+  object-fit: cover;
+}
+
+.chat_friends_icon {
+  border-radius: 50% 50%;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
 }
 
