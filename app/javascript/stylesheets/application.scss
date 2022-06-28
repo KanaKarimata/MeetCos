@@ -1,7 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-// @import "slick-theme";
-// @import "slick";
+
+// ユーザー
+.user_image {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
 
 // 新規投稿モーダル/
 .new_post_modal,
