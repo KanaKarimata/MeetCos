@@ -4,8 +4,13 @@
       <%= render 'public/users/user_info', user: @user %>
     </div>
     <div class="col-md-10">
+      <div class="row text-center error_message">
+        <div class="col">
+          <%= flash[:post_alert] %>
+        </div>
+      </div>
       <!-- 新規投稿ボタン -->
-      <div class="row">
+      <div class="row mb-5">
         <div class="col text-center">
           <button type="button" class="btn post-btn" data-bs-toggle="modal" data-bs-target="#exampleModal<%= @user.id %>">
             <i class="fas fa-plus"></i>
@@ -16,7 +21,7 @@
           <div class="modal-dialog new_post_modal">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New Post</h5>
+                <h5 class="modal-title" id="exampleModalLabel">New Pots</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -25,7 +30,7 @@
             </div>
           </div>
         </div>
-        <div class="container">
+        <div class="container mt-5">
           <div id="user-posts-index-<%= @user.id %>" class="row">
             <%= render partial: 'public/posts/user_index', collection: @posts, as: "post_show", locals: {comment_new: @comment_new} %>
           </div>
