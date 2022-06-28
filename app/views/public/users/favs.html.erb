@@ -10,7 +10,7 @@
         <% @fav_posts.each do |post|%>
           <div class="col-md-3 fav">
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post.id%>">
-                <%= image_tag post.post_images[0].variant(resize_to_limit: [240,240]) %>
+                <%= image_tag post.post_images[0].variant(resize_to_limit: [240,240]), class: "user_posts_index" %>
             </button>
             <!-- 投稿詳細モーダル -->
             <div class="modal fade" id="staticBackdrop<%= post.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel<%= post.id%>" aria-hidden="true">
