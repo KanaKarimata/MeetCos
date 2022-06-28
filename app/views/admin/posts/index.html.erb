@@ -4,7 +4,7 @@
         <div class="col-md-3 mb-2">
           <!--画像クリック→投稿詳細モーダル表示-->
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post.id%>">
-            <%= image_tag post.post_images[0].variant(resize_to_limit: [200,200]) %>
+            <%= image_tag post.post_images[0].variant(resize_to_limit: [200,200]), class: "posts_index" %>
           </button>
           <!-- 投稿詳細モーダル -->
           <div class="modal fade" id="staticBackdrop<%= post.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel<%= post.id%>" aria-hidden="true">

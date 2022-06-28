@@ -1,175 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-/*全ページ共通*/
-
-.content {
-  padding-top: 8%;
-  padding-bottom: 10%;
-}
-
-/*モーダル共通*/
-.modal-footer {
-  border-top: none;
-}
-
-.modal-header {
-  border-bottom: none;
-}
-
-/*フッター*/
-footer {
-  background-color: #fff;
-  color: #a9a9a9;
-  font-family: "Times New Roman";
-}
-
-.footer-contact {
-  font-size: 1rem;
-  color: #a9a9a9;
-}
-
-.footer-contact:hover {
-  color: #cccccc;
-}
-
-/*ヘッダー*/
-header {
-  position: fixed;
-  background-color: #fff;
-  box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.3);
-}
-
-a {
-  text-decoration: none;
-}
-
-.navbar-brand {
-  font-family: "Times New Roman";
-  font-size: 132%;
-}
-
-.nav-link {
-  font-family: "Times New Roman";
-  font-size: 116%;
-}
-
-.guest-link {
-  font-size: 120%;
-  font-weight: bold;
-}
-
-.nav-item:hover,
-.nav-item:visited {
-  border-bottom: solid 1px #000;
-  background-color: #f8f8ff;
-}
-
-/*トップページ*/
-.top-visual {
-  background-image: image-url("main-visual.jpg");
-  background-size: cover;
-  height: 650px;
-  position: relative;
-}
-
-.main-visual:before {
-   background-color: rgba(0,0,0,0.4);
-   position: absolute;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   left: 0;
-   content: ' ';
- }
-
-.top-visual-content {
-  background-color: rgba(0,0,0,0.4);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: ' ';
-}
-
-.top-visual-title {
-  font-family:  "Times New Roman";
-  font-size: 500%;
-  position: absolute;
-  top: 10%;
-  left: 20%;
-  color: white;
-}
-
-.top-visual-body {
-  font-family:  "Times New Roman";
-  font-size: 140%;
-  position: absolute;
-  top: 30%;
-  left: 30%;
-  color: white;
-}
-
-.top-visual-link {
-  font-family:  "Times New Roman";
-  font-size: 120%;
-  position: absolute;
-  top: 72%;
-  left: 80%;
-  color: white;
-}
-
-.top-visual-link:hover {
-  color: white;
-  border-bottom: solid 1px #fff;
-}
-
-/*aboutページ*/
-.about-visual {
-  display: inline-block;
-}
-
-.about-visual-content {
-  font-family:  "Times New Roman";
-  margin-left: 100px;
-}
-
-/*sign in/sign up ページ*/
-.sign_in {
-  background-image: image-url('skincare.jpg');
-  background-size: cover;
-  height: 600px;
-  background-position: center;
-}
-
-.sign_in_form,
-.sign_up_form,
-.edit_form {
-  font-family: "Times New Roman";
-}
-
-.sign_in_input_form {
-  height: 40px;
-  width: 300px;
-}
-
-.sign_in_btn,
-.sign_up_btn {
-  background-color: #00608d;
-  height: 40px;
-  border: none;
-  color: white;
-}
-
-.sign_up {
-  background-image: image-url('man_makeup.jpg');
-  background-size: cover;
-  height: 600px;
-}
-
-/*ユーザー詳細画面*/
-
+// ユーザーインフォ
 .user_image {
   border-radius: 50%;
   width: 70px;
@@ -177,46 +9,62 @@ a {
   object-fit: cover;
 }
 
-.post-btn {
-  border-radius: 76px;
-background: linear-gradient(145deg, #f0f0f0, #cacaca);
-box-shadow:  28px 28px 39px #afafaf;
-             /*-28px -28px 39px #ffffff;*/
+.friends_icon {
+  border-radius: 50% 50%;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
 }
 
-.user_name {
-  font-weight: bold;
-  font-size: 30px;
+.chat_friends_icon {
+  border-radius: 50% 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }
 
-.user_id {
-  font-weight: bold;
-  color: #778899;
+.post_show_user_icon,
+.comment_user_icon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
-.user_edit_btn,
-.user_nav_list_item,
-.follow_btn,
-.unfollow_btn,
-.chat_btn {
-  box-shadow:5px 5px 8px 3px #ccc;
-  margin-top: 20%;
+
+// 新規投稿モーダル/
+.new_post_modal,
+.edit_post_modal {
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  max-height: 800px;
 }
 
-.likes {
-  padding: 10px;
+// ユーザー詳細ページ詳細投稿モーダル
+.user_posts_show_modal,
+.posts_index_post_show_modal,
+.favs_index_post_show_modal {
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  max-height: 600px;
 }
 
-.user_post_item,
-.post_all_item,
-.fav_index,
-.admin_posts,
-.admin_post_show {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.user_posts_index {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
 }
 
+// 投稿一覧
+.posts_index {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+// サイドバー（user info）のボタン
 .follow_btn {
   color: #6c9bd2;
   font-weight: bold;
@@ -246,148 +94,16 @@ box-shadow:  28px 28px 39px #afafaf;
   transform: scale(1.1, 1.1);
 }
 
-/*新規投稿モーダル*/
-.new_post_modal,
-.edit_post_modal {
-  width: 100%;
-  max-width: 800px;
-  height: 100%;
-  max-height: 800px;
+
+// ページ全体リンク
+a {
+  text-decoration: none;
 }
 
-.caption_form {
-  height: 300px;
-}
-
-.form_label {
-  text-align: left;
-}
-
-.new_post_btn {
-  font-size: 1.4rem;
-  color: #ff6666;
-}
-
-/*ユーザー詳細ページ投稿詳細モーダル*/
-.user_posts_show_modal {
-  width: 100%;
-  max-width: 1000px;
-  height: 100%;
-  max-height: 600px;
-}
-
-.post_show_user_icon,
-.comment_user_icon {
-  border-radius: 50%;
-  width: 40px;
+// ログインページ
+.sign_in_input_form {
   height: 40px;
-  object-fit: cover;
-}
-
-.post_show_user_name,
-.posts_to_user_show,
-.comment_user_name {
-  font-weight: bold;
-  color: #000000;
-}
-
-.user_posts_index {
-  width: 240px;
-  height: 240px;
-  object-fit: cover;
-}
-
-.post_image_show {
-  width: 100%;
-  max-width: 624px;
-}
-
-.post_images_count {
-  color: #a9a9a9;
-}
-
-.modal-footer {
-  padding-bottom: 0 !important;
-}
-
-.post_comments_count {
-  color: #a9a9a9;
-  font-size: 12px;
-}
-
-/*コメント一覧*/
-.comment_user_name {
-  font-size: 16px;
-}
-
-.comment_date {
-  font-size: 12px;
-  color: #a9a9a9;
-}
-
-.comment_delete_btn {
-  font-size: 12px;
-}
-
-// コメント送信フォーム
-.comment_form {
-  border: none;
-  background: #c0c0c0;
-  border-radius: 30px 30px;
-}
-
-.comment_send_btn {
-  border: none;
-  font-size: 14px;
-  font-weight: bold;
-  color: #008080;
-  background-color: #ffffff;
-}
-
-/*投稿一覧ページ*/
-.search_form {
   width: 300px;
-  height: 40px;
-  border-radius: 20px 20px;
-  background-color: #dcdcdc;
-  border: none;
-}
-
-.search_btn_icon {
-  font-size: 1.5rem;
-  font-weight: lighter;
-  color: #dcdcdc;
-}
-
-.user_icon {
-  border-radius: 50%;
-}
-
-.posts_index {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-}
-
-.edit_or_delete_btn {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.post_edit_btn {
-  border: none;
-  background-color: #ffffff;
-}
-
-.post_edit_btn,
-.post_delete_btn {
-  color: #a9a9a9;
-  font-size: 0.8rem;
-}
-
-.post_edit_btn:hover,
-.post_delete_btn:hover {
-  color: #666666;
 }
 
 /*いいね一覧*/
@@ -406,103 +122,17 @@ box-shadow:  28px 28px 39px #afafaf;
   color: #fff;
 }
 
-// いいねボタン
-.fav_btn {
-  font-size: 2rem;
-  color: #ff1493;
-}
-
-.favs_count {
-  font-size: 1rem;
-  color: #ff1493;
-}
-
-/*friendsページ*/
-.chat_rooms_title,
-.followers_title,
-.followings_title {
-  font-family: "Times New Roman";
-}
-
-.friends_chat {
-  border-radius: 10px;
-  background-color: #bad3ff;
-}
-
-.friends_chat:hover {
-  background-color: #baffe6;
-}
-
-.chat_friends_icon {
-  border-radius: 50% 50%;
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-}
-
-.friends_name {
-  color: #000;
-  font-weight: bold;
-}
-
-.friends_message {
-  color: #a9a9a9;
-}
-
 // 通知一覧
 .notice_delete_btn {
   color: #c71585;
-}
-
-.notice_title {
-  font-family: "Times New Roman";
-}
-
-// チャットルーム
-ul {
-  list-style: none;
-}
-
-.dm_form {
-  height: 40px;
   border-radius: 30px;
-  border: 1px solid #dcdcdc;
+  border: 1px solid #c71585;
 }
 
-.send_dm {
-  position: fixed;
-  bottom: 15%;
-  width: 50%;
+.notice_delete_btn:hover {
+  background-color: #c71585;
+  color: #ffffff;
 }
-
-.chat_room {
-  overflow: hidden;
-  overflow-y: scroll;
-  height: 480px;
-}
-
-.message_from_me {
-  text-align: right;
-  margin: 24px;
-}
-
-.message_from_you {
-  text-align: left;
-  margin: 24px;
-}
-
-.message_from_me_bubble {
-  border-radius: 30px 30px;
-  background-color: #25b7c0;
-  padding: 10px 12px 10px 12px;
-}
-
-.message_from_you_bubble {
-  border-radius: 30px 30px;
-  background-color: #d9e367;
-  padding: 10px 12px 10px 12px;
-}
-
 
 /*管理者投稿詳細ページ*/
 .admin_delete {
@@ -515,16 +145,4 @@ ul {
   background-color: #c71585;
   color: #fff;
   border: none;
-}
-
-// エラーメッセージ
-.error_message {
-  color: #c70067;
-  font-weight: lighter;
-}
-
-// 検索結果
-.search_result_title {
-  font-family: "Times New Roman";
-  font-weight: lighter;
 }

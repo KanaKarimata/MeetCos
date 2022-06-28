@@ -19,5 +19,5 @@ Hashtag.seed(:id, [
   { id: 18, hashname: '#ブルベ'},
   { id: 19, hashname: '#イエベ'},
   { id: 20, hashname: '#TOMFORD'},
-
+  { id: 21, hashname: '#プロのメイクはすごかった'},
   ])
