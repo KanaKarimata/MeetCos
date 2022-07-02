@@ -10,7 +10,7 @@
         <div class="modal-header">
           <div class="modal-title" id="staticBackdropLabel<%= post.id%>">
             <%= link_to user_path(post.user) do %>
-              <%= image_tag post.user.get_profile_image(40,40), class: "post_show_user_icon"%>
+              <%= image_tag post.user.get_profile_image(100,100), class: "post_show_user_icon"%>
               <span class="ms-2 post_show_user_name"><%= post.user.name %></span>
             <% end %>
           </div>

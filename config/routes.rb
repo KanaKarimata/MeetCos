@@ -21,13 +21,13 @@ Rails.application.routes.draw do
     get '/post/hashtag', to: 'posts#hashtag'
     get '/search', to: 'searches#search', as: 'search'
     get '/contacts/thanks', to: 'contacts#thanks'
-    get '/posts/feeds', to: 'posts#feeds'
 
     resources :users, except: [:new, :index, :destroy] do
       collection do
         get 'friends' => 'relationships#friends', as: 'friends'
+        get '/posts/feeds', to: 'posts#feeds', as: 'feeds'
       end
-      
+
       resource :relationships, only: [:create, :destroy]
       # いいねした投稿一覧表示
       member do

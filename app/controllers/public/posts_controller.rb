@@ -25,6 +25,7 @@ class Public::PostsController < ApplicationController
 
   def feeds
     @posts = Post.where(user_id: [current_user.id, *current_user.following_ids ]).with_attached_post_images.order(created_at: :desc)
+    @comment_new = PostComment.new
   end
 
   def update

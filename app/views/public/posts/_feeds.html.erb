@@ -1,0 +1,41 @@
+<div class="col-md-8 mb-2 user_post_item d-flex justify-content-center">
+  <div class="card">
+    <div class="card-header px-auto">
+      <% if post.user_id == current_user.id %>
+        <%= link_to user_path(current_user) do %>
+          <%= image_tag post.user.get_profile_image(100, 100), class: "post_show_user_icon" %>
+          <span class="ms-2 feed_show_user_name"><%= post.user.name %></span>
+        <% end %>
+      <% elsif %>
+        <%= link_to user_path(post.user) do %>
+          <%= image_tag post.user.get_profile_image(100, 100), class: "post_show_user_icon" %>
+          <span class="ms-2 feed_show_user_name">
+            <%= post.user.name %>
+            <span class="feed_show_user_name_san">さんの投稿</span>
+          </span>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <!--画像クリック→投稿詳細モーダル表示-->
+      <button type="button" class="btn posts_index_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post.id%>">
+          <%= image_tag post.post_images[0].variant(resize: "500x500>").processed, class: "feeds_posts" %>
+      </button>
+    </div>
+    <div class="card-footer">
+      <div class="container-fuild">
+        <div class="row-fuild">
+          <div class="col">
+            <i class="fas fa-heart"></i>
+            <span><%= post.favs.count %></span>
+          </div>
+          <div class="col">
+            <p>コメント<span id="post-comments-counter-<%=post.id%>"><%= post.post_comments.size %></span>件</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 投稿詳細モーダル -->
+  <%= render 'public/posts/user_index_modal', post_show: post, comment_new: comment_new %>
+</div>

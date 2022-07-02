@@ -1,1 +1,5 @@
-<h1>feeds</h1>
+<div class="contaiber">
+  <div class="row d-flex justify-content-center">
+    <%= render partial: 'public/posts/feeds', collection: @posts, as: "post", locals: {comment_new: @comment_new} %>
+  </div>
+</div>
