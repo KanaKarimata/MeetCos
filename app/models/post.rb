@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   has_many :notifications
   has_many :hashtag_posts, dependent: :destroy
   has_many :hashtags, through: :hashtag_posts
+  has_many :tags, dependent: :destroy
 
   validates :post_images, presence: true
   validates :caption, presence: true

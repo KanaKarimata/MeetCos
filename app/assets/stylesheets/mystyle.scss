@@ -433,6 +433,15 @@ box-shadow:  28px 28px 39px #afafaf;
   color: #ff1493;
 }
 
+// フィードページいいねボタン
+.feeds_fav_btn {
+
+}
+
+.feeds_favs_count {
+
+}
+
 /*friendsページ*/
 .chat_rooms_title,
 .followers_title,
@@ -543,4 +552,14 @@ ul {
 .search_result_title {
   font-family: "Times New Roman";
   font-weight: lighter;
+}
+
+// API ラベル
+.ai_label {
+  background: linear-gradient(-135deg, #E4A972, #9941D8);
+  border-radius: 10px 10px;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 0.8rem;
+  margin-top: 16px;
 }

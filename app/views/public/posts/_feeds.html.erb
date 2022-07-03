@@ -25,9 +25,9 @@
     <div class="card-footer">
       <div class="container-fuild">
         <div class="row-fuild">
-          <div class="col">
-            <i class="fas fa-heart"></i>
-            <span><%= post.favs.count %></span>
+          <div class="col" id = <%= "feeds_fav_button-" + post.id.to_s %> >
+            <!--Feeds page いいねボタン-->
+            <%= render 'public/favs/feeds_fav_btn', post: post %>
           </div>
           <div class="col">
             <p>コメント<span id="post-comments-counter-<%=post.id%>"><%= post.post_comments.size %></span>件</p>

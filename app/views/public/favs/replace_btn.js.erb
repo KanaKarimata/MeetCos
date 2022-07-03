@@ -1,1 +1,2 @@
 $('#fav_button-<%= @fav.post_id %>').html("<%= j(render 'public/favs/fav_btn',  post: @fav.post ) %>")
+$('#feeds_fav_button-<%= @fav.post_id %>').html("<%= j(render 'public/favs/feeds_fav_btn',  post: @fav.post ) %>")
