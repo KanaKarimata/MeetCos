@@ -237,8 +237,23 @@ a {
   height: 600px;
 }
 
-@media screen and (max-width:768px) {
+.sign_up_form {
+  margin-top: 2.25rem !important;
+}
 
+@media screen and (max-width:1000px) {
+  .sign_up_form {
+    margin-top: 2.25rem !important;
+    padding-left: 2rem !important;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .sign_up {
+    background-image: image-url('man_makeup.jpg');
+    background-size: cover;
+    height: 350px;
+  }
 }
 
 @media screen and (max-width:500px) {
@@ -255,6 +270,14 @@ a {
     height: 300px;
   }
 
+  .sign_up_form {
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+  }
+
+  .sign_up_title {
+    font-size: 4.5ex;
+  }
 }
 
 /*ユーザー詳細画面*/
