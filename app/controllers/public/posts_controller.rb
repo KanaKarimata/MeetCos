@@ -42,6 +42,11 @@ class Public::PostsController < ApplicationController
     if @post.update(post_params)
       savepost_hashtags = Hashtag.create_if_nothing(hashtag_list)
       @post.save_hashtags(savepost_hashtags)
+
+      tags = @post.post_images.map {|image| Vision.get_image_data(image)}.flatten
+      tags.each do |tag|
+        @post.tags.update(name: tag)
+      end
     else
       redirect_to user_path(current_user)
       flash[:post_alert] = "画像の拡張子はjpg, jpeg, pngのみ投稿できます。投稿できる画像は１０枚までです。投稿にはCaptionが必ず必要です"
