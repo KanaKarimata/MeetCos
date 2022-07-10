@@ -10,45 +10,48 @@
       <span class="user_id">User ID: <%= user.userid %></span>
     </div>
   </div>
-  <!--Friendsボタンはcurrent_userのみに表示する-->
-  <% if user == current_user %>
+
+  <div class="row">
+    <div class="col user_info_btn d-flex justify-content-center">
+    <!--Friendsボタンはcurrent_userのみに表示する-->
+    <% if user == current_user %>
+      <div class="row text-center">
+        <div class="col">
+        <%= link_to friends_users_path, class: "btn user_nav_list_item" do %>
+          <i class="fas fa-user-friends"></i>
+          <span>Friends</span>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+
     <div class="row text-center">
       <div class="col">
-      <%= link_to friends_users_path, class: "btn user_nav_list_item" do %>
-        <i class="fas fa-user-friends"></i>
-        <span>Friends</span>
+      <%= link_to favs_user_path(user), class: "btn likes_btn user_nav_list_item" do %>
+        <i class="fas fa-heart"></i>
+        <span class="likes">Likes</span>
       <% end %>
       </div>
     </div>
-  <% end %>
 
-  <div class="row text-center">
-    <div class="col">
-    <%= link_to favs_user_path(user), class: "btn user_nav_list_item" do %>
-      <i class="fas fa-heart"></i>
-      <span class="likes">Likes</span>
-    <% end %>
+    <div class="row text-center">
+      <div class="col">
+        <% if current_user!= user %>
+          <%= render "public/relationships/btn", user: user %>
+         <% elsif user.name != "ゲスト" %>
+          <%= link_to edit_user_path(user), class: "btn user_edit_btn" do %>
+            <i class="fas fa-pen"></i>&ensp;Edit Profile
+          <% end %>
+        <% end %>
+
+        <% if current_user != user && current_user.following?(user)  %>
+          <%= form_with model: Room.new, url: rooms_path, local: true do |f| %>
+            <%= hidden_field_tag :user_id, user.id %>
+            <%= f.submit "Send messages", class: 'ml-3 btn chat_btn' %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
-
-  <div class="row text-center">
-    <div class="col">
-      <% if current_user!= user %>
-        <%= render "public/relationships/btn", user: user %>
-       <% else if user.name != "ゲスト" %>
-        <%= link_to edit_user_path(user), class: "btn user_edit_btn" do %>
-          <i class="fas fa-pen"></i>&ensp;Edit Profile
-        <% end %>
-       <% else %>
-       <% end %>
-      <% end %>
-
-      <% if current_user != user && current_user.following?(user)  %>
-        <%= form_with model: Room.new, url: rooms_path, local: true do |f| %>
-          <%= hidden_field_tag :user_id, user.id %>
-          <%= f.submit "Send messages", class: 'ml-3 btn chat_btn' %>
-        <% end %>
-      <% end %>
     </div>
   </div>
 </div>
