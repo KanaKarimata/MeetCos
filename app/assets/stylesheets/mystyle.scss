@@ -99,22 +99,6 @@ a {
   color: white;
 }
 
-@media screen and (max-width:768px) {
-  .top-visual-title {
-    font-family:  "Times New Roman";
-    font-size: 8ex;
-    color: #ffffff;
-  }
-}
-
-@media screen and (max-width:500px) {
-  .top-visual-title {
-    font-family:  "Times New Roman";
-    font-size: 4ex;
-    color: #ffffff;
-  }
-}
-
 .top-visual-body {
   font-family:  "Times New Roman";
   font-size: 3ex;
@@ -122,14 +106,12 @@ a {
 }
 
 @media screen and (max-width:768px) {
-  .top-visual-body {
+  .top-visual-title {
     font-family:  "Times New Roman";
-    font-size: 2ex;
-    color: white;
+    font-size: 8ex;
+    color: #ffffff;
   }
-}
 
-@media screen and (max-width:500px) {
   .top-visual-body {
     font-family:  "Times New Roman";
     font-size: 2ex;
@@ -147,13 +129,33 @@ a {
 }
 
 @media screen and (max-width:500px) {
+  .top-visual {
+    background-image: image-url("main-visual.jpg");
+    background-size: cover;
+    height: 200px;
+    position: relative;
+  }
+
+  .top-visual-title {
+    font-family:  "Times New Roman";
+    font-size: 4ex;
+    color: #000000;
+    margin-top: 15rem;
+  }
+
+  .top-visual-body {
+    font-family:  "Times New Roman";
+    font-size: 2ex;
+    color: #000000;
+  }
+
   .top-visual-link {
     font-family:  "Times New Roman";
     font-size: 2ex;
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 40%;
-    color: white;
+    color: #ffffff;
   }
 }
 
@@ -164,12 +166,42 @@ a {
 
 /*aboutページ*/
 .about-visual {
-  display: inline-block;
+  width: 600px;
+  background-image: image-url('main-visual1.jpg');
+  background-size: cover;
+  height: 650px;
 }
 
 .about-visual-content {
   font-family:  "Times New Roman";
-  margin-left: 100px;
+  margin-top: 10rem !important;
+}
+
+@media screen and (max-width:500px) {
+  .about {
+    margin-top: 2.25rem;
+  }
+
+  .about-visual {
+    width: 600px;
+    background-image: image-url('main-visual1.jpg');
+    background-position: center;
+    height: 150px;
+  }
+
+  .about-visual-content {
+    font-family:  "Times New Roman";
+    text-align: center;
+    margin-top: 2rem !important;
+  }
+
+  .about_title {
+    font-size: 5ex;
+  }
+
+  .about_body {
+    font-size: 2ex;
+  }
 }
 
 /*sign in/sign up ページ*/
@@ -203,6 +235,26 @@ a {
   background-image: image-url('man_makeup.jpg');
   background-size: cover;
   height: 600px;
+}
+
+@media screen and (max-width:768px) {
+
+}
+
+@media screen and (max-width:500px) {
+  .sign_in {
+    background-image: image-url('skincare.jpg');
+    background-size: cover;
+    height: 240px;
+    background-position: center;
+  }
+
+  .sign_up {
+    background-image: image-url('man_makeup.jpg');
+    background-size: cover;
+    height: 300px;
+  }
+
 }
 
 /*ユーザー詳細画面*/
