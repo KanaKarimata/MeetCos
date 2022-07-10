@@ -57,6 +57,24 @@
   object-fit: cover;
 }
 
+@media screen and (max-width:1024px) {
+  .user_posts_show_modal,
+  .posts_index_post_show_modal,
+  .favs_index_post_show_modal {
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: 500px;
+  }
+
+  .user_posts_index {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+  }
+
+}
+
 // フィードページ
 .feeds_posts {
   width: 400px;

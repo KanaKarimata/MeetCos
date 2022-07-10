@@ -320,9 +320,9 @@ a {
 
 .post-btn {
   border-radius: 76px;
-background: linear-gradient(145deg, #f0f0f0, #cacaca);
-box-shadow:  28px 28px 39px #afafaf;
-             /*-28px -28px 39px #ffffff;*/
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow:  28px 28px 39px #afafaf;
+               /*-28px -28px 39px #ffffff;*/
 }
 
 .user_name {
@@ -390,6 +390,16 @@ box-shadow:  28px 28px 39px #afafaf;
 }
 
 @media screen and (max-width:768px) {
+  .user_post_item,
+  .post_all_item,
+  .fav_index,
+  .admin_posts,
+  .admin_post_show {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+  }
+
   .user_info_btn {
     display: flex;
     flex-direction: row;
@@ -459,6 +469,16 @@ box-shadow:  28px 28px 39px #afafaf;
 .new_post_btn {
   font-size: 1.4rem;
   color: #ff6666;
+}
+
+@media screen and (max-width:1024px) {
+  .new_post_modal,
+  .edit_post_modal {
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: 500px !important;
+  }
 }
 
 /*ユーザー詳細ページ投稿詳細モーダル*/
