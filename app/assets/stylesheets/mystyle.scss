@@ -308,7 +308,7 @@ a {
 
 /*ユーザー詳細画面*/
 .user_show {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .user_image {
@@ -389,6 +389,10 @@ a {
   transform: scale(1.1, 1.1);
 }
 
+.user_posts_index_to_show {
+  margin-top: 1rem !important;
+}
+
 @media screen and (max-width:768px) {
   .user_post_item,
   .post_all_item,
@@ -396,8 +400,10 @@ a {
   .admin_posts,
   .admin_post_show {
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row;
     flex-wrap: wrap;
+    width: auto !important;
+
   }
 
   .user_info_btn {
@@ -537,10 +543,13 @@ a {
   .post_content {
     width: 240px !important;
   }
+
   .post_show,
   .user_posts_index_to_show {
+    margin-top: 0.5rem !important;
     display: flex;
     flex-direction: row;
+    margin-left: calc(0.5 * var(--bs-gutter-x)) !important;
   }
 }
 
@@ -552,6 +561,13 @@ a {
   .post_content {
     margin-top: 1rem !important;
     width: 320px !important;
+  }
+
+  .post_show,
+  .user_posts_index_to_show {
+    display: flex;
+    flex-direction: row;
+    margin-left: calc(0 * var(--bs-gutter-x)) !important;
   }
 }
 
@@ -602,6 +618,11 @@ a {
 }
 
 /*投稿一覧ページ*/
+
+.posts_index_page {
+    margin-top: 1.5rem !important;
+}
+
 .search_form {
   width: 300px;
   height: 40px;
@@ -645,6 +666,18 @@ a {
 .post_edit_btn:hover,
 .post_delete_btn:hover {
   color: #666666;
+}
+
+@media screen and (max-width:768px) {
+  .posts_index_page {
+    margin-top: 2rem !important;
+  }
+
+  .posts_index {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+  }
 }
 
 /*いいね一覧*/

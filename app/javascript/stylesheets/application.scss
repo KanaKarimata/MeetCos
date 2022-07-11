@@ -68,8 +68,8 @@
   }
 
   .user_posts_index {
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
   }
 
@@ -84,6 +84,12 @@
     height: 100%;
     max-height: 500px;
   }
+
+  .user_posts_index {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+  }
 }
 
 @media screen and (max-width:425px) {
@@ -94,6 +100,12 @@
     max-width: 400px;
     height: 100%;
     max-height: 480px;
+  }
+
+  .user_posts_index {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
   }
 }
 
@@ -109,6 +121,14 @@
   width: 200px;
   height: 200px;
   object-fit: cover;
+}
+
+@media screen and (max-width:768px) {
+  .posts_index {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+  }
 }
 
 // サイドバー（user info）のボタン
