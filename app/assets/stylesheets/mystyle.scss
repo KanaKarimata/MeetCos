@@ -403,7 +403,7 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     width: auto !important;
-
+    padding-right: calc(var(--bs-gutter-x) * 0) !important;
   }
 
   .user_info_btn {
