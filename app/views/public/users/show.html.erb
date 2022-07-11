@@ -30,8 +30,8 @@
             </div>
           </div>
         </div>
-        <div class="container mt-5">
-          <div id="user-posts-index-<%= @user.id %>" class="row">
+        <div class="container mt-5 user_posts_index_to_show">
+          <div id="user-posts-index-<%= @user.id %>" class="row user_posts_index_to_show">
             <%= render partial: 'public/posts/user_index', collection: @posts, as: "post_show", locals: {comment_new: @comment_new} %>
           </div>
         </div>

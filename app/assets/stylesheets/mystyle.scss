@@ -537,7 +537,8 @@ a {
   .post_content {
     width: 240px !important;
   }
-  .post_show {
+  .post_show,
+  .user_posts_index_to_show {
     display: flex;
     flex-direction: row;
   }
