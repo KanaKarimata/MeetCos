@@ -16,22 +16,20 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="conatainer">
-            <div class="row">
-              <div class="col-md-8">
-                <div>
-                  <% if post_show.post_images.attached? %>
-                    <span class="post_images_count"><i class="fas fa-images"></i>&nbsp;<%= post_show.post_images.size %></span>
-                    <% post_show.post_images.find_each do |post_image| %>
-                      <%= image_tag post_image, class: "post_image_show" %>
-                    <% end %>
+          <div class="container-fluid post_show">
+            <div class="row post_show">
+              <div class="col-md-8 post_image">
+                <% if post_show.post_images.attached? %>
+                  <span class="post_images_count"><i class="fas fa-images"></i>&nbsp;<%= post_show.post_images.size %></span>
+                  <% post_show.post_images.find_each do |post_image| %>
+                    <%= image_tag post_image, class: "post_image_show" %>
                   <% end %>
-                </div>
+                <% end %>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 post_content">
                 <div clas="row mb-2">
                   <div class="col-md-2">
-                    <%= image_tag post_show.user.get_profile_image(35,35), class: "post_show_user_icon" %>
+                    <%= image_tag post_show.user.get_profile_image(100,100), class: "post_show_user_icon" %>
                   </div>
                   <div class="col mb-4">
                     <span class="posts_to_user_show"><%= post_show.user.name %></span>

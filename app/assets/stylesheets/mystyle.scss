@@ -529,6 +529,31 @@ a {
   font-size: 12px;
 }
 
+@media screen and (max-width:768px) {
+  .post_image {
+    width: 320px !important;
+  }
+
+  .post_content {
+    width: 240px !important;
+  }
+  .post_show {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .post_image {
+    width: 320px !important;
+  }
+
+  .post_content {
+    margin-top: 1rem !important;
+    width: 320px !important;
+  }
+}
+
 /*コメント一覧*/
 .comment_user_name {
   font-size: 16px;
