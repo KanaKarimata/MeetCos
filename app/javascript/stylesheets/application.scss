@@ -352,8 +352,8 @@
   }
 
   .user_posts_index {
-    width: 200px;
-    height: 200px;
+    width: 200px !important;
+    height: 200px !important;
     object-fit: cover;
   }
 
@@ -370,8 +370,8 @@
   }
 
   .user_posts_index {
-    width: 120px;
-    height: 120px;
+    width: 120px !important;
+    height: 120px !important;
     object-fit: cover;
   }
 }
@@ -424,8 +424,8 @@
   }
 
   .user_posts_index {
-    width: 80px;
-    height: 80px;
+    width: 80px !important;
+    height: 80px !important;
     object-fit: cover;
   }
 }
