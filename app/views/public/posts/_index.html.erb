@@ -46,6 +46,9 @@
                         <%= hashtag.hashname %>
                       <% end %>
                     <% end %>
+                    <% post_show.tags.each do |tag| %>
+                      <span class="ai_label"><%= tag.name %></span>
+                    <% end %>
                   </div>
                 </div>
                 <!--コメント数-->
