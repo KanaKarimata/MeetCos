@@ -778,6 +778,12 @@ a {
   font-weight: lighter;
 }
 
+@media screen and (max-width:768px) {
+  .feeds_page {
+    margin-top: 5rem !important;
+  }
+}
+
 /*投稿一覧ページ*/
 
 .posts_index_page {
