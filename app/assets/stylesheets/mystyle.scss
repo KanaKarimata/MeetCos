@@ -1126,6 +1126,15 @@ a {
 }
 
 // 通知一覧
+.notification_index {
+ margin-top: 3rem !important;
+ margin-bottom: 2rem;
+}
+
+.notice_delete {
+  text-align: right;
+}
+
 .notice_delete_btn {
   color: #c71585;
 }
