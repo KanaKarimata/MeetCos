@@ -18,7 +18,7 @@
       <div class="row text-center">
         <div class="col">
         <%= link_to friends_users_path, class: "btn user_nav_list_item" do %>
-          <i class="fas fa-user-friends"></i>
+          <i class="fas fa-user-friends user_info_nav"></i>
           <span>&ensp;Friends</span>
         <% end %>
         </div>
@@ -28,7 +28,7 @@
     <div class="row text-center">
       <div class="col">
       <%= link_to favs_user_path(user), class: "btn likes_btn user_nav_list_item" do %>
-        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart user_info_nav"></i>
         <span class="likes">&ensp;Likes</span>
       <% end %>
       </div>
@@ -40,7 +40,7 @@
           <%= render "public/relationships/btn", user: user %>
          <% elsif user.name != "ゲスト" %>
           <%= link_to edit_user_path(user), class: "btn user_edit_btn" do %>
-            <i class="fas fa-pen"></i>&ensp;Edit Profile
+            <i class="fas fa-pen user_info_nav"></i>&ensp;Edit Profile
           <% end %>
         <% end %>
 
