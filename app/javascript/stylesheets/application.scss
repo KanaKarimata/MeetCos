@@ -325,25 +325,25 @@
   max-height: 800px;
 }
 
-@media screen and (max-width:768px) {
-  .new_post_modal,
-  .edit_post_modal {
-    width: 100%;
-    max-width: 640px;
-    height: 100%;
-    max-height: 800px;
-  }
-}
+// @media screen and (max-width:768px) {
+//   .new_post_modal,
+//   .edit_post_modal {
+//     width: 100%;
+//     max-width: 640px;
+//     height: 100%;
+//     max-height: 800px;
+//   }
+// }
 
-@media screen and (max-width:425px) {
-  .new_post_modal,
-  .edit_post_modal {
-    width: 100%;
-    max-width: 380px;
-    height: 100%;
-    max-height: 800px;
-  }
-}
+// @media screen and (max-width:425px) {
+//   .new_post_modal,
+//   .edit_post_modal {
+//     width: 100%;
+//     max-width: 380px;
+//     height: 100%;
+//     max-height: 800px;
+//   }
+// }
 
 // ユーザー詳細ページ詳細投稿モーダル
 .user_posts_show_modal,
