@@ -815,7 +815,19 @@ a {
 }
 
 .user_info_edit_save_btn {
-  
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  border-radius: 30px;
+  border: none;
+  background: #ADD100;  /* fallback for old browsers */
+  color: #ffffff;
+  font-weight: bold;
+}
+
+// 退会ボタン
+.quit_btn {
+  color: red;
+  font-size: 0.8rem;
 }
 
 // フィードページ
