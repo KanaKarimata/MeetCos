@@ -908,7 +908,7 @@ a {
     margin-top: 0.5rem !important;
     display: flex;
     flex-direction: row;
-    margin-left: calc(0.5 * var(--bs-gutter-x)) !important;
+    margin-left: calc(0.8 * var(--bs-gutter-x)) !important;
   }
 }
 
@@ -926,7 +926,7 @@ a {
   .user_posts_index_to_show {
     display: flex;
     flex-direction: row;
-    margin-left: calc(0 * var(--bs-gutter-x)) !important;
+    margin-left: calc(0.3 * var(--bs-gutter-x)) !important;
   }
 
   .all_posts {
