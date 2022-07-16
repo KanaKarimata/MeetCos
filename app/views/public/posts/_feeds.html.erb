@@ -23,14 +23,14 @@
       </button>
     </div>
     <div class="card-footer">
-      <div class="container-fuild">
-        <div class="row-fuild">
-          <div class="col" id = <%= "feeds_fav_button-" + post.id.to_s %> >
+      <div class="container-fluid">
+        <div class="row justify-content-end">
+          <div class="col-2" id = <%= "feeds_fav_button-" + post.id.to_s %> >
             <!--Feeds page いいねボタン-->
             <%= render 'public/favs/feeds_fav_btn', post: post %>
           </div>
-          <div class="col">
-            <p>コメント<span id="post-comments-counter-<%=post.id%>"><%= post.post_comments.size %></span>件</p>
+          <div class="col-2 text-right">
+            <div class="feeds_comment_count"><i class="far fa-comment"></i><span id="post-comments-counter-<%=post.id%>" class="feeds_comment_count_amount"><%= post.post_comments.size %></span></div>
           </div>
         </div>
       </div>

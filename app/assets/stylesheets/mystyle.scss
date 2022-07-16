@@ -1097,22 +1097,36 @@ a {
 
 // いいねボタン
 .fav_btn {
-  font-size: 2rem;
-  color: #ff1493;
+  font-size: 1.3rem;
+  color: #a8e600;
 }
 
 .favs_count {
-  font-size: 1rem;
-  color: #ff1493;
+  font-size: 0.9rem;
+  color: #a8e600;
 }
 
 // フィードページいいねボタン
 .feeds_fav_btn {
-
+  color: #a8e600;
+  font-size: 1.3rem;
+  text-align: right;
 }
 
 .feeds_favs_count {
+  color: #a8e600;
+  font-size: 0.9rem;
+}
 
+.feeds_comment_count {
+  text-align: right;
+  font-size: 1.3rem;
+  color: #5314ff;
+}
+
+.feeds_comment_count_amount {
+  font-size: 0.9rem;
+  margin-left: 0.3rem;
 }
 
 /*friendsページ*/

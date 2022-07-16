@@ -1,12 +1,12 @@
 <% if post.favorited_by?(current_user) %>
   <%= link_to post_favs_path(post), method: :delete, remote: true do %>
-    <div class="d-flex align-items-end fav_btn">♥
+    <div class="align-items-end fav_btn"><i class="fas fa-heart"></i>
       <span class="favs_count"><%= post.favs.count %></span>
     </div>
   <% end %>
 <% else %>
   <%= link_to post_favs_path(post), method: :post, remote: true do %>
-    <div class="d-flex align-items-end fav_btn">♡
+    <div class="align-items-end fav_btn"><i class="far fa-heart"></i>
       <span class="favs_count"><%= post.favs.count %></span>
     </div>
   <% end %>
