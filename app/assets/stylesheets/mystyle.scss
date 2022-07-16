@@ -431,6 +431,10 @@ a {
 }
 
 @media screen and (max-width:425px) {
+  .user_show {
+    margin-top: 3.5rem;
+  }
+
   .user_info_btn {
     display: flex;
     flex-direction: row;
