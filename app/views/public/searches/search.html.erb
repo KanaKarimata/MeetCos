@@ -1,5 +1,5 @@
 <% if @search_type == 'user' %>
-  <div class="container">
+  <div class="container search_results">
     <div class="row text-center">
       <div class="col">
         <h1 class="search_result_title">Users search for "<%= @content %>"</h1>
@@ -18,7 +18,7 @@
   </div>
 <% elsif @search_type == 'post' || @search_type == 'hashtag' %>
 
-  <div class="container">
+  <div class="container search_results">
     <div class="row text-center mb-5">
       <div class="col">
         <h1 class="search_result_title">Books search for "<%= @content %>"</h1>

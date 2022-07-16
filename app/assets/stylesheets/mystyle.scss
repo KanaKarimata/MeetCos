@@ -1250,6 +1250,12 @@ ul {
   font-weight: lighter;
 }
 
+@media screen and (max-width:768px) {
+  .search_results {
+    margin-top: 3rem;
+  }
+}
+
 // API ラベル
 .ai_label {
   background: linear-gradient(-135deg, #E4A972, #9941D8);
