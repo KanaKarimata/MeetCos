@@ -445,6 +445,11 @@
     max-height: 480px;
   }
 
+  .user_posts_show_modal_content {
+    width: 80%;
+    margin-left: 2.5rem;
+  }
+
   .user_posts_index {
     width: 80px !important;
     height: 80px !important;
@@ -585,4 +590,12 @@ a {
 // フィードページ
 .feeds_page {
   margin-top: 2rem !important;
+}
+
+@media screen and (max-width:425px) {
+  .feeds_posts {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
 }

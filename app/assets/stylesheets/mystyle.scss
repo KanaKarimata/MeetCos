@@ -866,6 +866,14 @@ a {
   }
 }
 
+@media screen and (max-width:425px) {
+  .feeds_posts {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
 /*投稿一覧ページ*/
 
 .posts_index_page {
@@ -1025,6 +1033,11 @@ a {
     max-width: 400px;
     height: 100%;
     max-height: 480px;
+  }
+
+  .user_posts_show_modal_content {
+    width: 80%;
+    margin-left: 2.5rem;
   }
 
   .user_posts_index {

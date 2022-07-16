@@ -1,6 +1,6 @@
 <div class="modal fade user_posts_show_modal_all" id="staticBackdrop<%= post_show.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel<%= post_show.id%>" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable user_posts_show_modal">
-      <div class="modal-content ">
+      <div class="modal-content user_posts_show_modal_content">
         <div class="modal-header">
           <div class="modal-title" id="staticBackdropLabel<%= post_show.id%>">
             <%= image_tag post_show.user.get_profile_image(100, 100), class: "post_show_user_icon" %>
