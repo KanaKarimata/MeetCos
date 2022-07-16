@@ -791,7 +791,7 @@ a {
 }
 
 .all_posts {
-  margin-left: calc(var(--bs-gutter-x)*1);
+  margin-left: calc(var(--bs-gutter-x)*2) !important;
 }
 
 .search_form {
@@ -840,6 +840,10 @@ a {
 }
 
 @media screen and (max-width:768px) {
+  .all_posts {
+    margin-left: calc(var(--bs-gutter-x)*0) !important;
+  }
+
   .posts_index_page {
     margin-top: 2rem !important;
   }
@@ -852,6 +856,10 @@ a {
 }
 
 @media screen and (max-width:1024px) {
+  .all_posts {
+    margin-left: calc(var(--bs-gutter-x)*0) !important;
+  }
+
   .user_posts_show_modal,
   .posts_index_post_show_modal,
   .favs_index_post_show_modal {
@@ -919,6 +927,10 @@ a {
     display: flex;
     flex-direction: row;
     margin-left: calc(0 * var(--bs-gutter-x)) !important;
+  }
+
+  .all_posts {
+    margin-left: calc(var(--bs-gutter-x)*0) !important;
   }
 }
 
