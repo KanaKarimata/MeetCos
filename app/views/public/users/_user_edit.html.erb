@@ -19,8 +19,12 @@
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
-
-        <%= f.submit "Save!" %>
+        <br />
+        <div class="row">
+          <div class="col user_info_edit_save">
+            <%= f.submit "Save!", class: "user_info_edit_save_btn" %>
+          </div>
+        </div>
       <% end %>
       <%= link_to "退会する", out_path(@user), method: :patch, "data-confirm" => "本当に退会しますか？" %>
     </div>
