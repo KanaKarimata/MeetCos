@@ -43,12 +43,17 @@
             <i class="fas fa-pen user_info_nav"></i>&ensp;Edit Profile
           <% end %>
         <% end %>
-
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col">
         <% if current_user != user && current_user.following?(user)  %>
           <%= form_with model: Room.new, url: rooms_path, local: true do |f| %>
             <%= hidden_field_tag :user_id, user.id %>
-            <%= f.submit "Send messages", class: 'ml-3 btn chat_btn' %>
+            <%= button_tag(type: "submit", class: "btn chat_btn") do %>
+            <i class="fas fa-envelope"></i>
           <% end %>
+        <% end %>
         <% end %>
       </div>
     </div>

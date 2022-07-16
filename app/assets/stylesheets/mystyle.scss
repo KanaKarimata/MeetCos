@@ -340,10 +340,7 @@ a {
 }
 
 .user_edit_btn,
-.user_nav_list_item,
-.follow_btn,
-.unfollow_btn,
-.chat_btn {
+.user_nav_list_item {
   box-shadow: 5px 5px 8px 3px #ccc;
   margin-top: 2rem;
 }
@@ -356,6 +353,13 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.follow_btn,
+.unfollow_btn,
+.chat_btn {
+  box-shadow: 5px 5px 8px 3px #ccc;
+  margin-top: 1rem;
 }
 
 .follow_btn {
@@ -381,6 +385,7 @@ a {
 .chat_btn {
   background-color: #e3e548;
   font-weight: bold;
+  border-radius: 50px;
 }
 
 .chat_btn:hover {
@@ -426,6 +431,10 @@ a {
   .likes_btn {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+  }
+
+  .chat_btn {
+    margin-left: 1rem;
   }
 }
 
