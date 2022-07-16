@@ -342,12 +342,6 @@ a {
 .chat_btn {
   box-shadow: 5px 5px 8px 3px #ccc;
   margin-top: 2rem;
-  // display: flex;
-  // flex-direction: column;
-}
-
-.likes {
-  padding: 10px;
 }
 
 .user_post_item,
@@ -422,6 +416,7 @@ a {
     background: linear-gradient(to right, #636FA4, #E8CBC0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border: none !important;
     color: #ffffff !important;
+    display: flex;
   }
 
   .likes_btn {
