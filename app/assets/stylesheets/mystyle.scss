@@ -490,6 +490,12 @@ a {
   }
 }
 
+@media screen and (max-width:768px) {
+ .post_form {
+    display: block !important;
+ }
+}
+
 /*ユーザー詳細ページ投稿詳細モーダル*/
 .user_posts_show_modal {
   width: 100%;
