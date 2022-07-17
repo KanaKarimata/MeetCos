@@ -1,1 +1,15 @@
-<%= render partial: 'public/users/index', collection: @followers, as: "user" %>
+<div class="container followers_page">
+  <div class="row">
+    <span class="followers">Followers</span>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-1">
+      <%= link_to :back do %>
+        <span class= "btn back_to_user">←</span>
+      <% end %>
+    </div>
+    <div class="col-md-6 col-sm-4 col-4">
+      <%= render partial: 'public/users/index', collection: @followers, as: "user" %>
+    </div>
+  </div>
+</div>
