@@ -1274,6 +1274,10 @@ a {
 }
 
 // チャットルーム
+.dm_show {
+  margin-top: 2rem !important;
+}
+
 ul {
   list-style: none;
 }
@@ -1286,14 +1290,14 @@ ul {
 
 .send_dm {
   position: fixed;
-  bottom: 15%;
-  width: 50%;
+  bottom: 8%;
+  left: 45%;
 }
 
 .chat_room {
   overflow: hidden;
   overflow-y: scroll;
-  height: 480px;
+  height: 400px;
 }
 
 .message_from_me {
@@ -1318,6 +1322,26 @@ ul {
   padding: 10px 12px 10px 12px;
 }
 
+@media screen and (max-width:768px) {
+  .chat_room {
+    height: 400px;
+  }
+
+  .dm_show {
+    margin-top: 3rem !important;
+  }
+
+  .send_dm {
+    left: 38%;
+  }
+
+}
+
+@media screen and (max-width:425px) {
+  .send_dm {
+    left: 24%;
+  }
+}
 
 /*管理者投稿詳細ページ*/
 .admin_delete {

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container dm_show">
   <div class="row d-flex justify-content-center">
     <div class="col-md-1">
       <%= link_to friends_users_path do %>
@@ -36,7 +36,7 @@
         <div class="row send_dm text-center">
           <div class="col">
             <%= form_with model: @message, url: room_messages_path(@room.id) do |f| %>
-              <%= f.text_field :content, placeholder: "  Message...", class: "col-md-6 dm_form" %>
+              <%= f.text_field :content, placeholder: "  Message...", class: "col dm_form" %>
               <%= button_tag type: 'submit', class: 'btn btn-default' do %>
                 <i class="fas fa-paper-plane"></i>
               <% end %>
