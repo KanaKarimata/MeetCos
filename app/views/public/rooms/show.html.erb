@@ -19,12 +19,12 @@
                   <div class="row message_from_you d-flex flex-row">
                     <div class="col-md_2 message_from_you_user">
                       <% if @room.host_id == current_user.id %>
-                        <%= image_tag User.find(@room.guest_id).get_profile_image(30,30), class: "friends_icon" %>
+                        <%= image_tag User.find(@room.guest_id).get_profile_image(100,100), class: "friends_icon" %>
                       <% elsif  @room.guest_id == current_user.id %>
-                        <%= image_tag User.find(@room.host_id).get_profile_image(30,30), class: "friends_icon" %>
+                        <%= image_tag User.find(@room.host_id).get_profile_image(100,100), class: "friends_icon" %>
                       <% end %>
                     </div>
-                    <div class="col-md-4 ms-4">
+                    <div class="col ms-4">
                       <span class="message_from_you_bubble"><%= message.content %></span>
                     </div>
                   </div>
