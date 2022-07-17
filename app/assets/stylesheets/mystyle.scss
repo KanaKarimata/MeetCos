@@ -1341,6 +1341,11 @@ ul {
   .send_dm {
     left: 24%;
   }
+
+  .message_from_me_bubble,
+  .message_from_you_bubble {
+    font-size: 0.8rem;
+  }
 }
 
 /*管理者投稿詳細ページ*/
