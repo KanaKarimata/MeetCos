@@ -1447,7 +1447,7 @@ ul {
   }
 }
 
-// admin 投稿一覧ページ
+// admin 投稿一覧ページ, ユーザー一覧ページ
 .admin_posts {
   margin-top: 2rem !important;
 }
@@ -1464,6 +1464,10 @@ ul {
   .admin_user_index {
     margin-top: 3rem !important;
   }
+
+  .admin_user_index_item {
+    font-size: 0.9rem;
+  }
 }
 
 @media screen and (max-width:425px) {
@@ -1473,6 +1477,10 @@ ul {
 
   .admin_user_index {
     margin-top: 4rem !important;
+  }
+
+  .admin_user_index_item {
+    font-size: 0.8rem;
   }
 }
 

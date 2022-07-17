@@ -5,12 +5,12 @@
         <tbody>
           <% @users.find_each do |user| %>
               <tr>
-                <td><%= user.id %></td>
-                <td><%= image_tag user.get_profile_image(50,50), class: "friends_icon" %></td>
-                <td><%= user.name %></td>
-                <td><%= user.userid %></td>
-                <td><%= user.is_deleted %></td>
-                <td><%= link_to "More info", admin_user_path(user) %></td>
+                <td class="admin_user_index_item"><%= user.id %></td>
+                <td class="admin_user_index_item"><%= image_tag user.get_profile_image(100,100), class: "friends_icon" %></td>
+                <td class="admin_user_index_item"><%= user.name %></td>
+                <td class="admin_user_index_item"><%= user.userid %></td>
+                <td class="admin_user_index_item"><%= user.is_deleted %></td>
+                <td class="admin_user_index_item"><%= link_to "More info", admin_user_path(user) %></td>
               </tr>
           <% end %>
         </tbody>
