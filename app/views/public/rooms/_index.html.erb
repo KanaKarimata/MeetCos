@@ -4,7 +4,7 @@
     <div class="col-md-12">
       <%= link_to room_path(room) do %>
        <div class="container">
-          <div class="row pb-3 pt-3 friends_chat">
+          <div class="row pb-3 pt-3 mb-1 friends_chat">
             <% if room.host_id == current_user.id %>
               <div class="col-md-3 col-sm-2 col-3">
                 <%= image_tag User.find(room.guest_id).get_profile_image(50,50), class: "chat_friends_icon" %>
