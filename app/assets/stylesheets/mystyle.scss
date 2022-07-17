@@ -1244,6 +1244,17 @@ a {
   }
 }
 
+// いいね一覧
+.favs_page {
+  margin-top: 2rem !important;
+}
+
+@media screen and (max-width:768px) {
+  .favs_page {
+    margin-top: 3rem !important;
+  }
+}
+
 // 通知一覧
 .notification_index {
  margin-top: 3rem !important;
