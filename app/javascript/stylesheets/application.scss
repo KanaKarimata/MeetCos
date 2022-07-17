@@ -546,7 +546,7 @@ a {
   width: 300px;
 }
 
-/*いいね一覧*/
+/*バックボタン*/
 .back_to_user {
   font-size: 2rem;
   font-weight: lighter;
@@ -560,6 +560,18 @@ a {
 .back_to_user:hover {
   background-color: #000;
   color: #fff;
+}
+
+@media screen and (max-width:768px) {
+  .back_to_user {
+    font-size: 1.3rem;
+    font-weight: lighter;
+    color: #000;
+    border: solid 1px #000;
+    border-radius: 50% 50%;
+    width: 44px;
+    height: 44px;
+  }
 }
 
 // 通知一覧

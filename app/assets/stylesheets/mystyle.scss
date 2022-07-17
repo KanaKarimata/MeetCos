@@ -884,20 +884,6 @@ a {
   margin-left: calc(var(--bs-gutter-x)*2) !important;
 }
 
-.search_form {
-  width: 300px;
-  height: 40px;
-  border-radius: 20px 20px;
-  background-color: #dcdcdc;
-  border: none;
-}
-
-.search_btn_icon {
-  font-size: 1.5rem;
-  font-weight: lighter;
-  color: #dcdcdc;
-}
-
 .user_icon {
   border-radius: 50%;
 }
@@ -1079,7 +1065,7 @@ a {
   }
 }
 
-/*いいね一覧*/
+/*バックボタン*/
 .back_to_user {
   font-size: 2rem;
   font-weight: lighter;
@@ -1093,6 +1079,18 @@ a {
 .back_to_user:hover {
   background-color: #000;
   color: #fff;
+}
+
+@media screen and (max-width:768px) {
+  .back_to_user {
+    font-size: 1rem;
+    font-weight: lighter;
+    color: #000;
+    border: solid 1px #000;
+    border-radius: 50% 50%;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 // いいねボタン
@@ -1130,10 +1128,28 @@ a {
 }
 
 /*friendsページ*/
+
+.friends_page {
+  margin-top: 2rem !important;
+}
+
+.friends_search_form {
+  margin-bottom: 1rem;
+}
+
 .chat_rooms_title,
 .followers_title,
-.followings_title {
+.followings_title,
+.followers_count,
+.followings_count {
   font-family: "Times New Roman";
+}
+
+.followers_title,
+.followings_title,
+.followers_count,
+.followings_count {
+  color: #000000;
 }
 
 .followings_count,
@@ -1141,6 +1157,7 @@ a {
 .followers_link,
 .followings_link {
   text-align: center;
+
 }
 
 .followings_count,
@@ -1172,6 +1189,30 @@ a {
 
 .friends_message {
   color: #a9a9a9;
+}
+
+@media screen and (max-width:768px) {
+  .friends_page {
+    margin-top: 3rem !important;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .friends_page {
+    margin-top: 4rem !important;
+  }
+
+  .followers_count,
+  .followings_count {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .followers_title,
+  .followings_title {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
 }
 
 // 通知一覧
@@ -1255,6 +1296,47 @@ ul {
 .error_message {
   color: #c70067;
   font-weight: lighter;
+}
+
+// 検索フォーム
+.search_form {
+  width: 300px;
+  height: 40px;
+  border-radius: 20px 20px;
+  background-color: #dcdcdc;
+  border: none;
+}
+
+.search_btn_icon {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  color: #dcdcdc;
+}
+
+@media screen and (max-width:768px) {
+  .search_form {
+    width: 16rem;
+    height: 40px;
+    border-radius: 20px 20px;
+    background-color: #dcdcdc;
+    border: none;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .search_form {
+    width: 10rem;
+    height: 2rem;
+    border-radius: 20px 20px;
+    background-color: #dcdcdc;
+    border: none;
+  }
+
+  .search_btn_icon {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    color: #dcdcdc;
+  }
 }
 
 // 検索結果

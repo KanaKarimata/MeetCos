@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col text-center mb-5">
+<div class="container friends_page">
+  <div class="row friends_search_form">
+    <div class="col text-center">
       <%= render 'public/searches/user_search_form' %>
     </div>
   </div>
@@ -12,13 +12,13 @@
     </div>
     <div class="col-md-6">
       <div class="row justify-content-center">
-        <div class="col-md-3 col-sm-2 col-2 followings_link">
+        <div class="col-md-3 col-sm-2 col-3 followings_link">
           <%= link_to followings_users_path do %>
             <div class="followings_count"><%= @followings.count %></div>
             <span class="followings_title">Followings</span>
           <% end %>
         </div>
-        <div class="col-md-3 col-sm-2 col-2 followers_link">
+        <div class="col-md-3 col-sm-2 col-3 followers_link">
           <%= link_to followers_users_path do %>
             <div class="followers_count"><%= @followers.count %></div>
             <span class="followers_title">Followers</span>
