@@ -19,7 +19,7 @@
                 <div class="modal-header">
                   <div class="modal-title" id="staticBackdropLabel<%= post.id%>">
                     <%= link_to user_path(post.user) do %>
-                      <%= image_tag post.user.get_profile_image(40,40), class: "post_show_user_icon"%>
+                      <%= image_tag post.user.get_profile_image(100,100), class: "post_show_user_icon"%>
                       <span class="ms-2 post_show_user_name"><%= post.user.name %></span>
                     <% end %>
                   </div>
@@ -42,7 +42,7 @@
                         <div class="row mb-2">
                           <div class="col-md-2">
                             <%= link_to user_path(post.user) do %>
-                              <%= image_tag post.user.get_profile_image(30,30), class: "post_show_user_icon" %>
+                              <%= image_tag post.user.get_profile_image(100,100), class: "post_show_user_icon" %>
                             <% end %>
                           </div>
                           <div class="col-md-6 mb-4">
@@ -50,6 +50,14 @@
                               <span class="posts_to_user_show"><%= post.user.name %></span>
                             <% end %>
                             <%= post.caption %>
+                            <% post.hashtags.each do |hashtag| %>
+                              <%= link_to search_path(content: hashtag.hashname, search_type: "hashtag") do %>
+                                <%= hashtag.hashname %>
+                              <% end %>
+                            <% end %>
+                            <% post.tags.each do |tag| %>
+                              <span class="ai_label"><%= tag.name %></span>
+                            <% end %>
                           </div>
                         </div>
                         <!--コメント数-->
