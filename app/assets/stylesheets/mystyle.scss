@@ -1456,6 +1456,16 @@ ul {
   margin: 2rem !important;
 }
 
+@media screen and (max-width:768px) {
+  .admin_posts {
+    margin-top: 3rem !important;
+  }
+
+  .admin_user_index {
+    margin-top: 3rem !important;
+  }
+}
+
 @media screen and (max-width:425px) {
   .admin_posts {
     margin-top: 4rem !important;
