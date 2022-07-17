@@ -15,7 +15,7 @@
                 </div>
                 <div class="row friends_message">
                   <% if room.messages.present? %>
-                    <%= Message.find_by(id: room.message_ids.last).content %>
+                    <%= Message.find_by(id: room.message_ids.last).content.truncate(10) %>
                   <% end %>
                 </div>
               </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="row friends_message">
                   <% if room.messages.present? %>
-                    <%= Message.find_by(id: room.message_ids.last).content %>
+                    <%= Message.find_by(id: room.message_ids.last).content.truncate(10) %>
                   <% end %>
                 </div>
               </div>
