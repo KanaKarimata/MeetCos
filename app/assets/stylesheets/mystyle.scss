@@ -1136,6 +1136,19 @@ a {
   font-family: "Times New Roman";
 }
 
+.followings_count,
+.followers_count,
+.followers_link,
+.followings_link {
+  text-align: center;
+}
+
+.followings_count,
+.followers_count {
+  font-size: 1.3rem;
+  vertical-align: bottom;
+}
+
 .friends_chat {
   border-radius: 10px;
   background-color: #bad3ff;

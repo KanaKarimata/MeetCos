@@ -4,43 +4,31 @@
       <%= render 'public/searches/user_search_form' %>
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-1">
       <%= link_to :back do %>
         <span class= "btn back_to_user">←</span>
       <% end %>
     </div>
     <div class="col-md-6">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="row followings_title">
-              <%= link_to followings_users_path do %>
-                <span><%= @followings.count %></span>
-                <span class="followings_title">Followings</span>
-              <% end %>
-            </div>
-            <!--<div class="row">-->
-              <%#= render partial: 'public/users/index', collection: @followings, as: "user" %>
-            <!--</div>-->
-          </div>
-          <div class="col">
-            <div class="row followers_title">
-              <%= link_to followers_users_path do %>
-                <span><%= @followers.count %></span>
-                <span class="followers_title">Followers</span>
-              <% end %>
-            </div>
-              <!--<div class="row">-->
-                <%#= render partial: 'public/users/index', collection: @followers, as: "user" %>
-            <!--</div>-->
-          </div>
+      <div class="row justify-content-center">
+        <div class="col-md-3 col-sm-2 col-2 followings_link">
+          <%= link_to followings_users_path do %>
+            <div class="followings_count"><%= @followings.count %></div>
+            <span class="followings_title">Followings</span>
+          <% end %>
+        </div>
+        <div class="col-md-3 col-sm-2 col-2 followers_link">
+          <%= link_to followers_users_path do %>
+            <div class="followers_count"><%= @followers.count %></div>
+            <span class="followers_title">Followers</span>
+          <% end %>
         </div>
       </div>
-    </div>
-    <div class="col-md-5">
-      <h1 class="chat_rooms_title">Chats</h1>
-      <%= render 'public/rooms/index', rooms: @rooms %>
+      <div class="row">
+        <h1 class="chat_rooms_title">Chats</h1>
+        <%= render 'public/rooms/index', rooms: @rooms %>
+      </div>
     </div>
   </div>
 </div>
