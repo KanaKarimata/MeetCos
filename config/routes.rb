@@ -20,11 +20,12 @@ Rails.application.routes.draw do
     get '/post/hashtag/:name', to: 'posts#hashtag'
     get '/post/hashtag', to: 'posts#hashtag'
     get '/search', to: 'searches#search', as: 'search'
-    get '/contacts/thanks', to: 'contacts#thanks'
 
     resources :users, except: [:new, :index, :destroy] do
       collection do
         get 'friends' => 'relationships#friends', as: 'friends'
+        get 'followers' => 'relationships#followers', as: 'followers'
+        get 'followings' => 'relationships#followings', as: 'followings'
         get '/posts/feeds', to: 'posts#feeds', as: 'feeds'
       end
 
@@ -43,7 +44,6 @@ Rails.application.routes.draw do
       resources :messages, only: [:create, :destroy]
     end
     resources :notifications, only: [:index, :destroy]
-    resources :contacts, only: [:new, :create, :index, :show]
   end
 
   namespace :admin do

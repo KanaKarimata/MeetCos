@@ -19,11 +19,21 @@ class Public::RelationshipsController < ApplicationController
   end
 
   # フォロー一覧
-  # フォロワー一覧
-  def friends
+  def followings
     @user = current_user
     @followings = @user.followings
+  end
+
+  # フォロワー一覧
+  def followers
+    @user = current_user
     @followers = @user.followers
+  end
+
+  def friends
+    @user = current_user
+    @followers = @user.followers
+    @followings = @user.followings
     @rooms = @user.rooms
   end
 

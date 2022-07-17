@@ -14,15 +14,25 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <h5 class="row followings_title">Followings</h5>
-            <div class="row">
-              <%= render partial: 'public/users/index', collection: @followings, as: "user" %>
+            <div class="row followings_title">
+              <%= link_to followings_users_path do %>
+                <span><%= @followings.count %></span>
+                <span class="followings_title">Followings</span>
+              <% end %>
             </div>
+            <!--<div class="row">-->
+              <%#= render partial: 'public/users/index', collection: @followings, as: "user" %>
+            <!--</div>-->
           </div>
           <div class="col">
-            <h5 class="row followers_title">Followers</h5>
+            <div class="row followers_title">
+              <%= link_to followers_users_path do %>
+                <span><%= @followers.count %></span>
+                <span class="followers_title">Followers</span>
+              <% end %>
+            </div>
               <!--<div class="row">-->
-                <%= render partial: 'public/users/index', collection: @followers, as: "user" %>
+                <%#= render partial: 'public/users/index', collection: @followers, as: "user" %>
             <!--</div>-->
           </div>
         </div>
@@ -34,4 +44,3 @@
     </div>
   </div>
 </div>
-<!--レイアウト-->
