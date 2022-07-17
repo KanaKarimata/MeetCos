@@ -443,6 +443,14 @@ a {
     margin-top: 3.5rem;
   }
 
+  .user_name {
+    font-size: 1.4rem;
+  }
+
+  .user_id {
+    font-size: 0.9rem;
+  }
+
   .user_info_btn {
     display: flex;
     flex-direction: row;
@@ -763,6 +771,10 @@ a {
   .user_info_btn {
     display: flex;
     flex-direction: row;
+  }
+
+  .user_nav_list_item {
+    font-size: 0.9rem;
   }
 
   .user_nav_list_item,
