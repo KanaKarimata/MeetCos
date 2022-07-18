@@ -6,10 +6,9 @@
 化粧品やメイク紹介専用のSNSアプリです。
 
 ### サイトイメージ
-![IMG_9495](https://user-images.githubusercontent.com/100674792/179508945-3b673300-5c36-492f-ae52-bcd9aa476494.jpg)
-![IMG_9497](https://user-images.githubusercontent.com/100674792/179509250-eff5ed9c-e353-4aab-bb35-bea75ff5bd9c.jpg)
-![IMG_9514](https://user-images.githubusercontent.com/100674792/179509309-fa2904ac-f701-438a-bfd4-806fcfc45b04.jpg)
-
+<img src="https://user-images.githubusercontent.com/100674792/179508945-3b673300-5c36-492f-ae52-bcd9aa476494.jpg" width="240px" height="300px">
+<img src="https://user-images.githubusercontent.com/100674792/179509250-eff5ed9c-e353-4aab-bb35-bea75ff5bd9c.jpg" width="240px" height="300px">
+<img src="https://user-images.githubusercontent.com/100674792/179509309-fa2904ac-f701-438a-bfd4-806fcfc45b04.jpg" width="240px" height="300px">
 
 ### テーマを選んだ理由
 
