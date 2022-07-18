@@ -5,6 +5,12 @@
 
 化粧品やメイク紹介専用のSNSアプリです。
 
+### サイトイメージ
+![IMG_9495](https://user-images.githubusercontent.com/100674792/179508945-3b673300-5c36-492f-ae52-bcd9aa476494.jpg)
+![IMG_9497](https://user-images.githubusercontent.com/100674792/179509250-eff5ed9c-e353-4aab-bb35-bea75ff5bd9c.jpg)
+![IMG_9514](https://user-images.githubusercontent.com/100674792/179509309-fa2904ac-f701-438a-bfd4-806fcfc45b04.jpg)
+
+
 ### テーマを選んだ理由
 
 化粧品が好きな方はたくさんいますが、現在は百貨店などでタッチアップ（化粧品コーナーの販売員さんがお客様に直接メイクをして使用感を伝えるサービス）が限定されており、メイクについて人と語るシーンが少なくなりました。
