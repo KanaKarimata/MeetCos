@@ -8,6 +8,17 @@
     <div class="col-md-8">
       <div class="container">
         <div class="row">
+          <% if @room.host_id == current_user.id %>
+            <%= link_to user_path(@room.guest_id) do %>
+              <span class="chat_friends_name"><%= User.find(@room.guest_id).name %></span>
+            <% end %>
+          <% elsif  @room.guest_id == current_user.id %>
+            <%= link_to user_path(@room.host_id) do %>
+              <span class="chat_friends_name"><%= User.find(@room.host_id).name %></span>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="row">
           <div class="col chat_room">
             <ul>
               <% @messages.each do |message| %>
