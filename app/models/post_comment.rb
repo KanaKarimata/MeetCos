@@ -2,6 +2,8 @@ class PostComment < ApplicationRecord
   belongs_to :user
   belongs_to :post
   has_many :notifications
+  
+  validates :comment, presence: true
 
   # 通知機能
   # def create_notification_comment!(current_user, comment_id)

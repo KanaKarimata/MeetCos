@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row post_form">
-    <div class="col">
-      <%= form_with model: post, local: false do |f| %>
+    <%= form_with model: post, local: false do |f| %>
+      <div class="col">
         <%= f.label :"Photos", class:"form_label" %><br>
         <%= f.file_field :post_images, multiple: true, class: 'form-control' %><br>
         <div class="post_images" style="display: none;">
@@ -13,12 +13,12 @@
         <%= f.text_area :caption, placeholder: "Write a caption...",class: 'form-control caption_form' %><br>
         <%= f.label :"Hashtags", class:"form_label" %><br>
         <%= f.text_area :hashname, placeholder: "You can add hashtags...", class: 'form-control' %><br>
-       </div>
-        <div class="modal-footer">
-          <%= button_tag type: 'submit', class: 'btn btn-default' do %>
-            <i class="fas fa-paper-plane new_post_btn"></i>
-          <% end %>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <%= button_tag type: 'submit', class: 'btn btn-default' do %>
+          <i class="fas fa-paper-plane new_post_btn"></i>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

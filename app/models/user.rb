@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
-  validates :userid, uniqueness: { message: "既に使用されているIDです" }
+  validates :userid, uniqueness: { message: "既に使用されているIDです" },  presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   # validates :profile_image_type
 
