@@ -2,18 +2,30 @@
     <div class="modal-dialog modal-dialog-scrollable user_posts_show_modal">
       <div class="modal-content user_posts_show_modal_content">
         <div class="modal-header">
-          <div class="modal-title" id="staticBackdropLabel<%= post_show.id%>">
-            <%= image_tag post_show.user.get_profile_image(100, 100), class: "post_show_user_icon" %>
-            <span class="ms-2 post_show_user_name"><%= post_show.user.name %></span>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-5 col-sm-5 col-5 modal-title" id="staticBackdropLabel<%= post_show.id%>">
+                <%= image_tag post_show.user.get_profile_image(100, 100), class: "post_show_user_icon" %>
+                <span class="ms-2 post_show_user_name"><%= post_show.user.name %></span>
+              </div>
+              <div class="edit_or_delete_btn col-md-6 col-sm-6 col-6">
+                <div class="row">
+                <% if post_show.user_id == current_user.id %>
+                  <!--投稿編集モーダル表示ボタン-->
+                  <div class="col d-flex align-items-center justify-content-end">
+                    <button class="me-1 post_edit_btn" data-bs-target="#exampleModalToggle2-<%= post_show.id%>" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button>
+                  </div>
+                  <div class="col d-flex align-items-center justify-content-end">
+                    <%= link_to "Delete", post_path(post_show), remote: true, method: :delete, class: "post_delete_btn" %>
+                  </div>
+                <% end %>
+                </div>
+              </div>
+              <div class="col-md-1 col-sm-1 col-1 d-flex justify-content-end align-items-center">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            </div>
           </div>
-          <div class="edit_or_delete_btn col-md-10">
-            <% if post_show.user_id == current_user.id %>
-              <!--投稿編集モーダル表示ボタン-->
-              <button class="me-1 post_edit_btn" data-bs-target="#exampleModalToggle2-<%= post_show.id%>" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button>
-              <%= link_to "Delete", post_path(post_show), remote: true, method: :delete, class: "ms-2 post_delete_btn" %>
-            <% end %>
-          </div>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="container-fluid post_show">
