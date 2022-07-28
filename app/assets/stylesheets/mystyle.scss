@@ -884,6 +884,11 @@ a {
   font-weight: lighter;
 }
 
+.feeds_time_ago {
+  color: #a9a9a9;
+  font-size: 0.8rem;
+}
+
 @media screen and (max-width:768px) {
   .feeds_page {
     margin-top: 5rem !important;
